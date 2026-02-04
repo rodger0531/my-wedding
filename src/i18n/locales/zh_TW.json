@@ -1,3 +1,8 @@
 {
-  "welcome": "歡迎來到我們的婚禮網站！"
+  "header": {
+    "language": "Language"
+  },
+  "welcomePage": {
+    "button": "打開邀請函"
+  }
 }
