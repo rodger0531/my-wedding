@@ -3,8 +3,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import App from './App.tsx'
-import Header from './Header.tsx'
+import Header from './components/Header.tsx'
 import i18n from './i18n/index.ts'
 import './styles/base.css'
 import Welcome from './Welcome.tsx'
@@ -25,7 +24,7 @@ createRoot(document.getElementById('root')!).render(
           <Header />
           <Routes>
             <Route path="/" element={<Welcome />} />
-            <Route path="main" element={<App />} />
+            {/* <Route path="main" element={} /> */}
           </Routes>
         </BrowserRouter>
       </I18nextProvider>
