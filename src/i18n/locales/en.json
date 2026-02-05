@@ -7,7 +7,10 @@
   },
   "landing": {
     "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
-    "countingDays": "Counting Days"
+    "countingDays": "Counting Days",
+    "saveTheDate": "Save the Date",
+    "weddingDate": "Saturday, April 2026",
+    "weddingTime": "at 3 PM"
   },
   "timer": {
     "days": "Days",

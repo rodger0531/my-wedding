@@ -2,6 +2,7 @@ import Container from '@mui/material/Container'
 import Divider from 'src/components/Divider'
 import CountDown from './CountDown'
 import Greetings from './Greetings'
+import SaveTheDate from './SaveTheDate'
 
 const LandingPage = () => {
   return (
@@ -9,6 +10,7 @@ const LandingPage = () => {
       <Greetings />
       <Divider mb={5} />
       <CountDown />
+      <SaveTheDate />
     </Container>
   )
 }
