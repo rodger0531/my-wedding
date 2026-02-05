@@ -4,6 +4,7 @@ import CountDown from './CountDown'
 import Greetings from './Greetings'
 import Location from './Location'
 import SaveTheDate from './SaveTheDate'
+import Timeline from './Timeline'
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,8 @@ const LandingPage = () => {
       <CountDown />
       <SaveTheDate />
       <Location />
+      <Divider my={5} />
+      <Timeline />
     </Container>
   )
 }

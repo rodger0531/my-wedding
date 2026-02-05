@@ -14,7 +14,8 @@
     "location": "Location",
     "address1": "C3 Depot",
     "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
-    "mapButton": "Google Maps"
+    "mapButton": "Google Maps",
+    "timeline": "Wedding Timeline"
   },
   "timer": {
     "days": "Days",
