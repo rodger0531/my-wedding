@@ -1,10 +1,16 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 import WeAreMarried from '../assets/married.svg'
 
 const Welcome = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+
+  const handleOnClick = () => {
+    navigate('/main')
+  }
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
       <img
@@ -23,6 +29,7 @@ const Welcome = () => {
           textTransform: 'none',
           fontFamily: 'Dongle',
         }}
+        onClick={handleOnClick}
       >
         {t('welcomePage.button')}
       </Button>

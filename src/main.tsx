@@ -5,6 +5,7 @@ import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './components/Header.tsx'
 import i18n from './i18n/index.ts'
+import LandingPage from './pages/LandingPage.tsx'
 import Welcome from './pages/Welcome.tsx'
 import './styles/base.css'
 
@@ -24,7 +25,7 @@ createRoot(document.getElementById('root')!).render(
           <Header />
           <Routes>
             <Route path="/" element={<Welcome />} />
-            {/* <Route path="main" element={} /> */}
+            <Route path="main" element={<LandingPage />} />
           </Routes>
         </BrowserRouter>
       </I18nextProvider>
