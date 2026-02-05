@@ -14,11 +14,13 @@ const Greetings = () => {
       <Grid>
         <Typography
           variant={isEnglish ? 'h3' : 'h4'}
-          {...(isEnglish ? {} : { letterSpacing: 3 })}
-          {...(isEnglish ? {} : { lineHeight: 1.65 })}
           align="center"
           margin={4}
-          sx={{ fontFamily: 'subtitleFont' }}
+          sx={{
+            fontFamily: 'subtitleFont',
+            letterSpacing: isEnglish ? 0 : 3,
+            lineHeight: isEnglish ? 1.17 : 1.65,
+          }}
         >
           {t('landing.greetingMsg')}
         </Typography>

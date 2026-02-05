@@ -44,7 +44,7 @@ const Title = ({ title }: { title: string }) => {
     <Typography
       variant={isEnglish ? 'h1' : 'h3'}
       fontFamily="titleFont"
-      letterSpacing={isEnglish ? 0 : 7}
+      letterSpacing={isEnglish ? 'normal' : 7}
       mb={isEnglish ? 0 : 3}
     >
       {title}
