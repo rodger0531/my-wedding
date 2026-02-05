@@ -12,9 +12,13 @@ type Topic = {
 
 const Details = () => {
   const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   return (
     <Box>
-      <HalimumTitle>{t('landing.title.details')}</HalimumTitle>
+      <HalimumTitle mb={isEnglish ? 0 : 2}>
+        {t('landing.title.details')}
+      </HalimumTitle>
       {t<'weddingDetails', { returnObjects: true }, Topic[]>('weddingDetails', {
         returnObjects: true,
       }).map(({ title, content }) => (
@@ -37,7 +41,11 @@ const Title = ({ title }: { title: string }) => {
   const { isEnglish } = useLanguage()
 
   return (
-    <Typography variant={isEnglish ? 'h1' : 'h3'} fontFamily="titleFont">
+    <Typography
+      variant={isEnglish ? 'h1' : 'h3'}
+      fontFamily="titleFont"
+      letterSpacing={isEnglish ? 0 : 7}
+    >
       {title}
     </Typography>
   )

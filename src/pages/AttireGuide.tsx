@@ -14,7 +14,11 @@ const AttireGuide = () => {
 
   return (
     <Grid>
-      <Typography variant={isEnglish ? 'h1' : 'h3'} fontFamily="titleFont">
+      <Typography
+        variant={isEnglish ? 'h1' : 'h3'}
+        fontFamily="titleFont"
+        mb={isEnglish ? 0 : 3}
+      >
         {t('landing.title.attireGuide')}
       </Typography>
       <StyledImage src={AttireImage} alt="Attire Guide" width="20rem" />

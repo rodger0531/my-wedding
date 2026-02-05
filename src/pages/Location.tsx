@@ -6,14 +6,19 @@ import { useTranslation } from 'react-i18next'
 import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const LOCATION_URL = 'https://maps.app.goo.gl/qndacHT54qtPDGMs9'
 
 const Location = () => {
   const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   return (
     <Grid>
-      <HalimumTitle mb={4}>{t('landing.title.location')}</HalimumTitle>
+      <HalimumTitle mb={isEnglish ? 4 : 2.75} mt={isEnglish ? 0 : 5}>
+        {t('landing.title.location')}
+      </HalimumTitle>
       <StyledImage src={LocationImage} alt="Location" width="50%" />
       <Typography
         variant="h2"

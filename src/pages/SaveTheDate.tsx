@@ -24,11 +24,14 @@ const SaveTheDate = () => {
         justifyContent="center"
         alignItems="center"
         px={5}
-        py={16}
+        py={isEnglish ? 16 : 10}
       >
-        <HalimumTitle>{t('landing.title.saveTheDate')}</HalimumTitle>
+        <HalimumTitle mt={isEnglish ? 0 : 4} mb={isEnglish ? 0 : 3}>
+          {t('landing.title.saveTheDate')}
+        </HalimumTitle>
         <Typography
           fontSize={isEnglish ? '6rem' : '3.5rem'}
+          mb={isEnglish ? 0 : 3}
           fontFamily="titleFont"
         >
           {t('landing.weddingDate')}
@@ -42,9 +45,9 @@ const SaveTheDate = () => {
           marginLeft={-5}
         />
         <Typography
-          fontSize={isEnglish ? '5rem' : '3rem'}
+          fontSize={isEnglish ? '5rem' : '2.5rem'}
           fontFamily="titleFont"
-          marginTop={-12}
+          marginTop={isEnglish ? -12 : -6}
         >
           {t('landing.weddingTime')}
         </Typography>
