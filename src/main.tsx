@@ -10,6 +10,10 @@ import i18n from 'src/i18n/index.ts'
 import LandingPage from 'src/pages/LandingPage.tsx'
 import Welcome from 'src/pages/Welcome.tsx'
 import 'src/styles/base.css'
+// Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
+import 'src/assets/fonts/gensen-rounded.otf';
+import 'src/assets/fonts/chinese-handwriting.ttf';
+import 'src/assets/fonts/honya.ttf';
 
 const getTheme = (language: string) =>
   createTheme({
@@ -23,9 +27,12 @@ const getTheme = (language: string) =>
       },
     },
     typography: {
-      titleFont: language === 'en' ? 'Better Together' : 'Honya',
-      subtitleFont: language === 'en' ? 'Dongle' : 'Gensen',
-      handWriting: language === 'en' ? 'Halimun' : 'Chinese Handwriting',
+      // Honya font = default_font_family
+      titleFont: language === 'en' ? 'Better Together' : 'default_font_family',
+      // GenSenRounded2 TW M = gensen-rounded
+      subtitleFont: language === 'en' ? 'Dongle' : 'GenSenRounded2 TW M',
+      // chinese-handwriting = 辰宇落雁體 Thin
+      handWriting: language === 'en' ? 'Halimun' : '辰宇落雁體 Thin',
     },
   })
 

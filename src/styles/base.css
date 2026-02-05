@@ -11,27 +11,27 @@
   font-weight: normal;
   font-style: normal;
 }
-
+/* 
 @font-face {
   font-family: 'Honya';
-  src: url('/fonts/honya.ttf') format('truetype');
+  src: url('../assets/fonts/honya.ttf?font');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Chinese Handwriting';
-  src: url('/fonts/chinese-handwriting.ttf') format('truetype');
+  src: url('../assets/fonts/chinese-handwriting.ttf?font');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gensen';
-  src: url('/fonts/gensen-rounded.otf') format('truetype');
+  src: url('../assets/fonts/gensen-rounded.otf?font');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 #root {
   max-width: 1280px;
