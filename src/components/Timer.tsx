@@ -44,7 +44,7 @@ const Numbers = ({ value, label }: { value: number; label: string }) => {
 
 const Separator = () => {
   return (
-    <Box fontSize={FONT_SIZE} fontWeight="bold" padding="0 0 3.5rem 0">
+    <Box fontSize={FONT_SIZE} fontWeight="bold" paddingBottom={6}>
       :
     </Box>
   )

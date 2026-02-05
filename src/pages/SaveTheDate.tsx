@@ -31,13 +31,13 @@ const SaveTheDate = () => {
           src={Date}
           alt="date"
           width="120%"
-          marginTop="-8rem"
-          marginLeft="-2.5rem"
+          marginTop={-16}
+          marginLeft={-5}
         />
         <Typography
           fontSize="5rem"
           fontFamily="Better Together"
-          marginTop="-6rem"
+          marginTop={-12}
         >
           {t('landing.weddingTime')}
         </Typography>

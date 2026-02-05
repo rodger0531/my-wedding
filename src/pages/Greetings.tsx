@@ -9,11 +9,7 @@ const Greetings = () => {
   return (
     <>
       <Grid>
-        <Typography
-          variant="h3"
-          align="center"
-          sx={{ margin: '2rem', fontFamily: 'Dongle' }}
-        >
+        <Typography variant="h3" align="center" fontFamily="Dongle" margin={4}>
           {t('greeting')}
         </Typography>
       </Grid>
