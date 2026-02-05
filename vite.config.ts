@@ -4,7 +4,8 @@ import { defineConfig } from 'vite'
 import Font from 'vite-plugin-font'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/my-wedding/' : '/', // For github pages deployment
   plugins: [
     react(),
     Font.vite({
@@ -17,4 +18,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-})
+}))
