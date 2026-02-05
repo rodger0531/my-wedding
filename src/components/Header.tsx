@@ -26,6 +26,7 @@ const Header = () => {
         sx={{
           ':hover': { backgroundColor: 'transparent' },
           textTransform: 'none',
+          fontFamily: 'Helvetica, sans-serif',
           fontSize: '1rem',
         }}
         className="wedding-red"

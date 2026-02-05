@@ -7,18 +7,18 @@
   },
   "landing": {
     "title": {
-      "details": "Wedding Details"
+      "details": "Wedding Details",
+      "countingDays": "Counting Days",
+      "saveTheDate": "Save the Date",
+      "location": "Location",
+      "timeline": "Wedding Timeline"
     },
-    "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
-    "countingDays": "Counting Days",
-    "saveTheDate": "Save the Date",
+    "greetingMsg": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
     "weddingDate": "Saturday, April 2026",
     "weddingTime": "at 3 PM",
-    "location": "Location",
     "address1": "C3 Depot",
     "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
-    "mapButton": "Google Maps",
-    "timeline": "Wedding Timeline"
+    "mapButton": "Google Maps"
   },
   "weddingDetails": [
     {

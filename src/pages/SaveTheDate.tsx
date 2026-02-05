@@ -23,7 +23,7 @@ const SaveTheDate = () => {
         px={5}
         py={16}
       >
-        <HalimumTitle>{t('landing.saveTheDate')}</HalimumTitle>
+        <HalimumTitle>{t('landing.title.saveTheDate')}</HalimumTitle>
         <Typography fontSize="6rem" fontFamily="Better Together">
           {t('landing.weddingDate')}
         </Typography>

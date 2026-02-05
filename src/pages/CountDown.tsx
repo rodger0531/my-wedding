@@ -9,7 +9,7 @@ const CountDown = () => {
   const { t } = useTranslation()
   return (
     <Grid container justifyContent="center" alignItems="center">
-      <HalimumTitle>{t('landing.countingDays')}</HalimumTitle>
+      <HalimumTitle>{t('landing.title.countingDays')}</HalimumTitle>
       <Timer expiryTimestamp={WEDDING_DATE} />
     </Grid>
   )

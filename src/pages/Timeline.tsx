@@ -9,7 +9,7 @@ const Timeline = () => {
 
   return (
     <Box>
-      <HalimumTitle>{t('landing.timeline')}</HalimumTitle>
+      <HalimumTitle>{t('landing.title.timeline')}</HalimumTitle>
       <StyledImage src={ScheduleImage} alt="Schedule" width="100%" />
     </Box>
   )

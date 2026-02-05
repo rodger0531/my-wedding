@@ -13,7 +13,7 @@ const Location = () => {
   const { t } = useTranslation()
   return (
     <Grid>
-      <HalimumTitle mb={4}>{t('landing.location')}</HalimumTitle>
+      <HalimumTitle mb={4}>{t('landing.title.location')}</HalimumTitle>
       <StyledImage src={LocationImage} alt="Location" width="50%" />
       <Typography
         variant="h2"

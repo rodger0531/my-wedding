@@ -7,18 +7,18 @@
   },
   "landing": {
     "title": {
-      "details": "婚禮詳情"
+      "details": "婚禮詳情",
+      "countingDays": "還剩...",
+      "saveTheDate": "請把這天留給我們",
+      "location": "地點",
+      "timeline": "婚禮流程"
     },
-    "greeting": "沒有我們最親愛的人的陪伴，幸福是不完整的。我們懷著無比的喜悅，誠摯邀請您見證並慶祝我們的婚禮。",
-    "countingDays": "還剩...",
-    "saveTheDate": "請把這天留給我們",
+    "greetingMsg": "沒有我們最親愛的人的陪伴，幸福是不完整的。我們懷著無比的喜悅，誠摯邀請您見證並慶祝我們的婚禮。",
     "weddingDate": "2026年 4月 18號 星期六",
     "weddingTime": "下午 3 點",
-    "location": "地點",
     "address1": "C3倉庫",
     "address2": "高雄市橋頭糖廠",
-    "mapButton": "Google 地圖",
-    "timeline": "婚禮流程"
+    "mapButton": "Google 地圖"
   },
   "weddingDetails": [
     {
