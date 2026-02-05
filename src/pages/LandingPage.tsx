@@ -14,8 +14,9 @@ const LandingPage = () => {
       <CountDown />
       <SaveTheDate />
       <Location />
-      <Divider my={5} />
+      <Divider my={5} sx={{ transform: 'scaleX(-1)' }} />
       <Timeline />
+      <Divider my={5} sx={{ transform: 'scale(-1, -1)' }} />
     </Container>
   )
 }
