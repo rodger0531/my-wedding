@@ -5,8 +5,8 @@ import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './components/Header.tsx'
 import i18n from './i18n/index.ts'
+import Welcome from './pages/Welcome.tsx'
 import './styles/base.css'
-import Welcome from './Welcome.tsx'
 
 const theme = createTheme({
   palette: {
