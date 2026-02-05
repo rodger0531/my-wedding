@@ -5,21 +5,20 @@ import { createRoot } from 'react-dom/client'
 import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './components/Header.tsx'
+import { Colours } from './constants/colour.ts'
 import i18n from './i18n/index.ts'
 import LandingPage from './pages/LandingPage.tsx'
 import Welcome from './pages/Welcome.tsx'
 import './styles/base.css'
 
-const weddingRed = '#c13c35'
-
 const theme = createTheme({
   palette: {
     primary: {
-      main: weddingRed,
+      main: Colours.WeddingRed,
     },
     text: {
-      primary: weddingRed,
-      secondary: weddingRed,
+      primary: Colours.WeddingRed,
+      secondary: Colours.WeddingRed,
     },
   },
 })
