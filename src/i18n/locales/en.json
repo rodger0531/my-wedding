@@ -6,6 +6,9 @@
     "button": "Open Invitation"
   },
   "landing": {
+    "title": {
+      "details": "Wedding Details"
+    },
     "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
     "countingDays": "Counting Days",
     "saveTheDate": "Save the Date",
@@ -17,6 +20,16 @@
     "mapButton": "Google Maps",
     "timeline": "Wedding Timeline"
   },
+  "weddingDetails": [
+    {
+      "title": "Transportation",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum blandit, justo et accumsan molestie, nibh augue mattis purus, non ultricies tellus sapien a nunc. Vivamus varius nibh ac mattis porttitor. Nullam vulputate tellus pulvinar, interdum turpis id, fringilla urna. Duis convallis nisl sit amet elit condimentum, sit amet vulputate mi gravida."
+    },
+    {
+      "title": "Accommodation",
+      "content": "Integer velit turpis, blandit vitae venenatis vel, cursus vel nulla. Nam eu dignissim arcu. Integer condimentum risus lorem, a aliquam orci blandit nec. Aenean ultricies ultricies metus non lobortis. Curabitur iaculis orci vitae quam rutrum, eget condimentum lectus semper. Praesent non ex sit amet nisi dictum pellentesque in nec neque. Vestibulum sollicitudin, dolor sed laoreet porta, urna mi ullamcorper dui, sit amet pellentesque arcu mi ac enim."
+    }
+  ],
   "timer": {
     "days": "Days",
     "hours": "Hours",

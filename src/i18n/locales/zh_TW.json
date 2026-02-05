@@ -6,6 +6,9 @@
     "button": "打開邀請函"
   },
   "landing": {
+    "title": {
+      "details": "婚禮詳情"
+    },
     "greeting": "沒有我們最親愛的人的陪伴，幸福是不完整的。我們懷著無比的喜悅，誠摯邀請您見證並慶祝我們的婚禮。",
     "countingDays": "還剩...",
     "saveTheDate": "請把這天留給我們",
@@ -17,6 +20,16 @@
     "mapButton": "Google 地圖",
     "timeline": "婚禮流程"
   },
+  "weddingDetails": [
+    {
+      "title": "交通資訊",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum blandit, justo et accumsan molestie, nibh augue mattis purus, non ultricies tellus sapien a nunc. Vivamus varius nibh ac mattis porttitor. Nullam vulputate tellus pulvinar, interdum turpis id, fringilla urna. Duis convallis nisl sit amet elit condimentum, sit amet vulputate mi gravida."
+    },
+    {
+      "title": "住宿資訊",
+      "content": "Integer velit turpis, blandit vitae venenatis vel, cursus vel nulla. Nam eu dignissim arcu. Integer condimentum risus lorem, a aliquam orci blandit nec. Aenean ultricies ultricies metus non lobortis. Curabitur iaculis orci vitae quam rutrum, eget condimentum lectus semper. Praesent non ex sit amet nisi dictum pellentesque in nec neque. Vestibulum sollicitudin, dolor sed laoreet porta, urna mi ullamcorper dui, sit amet pellentesque arcu mi ac enim."
+    }
+  ],
   "timer": {
     "days": "天",
     "hours": "小時",

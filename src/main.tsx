@@ -21,6 +21,9 @@ const theme = createTheme({
       secondary: Colours.WeddingRed,
     },
   },
+  typography: {
+    fontFamily: 'Dongle, Helvetica, sans-serif',
+  },
 })
 
 createRoot(document.getElementById('root')!).render(
