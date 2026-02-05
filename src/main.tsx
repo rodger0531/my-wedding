@@ -24,7 +24,7 @@ const getTheme = (language: string) =>
     },
     typography: {
       titleFont: language === 'en' ? 'Better Together' : 'Honya',
-      subtitleFont: language === 'en' ? 'Dongle' : 'Helvetica',
+      subtitleFont: language === 'en' ? 'Dongle' : 'Gensen',
       handWriting: language === 'en' ? 'Halimun' : 'Chinese Handwriting',
     },
   })

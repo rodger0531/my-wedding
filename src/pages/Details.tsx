@@ -45,6 +45,7 @@ const Title = ({ title }: { title: string }) => {
       variant={isEnglish ? 'h1' : 'h3'}
       fontFamily="titleFont"
       letterSpacing={isEnglish ? 0 : 7}
+      mb={isEnglish ? 0 : 3}
     >
       {title}
     </Typography>
@@ -52,8 +53,16 @@ const Title = ({ title }: { title: string }) => {
 }
 
 const Content = ({ content }: { content: string }) => {
+  const { isEnglish } = useLanguage()
+
   return (
-    <Typography variant="h4" align="left" sx={{ fontFamily: 'subtitleFont' }}>
+    <Typography
+      variant={isEnglish ? 'h4' : 'h5'}
+      {...(isEnglish ? {} : { lineHeight: 2 })}
+      align="left"
+      sx={{ fontFamily: 'subtitleFont' }}
+      mb={isEnglish ? 0 : 6}
+    >
       {content}
     </Typography>
   )

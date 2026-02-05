@@ -8,9 +8,11 @@ import BouquetImage from 'src/assets/bouquet.svg'
 import CakeImage from 'src/assets/cake.svg'
 import HeelsImage from 'src/assets/heels.svg'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const RSVP = () => {
   const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
 
   return (
     <Grid container direction="column" alignItems="center">
@@ -50,7 +52,8 @@ const RSVP = () => {
         />
       </Box>
       <Typography
-        variant="h3"
+        variant={isEnglish ? 'h3' : 'h4'}
+        {...(isEnglish ? {} : { lineHeight: 1.5 })}
         align="center"
         mt={4}
         width="80%"
@@ -65,7 +68,7 @@ const RSVP = () => {
           fontFamily: 'subtitleFont',
           mt: 4,
           width: '250px',
-          fontSize: '2rem',
+          fontSize: isEnglish ? '2rem' : '1.25rem',
           lineHeight: '2.5rem',
           borderRadius: '2rem',
           textTransform: 'none',

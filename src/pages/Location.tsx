@@ -21,16 +21,18 @@ const Location = () => {
       </HalimumTitle>
       <StyledImage src={LocationImage} alt="Location" width="50%" />
       <Typography
-        variant="h2"
+        variant={isEnglish ? 'h2' : 'h3'}
         align="center"
-        lineHeight="2rem"
-        mt={4}
+        lineHeight={isEnglish ? '2rem' : '4rem'}
+        letterSpacing={isEnglish ? 0 : 2}
+        mt={isEnglish ? 4 : 2}
         sx={{ fontFamily: 'subtitleFont' }}
       >
         {t('landing.address1')}
       </Typography>
       <Typography
-        variant="h3"
+        variant={isEnglish ? 'h3' : 'h4'}
+        letterSpacing={isEnglish ? 0 : 4}
         align="center"
         mb={2}
         sx={{ fontFamily: 'subtitleFont' }}
@@ -45,8 +47,9 @@ const Location = () => {
         startIcon={<LocationPinIcon />}
         sx={{
           fontFamily: 'subtitleFont',
-          fontSize: '2rem',
-          lineHeight: '2.5rem',
+          fontSize: isEnglish ? '2rem' : '1.25rem',
+          lineHeight: isEnglish ? '2.5rem' : '2rem',
+          height: '50px',
           borderRadius: '2rem',
           textTransform: 'none',
           px: 5,
