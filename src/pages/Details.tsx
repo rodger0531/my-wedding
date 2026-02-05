@@ -42,7 +42,7 @@ const Title = ({ title }: { title: string }) => {
 
 const Content = ({ content }: { content: string }) => {
   return (
-    <Typography variant="h4" align="left">
+    <Typography variant="h4" align="left" sx={{ fontFamily: 'subtitleFont' }}>
       {content}
     </Typography>
   )

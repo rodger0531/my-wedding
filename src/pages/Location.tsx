@@ -15,10 +15,21 @@ const Location = () => {
     <Grid>
       <HalimumTitle mb={4}>{t('landing.title.location')}</HalimumTitle>
       <StyledImage src={LocationImage} alt="Location" width="50%" />
-      <Typography variant="h2" align="center" lineHeight="2rem" mt={4}>
+      <Typography
+        variant="h2"
+        align="center"
+        lineHeight="2rem"
+        mt={4}
+        sx={{ fontFamily: 'subtitleFont' }}
+      >
         {t('landing.address1')}
       </Typography>
-      <Typography variant="h3" align="center" mb={2}>
+      <Typography
+        variant="h3"
+        align="center"
+        mb={2}
+        sx={{ fontFamily: 'subtitleFont' }}
+      >
         {t('landing.address2')}
       </Typography>
       <Button
@@ -28,6 +39,7 @@ const Location = () => {
         target="_blank"
         startIcon={<LocationPinIcon />}
         sx={{
+          fontFamily: 'subtitleFont',
           fontSize: '2rem',
           lineHeight: '2.5rem',
           borderRadius: '2rem',

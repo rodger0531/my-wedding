@@ -16,12 +16,12 @@ const RSVP = () => {
     <Grid container direction="column" alignItems="center">
       <Box position="relative" width="100%" height="600px">
         <Typography
-          fontSize="550px"
-          fontWeight="400"
+          fontSize="525px"
           width="50%"
           lineHeight="270px"
           margin={4}
           sx={{
+            fontFamily: 'Dongle',
             whiteSpace: 'pre-wrap',
             wordBreak: 'break-word',
             position: 'absolute',
@@ -49,13 +49,20 @@ const RSVP = () => {
           sx={{ bottom: 90, left: 70, width: 180 }}
         />
       </Box>
-      <Typography variant="h3" align="center" mt={4} width="80%">
+      <Typography
+        variant="h3"
+        align="center"
+        mt={4}
+        width="80%"
+        sx={{ fontFamily: 'subtitleFont' }}
+      >
         {t('landing.rsvpMsg')}
       </Typography>
       <Button
         variant="contained"
         size="large"
         sx={{
+          fontFamily: 'subtitleFont',
           mt: 4,
           width: '250px',
           fontSize: '2rem',

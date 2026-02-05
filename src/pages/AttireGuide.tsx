@@ -28,7 +28,9 @@ const AttireGuide = () => {
         ))}
       </Grid>
       {/* use painting like blotch style for colours */}
-      <Typography variant="h4">{t('landing.attireGuideMsg')}</Typography>
+      <Typography variant="h4" sx={{ fontFamily: 'subtitleFont' }}>
+        {t('landing.attireGuideMsg')}
+      </Typography>
     </Grid>
   )
 }

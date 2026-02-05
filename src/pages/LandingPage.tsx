@@ -22,7 +22,7 @@ const LandingPage = () => {
       <Divider my={5} sx={{ transform: 'scale(-1, -1)' }} />
       <Details />
       <AttireGuide />
-      <Divider mb={5} />
+      <Divider my={5} />
       <RSVP />
     </Container>
   )
