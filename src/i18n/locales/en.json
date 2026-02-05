@@ -10,7 +10,11 @@
     "countingDays": "Counting Days",
     "saveTheDate": "Save the Date",
     "weddingDate": "Saturday, April 2026",
-    "weddingTime": "at 3 PM"
+    "weddingTime": "at 3 PM",
+    "location": "Location",
+    "address1": "C3 Depot",
+    "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
+    "mapButton": "Google Maps"
   },
   "timer": {
     "days": "Days",
