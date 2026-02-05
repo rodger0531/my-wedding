@@ -20,7 +20,9 @@
     "address1": "C3倉庫",
     "address2": "高雄市橋頭糖廠",
     "mapButton": "Google 地圖",
-    "attireGuideMsg": "請穿著半正式的服裝，帶有優雅的氣息。建議春季色彩和舒適的鞋子，方便跳舞！"
+    "attireGuideMsg": "請穿著半正式的服裝，帶有優雅的氣息。建議春季色彩和舒適的鞋子，方便跳舞！",
+    "rsvpMsg": "請於2026年2月28日前回覆，以便我們為這個特別的日子做最後的安排。",
+    "rsvpButton": "回覆我們"
   },
   "weddingDetails": [
     {

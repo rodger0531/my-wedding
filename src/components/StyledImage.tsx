@@ -1,7 +1,6 @@
-import Box from '@mui/material/Box'
-import React from 'react'
+import Box, { type BoxProps } from '@mui/material/Box'
 
-const StyledImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+const StyledImage = (props: BoxProps<'img'>) => {
   return (
     <Box
       component="img"

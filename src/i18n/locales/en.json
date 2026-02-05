@@ -20,7 +20,9 @@
     "address1": "C3 Depot",
     "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
     "mapButton": "Google Maps",
-    "attireGuideMsg": "Please dress in semi-formal attire with a touch of elegance. Think spring colors and comfortable shoes for dancing!"
+    "attireGuideMsg": "Please dress in semi-formal attire with a touch of elegance. Think spring colors and comfortable shoes for dancing!",
+    "rsvpMsg": "Kindly RSVP by February 28th, 2026, to help us with the final arrangements for our special day.",
+    "rsvpButton": "RSVP"
   },
   "weddingDetails": [
     {
