@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Pre-install Font Splitter Binary
+        run: bun run install-font-split
+
       - name: Build project
         run: bun run build
         env:
