@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import WeAreMarried from 'src/assets/married.svg'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const Welcome = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const { isEnglish } = useLanguage()
 
   const handleOnClick = () => {
     navigate('/main')
@@ -18,9 +20,13 @@ const Welcome = () => {
       <Button
         variant="contained"
         sx={{
-          fontSize: '2.5rem',
+          fontFamily: 'subtitleFont',
+          fontSize: isEnglish ? '3rem' : '2rem',
+          lineHeight: isEnglish ? 1.5 : 2.25,
+          letterSpacing: isEnglish ? 1.3 : 3,
+          width: '400px',
           padding: '0 3rem',
-          borderRadius: '16px',
+          borderRadius: '32px',
           textTransform: 'none',
         }}
         onClick={handleOnClick}
