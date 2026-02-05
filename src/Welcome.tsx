@@ -17,10 +17,11 @@ const Welcome = () => {
       <Button
         variant="contained"
         sx={{
-          fontSize: '1.5rem',
-          padding: '0.75rem 5rem',
+          fontSize: '2.5rem',
+          padding: '0 3rem',
           borderRadius: '16px',
           textTransform: 'none',
+          fontFamily: 'Dongle',
         }}
       >
         {t('welcomePage.button')}
