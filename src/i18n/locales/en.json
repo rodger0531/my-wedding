@@ -1,8 +1,11 @@
 {
   "header": {
-    "language": "語言"
+    "language": "中文"
   },
   "welcomePage": {
     "button": "Open Invitation"
+  },
+  "landing": {
+    "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day."
   }
 }

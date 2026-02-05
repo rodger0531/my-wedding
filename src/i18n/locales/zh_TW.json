@@ -1,8 +1,11 @@
 {
   "header": {
-    "language": "Language"
+    "language": "English"
   },
   "welcomePage": {
     "button": "打開邀請函"
+  },
+  "landing": {
+    "greeting": "沒有我們最親愛的人的陪伴，幸福是不完整的。我們懷著無比的喜悅，誠摯邀請您見證並慶祝我們的婚禮。"
   }
 }
