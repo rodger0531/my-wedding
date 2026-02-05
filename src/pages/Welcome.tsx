@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTranslation } from 'react-i18next'
-import WeAreMarried from './assets/married.svg'
+import WeAreMarried from '../assets/married.svg'
 
 const Welcome = () => {
   const { t } = useTranslation()
