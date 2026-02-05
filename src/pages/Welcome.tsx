@@ -22,7 +22,6 @@ const Welcome = () => {
           padding: '0 3rem',
           borderRadius: '16px',
           textTransform: 'none',
-          fontFamily: 'Dongle',
         }}
         onClick={handleOnClick}
       >

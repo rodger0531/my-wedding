@@ -10,7 +10,7 @@ const Greetings = () => {
   return (
     <>
       <Grid>
-        <Typography variant="h3" align="center" fontFamily="Dongle" margin={4}>
+        <Typography variant="h3" align="center" margin={4}>
           {t('landing.greetingMsg')}
         </Typography>
       </Grid>
