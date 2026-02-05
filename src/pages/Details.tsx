@@ -17,7 +17,7 @@ const Details = () => {
       {t<'weddingDetails', { returnObjects: true }, Topic[]>('weddingDetails', {
         returnObjects: true,
       }).map(({ title, content }) => (
-        <Topic title={title} content={content} />
+        <Topic key={title} title={title} content={content} />
       ))}
     </Box>
   )
