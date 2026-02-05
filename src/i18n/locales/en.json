@@ -6,6 +6,13 @@
     "button": "Open Invitation"
   },
   "landing": {
-    "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day."
+    "greeting": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
+    "countingDays": "Counting Days"
+  },
+  "timer": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
   }
 }

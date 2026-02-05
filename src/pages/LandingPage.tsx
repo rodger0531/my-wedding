@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid'
+import CountDown from './CountDown'
 import Greetings from './Greetings'
 
 const LandingPage = () => {
@@ -11,6 +12,7 @@ const LandingPage = () => {
       margin="0 auto"
     >
       <Greetings />
+      <CountDown />
     </Grid>
   )
 }
