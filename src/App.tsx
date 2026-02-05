@@ -9,9 +9,9 @@ import LandingPage from 'src/pages/LandingPage.tsx'
 import Welcome from 'src/pages/Welcome.tsx'
 import 'src/styles/base.css'
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
-import 'src/assets/fonts/gensen-rounded.otf';
-import 'src/assets/fonts/chinese-handwriting.ttf';
-import 'src/assets/fonts/honya.ttf';
+import 'src/assets/fonts/chinese-handwriting.ttf'
+import 'src/assets/fonts/gensen-rounded.otf'
+import 'src/assets/fonts/honya.ttf'
 
 const getTheme = (language: string) =>
   createTheme({
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
         <Routes>
           <Route path="/" element={<Welcome />} />
