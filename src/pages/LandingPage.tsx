@@ -1,5 +1,6 @@
 import Container from '@mui/material/Container'
 import Divider from 'src/components/Divider'
+import AttireGuide from './AttireGuide'
 import CountDown from './CountDown'
 import Details from './Details'
 import Greetings from './Greetings'
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <Timeline />
       <Divider my={5} sx={{ transform: 'scale(-1, -1)' }} />
       <Details />
+      <AttireGuide />
     </Container>
   )
 }
