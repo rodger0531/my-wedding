@@ -6,7 +6,8 @@ import AttireImage from 'src/assets/attire.svg'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-const COLOURS = ['#9faf9a', '#8fa3b8', '#b7b2aa', '#c9a3a6', '#d8dfc4']
+// const COLOURS = ['#9faf9a', '#8fa3b8', '#b7b2aa', '#c9a3a6', '#d8dfc4']
+const COLOURS = ['#7C8A7C', '#8C8F8F', '#BFA07B', '#C9A3A6', '#8FA3B8']
 
 const AttireGuide = () => {
   const { t } = useTranslation()
