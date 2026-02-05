@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import HalimumTitle from 'src/components/HalimumTitle'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 type Topic = {
   title: string
@@ -33,8 +34,10 @@ const Topic = ({ title, content }: { title: string; content: string }) => {
 }
 
 const Title = ({ title }: { title: string }) => {
+  const { isEnglish } = useLanguage()
+
   return (
-    <Typography variant="h1" fontFamily="Better Together">
+    <Typography variant={isEnglish ? 'h1' : 'h3'} fontFamily="titleFont">
       {title}
     </Typography>
   )

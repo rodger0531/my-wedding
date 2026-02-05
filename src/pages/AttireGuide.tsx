@@ -4,14 +4,17 @@ import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import AttireImage from 'src/assets/attire.svg'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const COLOURS = ['#9faf9a', '#8fa3b8', '#b7b2aa', '#c9a3a6', '#d8dfc4']
 
 const AttireGuide = () => {
   const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   return (
     <Grid>
-      <Typography variant="h1" fontFamily="Better Together">
+      <Typography variant={isEnglish ? 'h1' : 'h3'} fontFamily="titleFont">
         {t('landing.title.attireGuide')}
       </Typography>
       <StyledImage src={AttireImage} alt="Attire Guide" width="20rem" />

@@ -5,9 +5,12 @@ import Date from 'src/assets/date.svg'
 import Frame from 'src/assets/frame1.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const SaveTheDate = () => {
   const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   return (
     <Box position="relative">
       <StyledImage
@@ -24,7 +27,10 @@ const SaveTheDate = () => {
         py={16}
       >
         <HalimumTitle>{t('landing.title.saveTheDate')}</HalimumTitle>
-        <Typography fontSize="6rem" fontFamily="Better Together">
+        <Typography
+          fontSize={isEnglish ? '6rem' : '3.5rem'}
+          fontFamily="titleFont"
+        >
           {t('landing.weddingDate')}
         </Typography>
         <Box
@@ -36,8 +42,8 @@ const SaveTheDate = () => {
           marginLeft={-5}
         />
         <Typography
-          fontSize="5rem"
-          fontFamily="Better Together"
+          fontSize={isEnglish ? '5rem' : '3rem'}
+          fontFamily="titleFont"
           marginTop={-12}
         >
           {t('landing.weddingTime')}
