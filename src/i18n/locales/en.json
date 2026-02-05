@@ -20,18 +20,18 @@
     "address1": "C3 Depot",
     "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
     "mapButton": "Google Maps",
-    "attireGuideMsg": "Please dress in semi-formal attire with a touch of elegance. Think spring colors and comfortable shoes for dancing!",
+    "attireGuideMsg": "We invite our guests to dress in semi-formal attire with a touch of elegance. Think earthy spring colors and comfortable shoes for dancing!",
     "rsvpMsg": "Kindly RSVP by February 28th, 2026, to help us with the final arrangements for our special day.",
     "rsvpButton": "RSVP"
   },
   "weddingDetails": [
     {
       "title": "Transportation",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum blandit, justo et accumsan molestie, nibh augue mattis purus, non ultricies tellus sapien a nunc. Vivamus varius nibh ac mattis porttitor. Nullam vulputate tellus pulvinar, interdum turpis id, fringilla urna. Duis convallis nisl sit amet elit condimentum, sit amet vulputate mi gravida."
+      "content": "Transportation to Ciao Tou Sugar Refinery, Kaohsiung City:\n1. Take the MRT Red Line to Ciao Tou Sugar Refinery Station, then it's about a 5-minute walk to the venue.\n2. If driving, parking is available at the refinery, but spaces are limited. We recommend carpooling or using public transportation.\n3. If you need assistance with transportation arrangements, please let us know in advance."
     },
     {
       "title": "Accommodation",
-      "content": "Integer velit turpis, blandit vitae venenatis vel, cursus vel nulla. Nam eu dignissim arcu. Integer condimentum risus lorem, a aliquam orci blandit nec. Aenean ultricies ultricies metus non lobortis. Curabitur iaculis orci vitae quam rutrum, eget condimentum lectus semper. Praesent non ex sit amet nisi dictum pellentesque in nec neque. Vestibulum sollicitudin, dolor sed laoreet porta, urna mi ullamcorper dui, sit amet pellentesque arcu mi ac enim."
+      "content": "Accommodation options near Ciao Tou Sugar Refinery, Kaohsiung City:\n1. The refinery offers simple lodging facilities that require advance booking.\n2. Several hotels are nearby, such as Fullon Hotel Kaohsiung and Ciao Tou Business Hotel, approximately 10-15 minutes by car.\n3. We recommend booking early to secure accommodation, especially since demand is high on the wedding day."
     }
   ],
   "timer": {
