@@ -15,20 +15,26 @@ const Header = () => {
   }
 
   return (
-    <Box position="relative" width="100%">
-      <Box>
-        <Button
-          sx={{
-            ':hover': { backgroundColor: 'transparent' },
-            textTransform: 'none',
-          }}
-          className="wedding-red"
-          onClick={handleChangeLanguage}
-        >
-          {t('header.language')}
-          <LanguageIcon className="wedding-red" />
-        </Button>
-      </Box>
+    <Box
+      position="sticky"
+      top={0}
+      width="100%"
+      zIndex={10}
+      sx={{ textAlign: 'right', mt: -4 }}
+    >
+      <Button
+        sx={{
+          ':hover': { backgroundColor: 'transparent' },
+          textTransform: 'none',
+          fontSize: '1rem',
+        }}
+        className="wedding-red"
+        onClick={handleChangeLanguage}
+        startIcon={<LanguageIcon />}
+        size="large"
+      >
+        {t('header.language')}
+      </Button>
     </Box>
   )
 }
