@@ -1,3 +1,4 @@
+import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -9,10 +10,16 @@ import LandingPage from './pages/LandingPage.tsx'
 import Welcome from './pages/Welcome.tsx'
 import './styles/base.css'
 
+const weddingRed = '#c13c35'
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#c13c35',
+      main: weddingRed,
+    },
+    text: {
+      primary: weddingRed,
+      secondary: weddingRed,
     },
   },
 })
@@ -20,6 +27,7 @@ const theme = createTheme({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <I18nextProvider i18n={i18n}>
         <BrowserRouter>
           <Header />
