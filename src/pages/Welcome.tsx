@@ -2,7 +2,8 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import WeAreMarried from '../assets/married.svg'
+import WeAreMarried from 'src/assets/married.svg'
+import StyledImage from 'src/components/StyledImage'
 
 const Welcome = () => {
   const { t } = useTranslation()
@@ -13,13 +14,7 @@ const Welcome = () => {
   }
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <img
-        src={WeAreMarried}
-        width="50%"
-        alt="We are married"
-        style={{ userSelect: 'none', pointerEvents: 'none' }}
-        draggable={false}
-      />
+      <StyledImage src={WeAreMarried} width="50%" alt="We are married" />
       <Button
         variant="contained"
         sx={{

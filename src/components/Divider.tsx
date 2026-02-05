@@ -1,10 +1,11 @@
-import DividerImage from '@/assets/divider.svg'
 import Box, { type BoxProps } from '@mui/material/Box'
+import DividerImage from 'src/assets/divider.svg'
+import StyledImage from 'src/components/StyledImage'
 
 const Divider = (props: BoxProps) => {
   return (
     <Box {...props}>
-      <img src={DividerImage} alt="Divider" width="100%" />
+      <StyledImage src={DividerImage} alt="Divider" width="100%" />
     </Box>
   )
 }

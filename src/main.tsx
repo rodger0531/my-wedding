@@ -4,12 +4,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import Header from './components/Header.tsx'
-import { Colours } from './constants/colour.ts'
-import i18n from './i18n/index.ts'
-import LandingPage from './pages/LandingPage.tsx'
-import Welcome from './pages/Welcome.tsx'
-import './styles/base.css'
+import Header from 'src/components/Header.tsx'
+import { Colours } from 'src/constants/colour.ts'
+import i18n from 'src/i18n/index.ts'
+import LandingPage from 'src/pages/LandingPage.tsx'
+import Welcome from 'src/pages/Welcome.tsx'
+import 'src/styles/base.css'
 
 const theme = createTheme({
   palette: {

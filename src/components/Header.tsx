@@ -2,8 +2,8 @@ import LanguageIcon from '@mui/icons-material/Language'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTranslation } from 'react-i18next'
-import { Language } from '../constants/lang'
-import i18n from '../i18n'
+import { Language } from 'src/constants/lang'
+import i18n from 'src/i18n'
 
 const Header = () => {
   const { t } = useTranslation()

@@ -1,15 +1,16 @@
-import Date from '@/assets/date.svg'
-import Frame from '@/assets/frame1.svg'
 import { Grid, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import { useTranslation } from 'react-i18next'
+import Date from 'src/assets/date.svg'
+import Frame from 'src/assets/frame1.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
+import StyledImage from 'src/components/StyledImage'
 
 const SaveTheDate = () => {
   const { t } = useTranslation()
   return (
     <Box position="relative">
-      <img
+      <StyledImage
         src={Frame}
         alt="frame"
         width="100%"
