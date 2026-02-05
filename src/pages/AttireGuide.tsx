@@ -1,20 +1,20 @@
-import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import AttireImage from 'src/assets/attire.svg'
+import ColourBlocks from 'src/assets/colours.svg'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 // const COLOURS = ['#9faf9a', '#8fa3b8', '#b7b2aa', '#c9a3a6', '#d8dfc4']
-const COLOURS = ['#7C8A7C', '#8C8F8F', '#BFA07B', '#C9A3A6', '#8FA3B8']
+// const COLOURS = ['#7C8A7C', '#8C8F8F', '#BFA07B', '#C9A3A6', '#8FA3B8']
 
 const AttireGuide = () => {
   const { t } = useTranslation()
   const { isEnglish } = useLanguage()
 
   return (
-    <Grid>
+    <Grid container direction="column" alignItems="center">
       <Typography
         variant={isEnglish ? 'h1' : 'h3'}
         fontFamily="titleFont"
@@ -23,19 +23,12 @@ const AttireGuide = () => {
         {t('landing.title.attireGuide')}
       </Typography>
       <StyledImage src={AttireImage} alt="Attire Guide" width="20rem" />
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        rowSpacing={1}
-        mt={1}
-        mb={3}
-      >
-        {COLOURS.map((colour) => (
-          <ColourBlock key={colour} colour={colour} />
-        ))}
-      </Grid>
-      {/* use painting like blotch style for colours */}
+      <StyledImage
+        my={4}
+        src={ColourBlocks}
+        alt="Colour Blocks"
+        width="35rem"
+      />
       <Typography
         variant={isEnglish ? 'h4' : 'h5'}
         {...(isEnglish ? {} : { lineHeight: 1.75 })}
@@ -45,10 +38,6 @@ const AttireGuide = () => {
       </Typography>
     </Grid>
   )
-}
-
-const ColourBlock = ({ colour }: { colour: string }) => {
-  return <Box width="80px" height="80px" bgcolor={colour} />
 }
 
 export default AttireGuide
