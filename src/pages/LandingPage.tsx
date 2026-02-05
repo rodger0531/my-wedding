@@ -1,19 +1,15 @@
-import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Divider from 'src/components/Divider'
 import CountDown from './CountDown'
 import Greetings from './Greetings'
 
 const LandingPage = () => {
   return (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      maxWidth="800px"
-      margin="0 auto"
-    >
+    <Container maxWidth="md">
       <Greetings />
+      <Divider mb={5} />
       <CountDown />
-    </Grid>
+    </Container>
   )
 }
 
