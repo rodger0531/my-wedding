@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import CakeImage from 'src/assets/cake_2.svg'
@@ -19,11 +19,18 @@ const NotFound = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const { isEnglish } = useLanguage()
   const navigate = useNavigate()
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const handleButtonClick = () => {
     setIsPeeping(true)
-    setTimeout(() => navigate('/'), 2500)
+    timeoutRef.current = setTimeout(() => navigate('/'), 2500)
   }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
 
   return (
     <Container
