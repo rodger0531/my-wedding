@@ -4,6 +4,8 @@ import { useLanguage } from 'src/hooks/useLanguage'
 import i18n from 'src/i18n'
 import MaterialUISwitch from './LanguageSwitch'
 
+const isDev = import.meta.env.DEV
+
 const Header = () => {
   const { isChinese } = useLanguage()
 
@@ -14,7 +16,15 @@ const Header = () => {
   }
 
   return (
-    <Box sx={{ textAlign: 'right', mt: 2, mr: 2 }}>
+    <Box
+      sx={{
+        position: isDev ? 'sticky' : 'static',
+        top: isDev ? 0 : undefined,
+        textAlign: 'right',
+        mt: 2,
+        mr: 2,
+      }}
+    >
       <Box maxWidth={'900px'} margin="0 auto">
         <Box
           sx={{
