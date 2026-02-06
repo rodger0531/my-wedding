@@ -1,5 +1,6 @@
 import Container from '@mui/material/Container'
 import React from 'react'
+import BottomNavbar from 'src/components/BottomNavBar'
 import Divider from 'src/components/Divider'
 import AttireGuide from './AttireGuide'
 import CountDown from './CountDown'
@@ -34,6 +35,7 @@ const LandingPage = () => {
       <Divider my={5} />
       <Rsvp />
       <Footer />
+      {import.meta.env.DEV && <BottomNavbar />}
     </Container>
   )
 }
