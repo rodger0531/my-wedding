@@ -13,6 +13,7 @@ import LandingPage from 'src/pages/LandingPage.tsx'
 import Welcome from 'src/pages/Welcome.tsx'
 import { useLanguage } from './hooks/useLanguage'
 
+import 'src/styles/animations.css'
 import 'src/styles/base.css'
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
 import 'src/assets/fonts/chinese-handwriting.ttf'

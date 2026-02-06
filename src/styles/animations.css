@@ -1,0 +1,15 @@
+.flip-animate {
+  display: inline-block;
+  animation: flip-x 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes flip-x {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
