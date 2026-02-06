@@ -1,7 +1,4 @@
 {
-  "header": {
-    "language": "中文"
-  },
   "welcomePage": {
     "button": "Open Invitation"
   },
@@ -13,17 +10,18 @@
       "location": "Location",
       "timeline": "Wedding Timeline",
       "attireGuide": "Attire Guide",
-      "loveStory": "Love Story"
+      "loveStory": "Our Story"
     },
-    "greetingMsg": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
+    "greetingMsg": "Happiness is best shared with those we love. We joyfully invite you to join us in celebrating the beginning of our greatest adventure yet.",
     "weddingDate": "Saturday, April 2026",
-    "weddingTime": "at 3 PM",
-    "address1": "C3 Depot",
+    "weddingTime": "at 3:00 PM",
+    "address1": "Warehouse C3",
     "address2": "Ciao Tou Sugar Refinery, Kaohsiung City, Taiwan",
     "mapButton": "Google Maps",
     "attireGuideMsg": "We invite our guests to dress in semi-formal attire with a touch of elegance. Think earthy spring colors and comfortable shoes for dancing!",
     "rsvpMsg": "Kindly RSVP by February 28th, 2026, to help us with the final arrangements for our special day.",
-    "rsvpButton": "RSVP"
+    "rsvpButton": "RSVP",
+    "footerMsg": "We are deeply grateful for the love and support of our family and friends. Your presence makes our day complete, and we look forward to creating unforgettable memories with you."
   },
   "weddingDetails": [
     {
@@ -52,7 +50,7 @@
   "timer": {
     "days": "Days",
     "hours": "Hours",
-    "minutes": "Minutes",
-    "seconds": "Seconds"
+    "minutes": "Mins",
+    "seconds": "Secs"
   }
 }

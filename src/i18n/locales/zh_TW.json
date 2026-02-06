@@ -1,7 +1,4 @@
 {
-  "header": {
-    "language": "English"
-  },
   "welcomePage": {
     "button": "打開邀請函"
   },
@@ -11,17 +8,17 @@
       "countingDays": "還剩...",
       "saveTheDate": "請把這天留給我們",
       "location": "婚禮地點",
-      "timeline": "婚禮流程",
-      "attireGuide": "服裝指南",
+      "timeline": "當日流程",
+      "attireGuide": "穿搭指南",
       "loveStory": "我們的故事"
     },
-    "greetingMsg": "沒有我們最親愛的人的陪伴，幸福是不完整的。我們懷著無比的喜悅，誠摯邀請您見證並慶祝我們的婚禮。",
+    "greetingMsg": "幸福，因分享而圓滿。我們懷著無比的喜悅，誠摯邀請您參與這份喜悅，見證我們攜手步入人生的下一篇章。",
     "weddingDate": "2026年4月18號 星期六",
-    "weddingTime": "下午 3 點",
-    "address1": "C3倉庫",
+    "weddingTime": "下午 3:00 點",
+    "address1": "C3 倉庫",
     "address2": "高雄橋頭糖廠",
     "mapButton": "Google 地圖",
-    "attireGuideMsg": "我們邀請賓客穿著半正式的服裝，帶有優雅的氛圍。建議選擇大地春季色彩，並穿著舒適的鞋子以便跳舞！",
+    "attireGuideMsg": "誠摯邀請您穿著「半正式休閒風 (Semi-formal)」。建議搭配春日大地色系，並穿著舒適的鞋履，準備好與我們一同共舞！",
     "rsvpMsg": "請於2026年2月28日前回覆，以便我們為這個特別的日子做最後的安排。",
     "rsvpButton": "回覆"
   },
