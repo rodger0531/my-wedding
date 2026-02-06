@@ -28,6 +28,8 @@ const Header = () => {
       <Box maxWidth={'900px'} margin="0 auto">
         <Box
           sx={{
+            transform: { xs: 'scale(0.8)', sm: 'scale(1)' },
+            transformOrigin: 'center',
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
