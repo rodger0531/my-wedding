@@ -6,6 +6,7 @@ import HeartImage from 'src/assets/heart.svg'
 import StoryImage from 'src/assets/story.png'
 import HalimumTitle from 'src/components/HalimumTitle'
 import StyledImage from 'src/components/StyledImage'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 type Story = {
   year: string
@@ -27,11 +28,11 @@ const LoveStory = () => {
         <StyledImage
           src={StoryImage}
           alt="Love Story"
-          sx={{ width: { xs: '200px', sm: '500px' } }}
+          sx={{ width: { xs: '230px', sm: '500px' } }}
         />
         <Grid mt={{ xs: 3, sm: 7 }}>
           {stories.map(({ year, content }) => (
-            <TextBox key={year} text={content} />
+            <TextBox key={year} title={year} content={content} />
           ))}
         </Grid>
       </Grid>
@@ -44,28 +45,49 @@ const LoveStory = () => {
   )
 }
 
-const TextBox = ({ text }: { text: string }) => {
+const TextBox = ({ title, content }: { title: string; content: string }) => {
+  const { isEnglish } = useLanguage()
+
   return (
     <Box
       display="flex"
-      alignItems="center"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="flex-start"
       pl={{ xs: 1, sm: 2 }}
       sx={{
-        height: { xs: 185, sm: 470 },
+        height: { xs: 216, sm: 470 },
         width: '100%',
         wordWrap: 'break-word',
       }}
     >
       <Typography
+        align="left"
+        fontFamily="subtitleFont"
+        sx={{
+          lineHeight: 1,
+          fontSize: {
+            xs: isEnglish ? '3rem' : '1.75rem',
+            sm: isEnglish ? '5rem' : '3rem',
+          },
+          pb: isEnglish ? 0 : 2,
+        }}
+      >
+        {title}
+      </Typography>
+      <Typography
         variant="h4"
         align="left"
         fontFamily="subtitleFont"
         sx={{
-          lineHeight: 1.5,
-          fontSize: { xs: '1rem', sm: '1.5rem' },
+          lineHeight: { xs: isEnglish ? 1 : 1.5, sm: isEnglish ? 0.8 : 1.5 },
+          fontSize: {
+            xs: isEnglish ? '1.5rem' : '1rem',
+            sm: isEnglish ? '3rem' : '1.75rem',
+          },
         }}
       >
-        {text}
+        {content}
       </Typography>
     </Box>
   )
