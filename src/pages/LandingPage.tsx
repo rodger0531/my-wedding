@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container'
+import React from 'react'
 import Divider from 'src/components/Divider'
 import AttireGuide from './AttireGuide'
 import CountDown from './CountDown'
@@ -12,6 +13,10 @@ import SaveTheDate from './SaveTheDate'
 import Timeline from './Timeline'
 
 const LandingPage = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <Container maxWidth="md" sx={{ px: 0 }}>
       <Greetings />
