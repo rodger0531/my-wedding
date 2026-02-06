@@ -3,6 +3,7 @@ import Divider from 'src/components/Divider'
 import AttireGuide from './AttireGuide'
 import CountDown from './CountDown'
 import Details from './Details'
+import Footer from './Footer'
 import Greetings from './Greetings'
 import Location from './Location'
 import LoveStory from './LoveStory'
@@ -27,6 +28,7 @@ const LandingPage = () => {
       <LoveStory />
       <Divider my={5} />
       <Rsvp />
+      <Footer />
     </Container>
   )
 }
