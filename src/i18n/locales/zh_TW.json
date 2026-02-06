@@ -28,7 +28,7 @@
     "title": "哎呀...",
     "message": "您似乎迷路了，來到了網路的神秘角落。\n也許我們的婚禮蛋糕就藏在這裡？",
     "button": "回到派對現場！",
-    "buttonNavigating": "正在導航..."
+    "navigating": "正在導航..."
   },
   "weddingDetails": [
     {
