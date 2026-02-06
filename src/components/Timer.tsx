@@ -34,12 +34,17 @@ const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
 }
 
 const Numbers = ({ value, label }: { value: number; label: string }) => {
+  const { i18n } = useTranslation()
   return (
     <Grid>
       <Typography variant="subtitle1" fontWeight="bold" px={{ xs: 1, sm: 4 }}>
         {value}
       </Typography>
-      <Typography sx={{ typography: { xs: 'body1', sm: 'h5' } }}>
+      <Typography
+        key={i18n.language}
+        className="flip-animate"
+        sx={{ typography: { xs: 'body1', sm: 'h5' } }}
+      >
         {label}
       </Typography>
     </Grid>

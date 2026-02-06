@@ -6,20 +6,26 @@ import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const Greetings = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { isEnglish } = useLanguage()
 
   return (
     <>
       <Grid>
         <Typography
+          key={i18n.language}
+          className="flip-animate"
           variant="h3"
           align="center"
-          margin={4}
           sx={{
             fontFamily: 'subtitleFont',
             letterSpacing: isEnglish ? 0 : 3,
-            lineHeight: isEnglish ? 1.17 : 1.65,
+            lineHeight: {
+              xs: isEnglish ? 1.2 : 1.6,
+              sm: isEnglish ? 1.2 : 1.9,
+            },
+            m: 4,
+            mt: 1,
           }}
         >
           {t('landing.greetingMsg')}

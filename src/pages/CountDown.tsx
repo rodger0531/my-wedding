@@ -7,7 +7,7 @@ import { useLanguage } from 'src/hooks/useLanguage'
 const WEDDING_DATE = new Date('2026-04-18T15:00:00')
 
 const CountDown = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { isEnglish } = useLanguage()
 
   return (
@@ -17,7 +17,14 @@ const CountDown = () => {
       alignItems="center"
       direction="column"
     >
-      <HalimumTitle mb={isEnglish ? 0 : -1.6}>
+      <HalimumTitle
+        key={i18n.language}
+        className="flip-animate"
+        sx={{
+          lineHeight: isEnglish ? 1.2 : 1.6,
+          mb: isEnglish ? 0 : -1.6,
+        }}
+      >
         {t('landing.title.countingDays')}
       </HalimumTitle>
       <Timer expiryTimestamp={WEDDING_DATE} />
