@@ -24,6 +24,12 @@
     "rsvpButton": "回覆",
     "footerMsg": "我們衷心感謝家人和朋友的愛與支持。您的出席讓我們的日子更加完整，我們期待與您共同創造難忘的回憶。"
   },
+  "notFound": {
+    "title": "哎呀...",
+    "message": "您似乎迷路了，來到了網路的神秘角落。\n也許我們的婚禮蛋糕就藏在這裡？",
+    "button": "回到派對現場！",
+    "buttonNavigating": "正在導航..."
+  },
   "weddingDetails": [
     {
       "title": "交通資訊",

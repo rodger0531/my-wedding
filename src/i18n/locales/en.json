@@ -24,6 +24,12 @@
     "rsvpButton": "RSVP",
     "footerMsg": "We are deeply grateful for the love and support of our family and friends. Your presence makes our day complete, and we look forward to creating unforgettable memories with you."
   },
+  "notFound": {
+    "title": "Oops...",
+    "message": "You have wondered into a mysterious corner of the internet. Maybe our wedding cake is hiding here?",
+    "button": "Back to the party!",
+    "buttonNavigating": "Navigating..."
+  },
   "weddingDetails": [
     {
       "title": "Transportation",

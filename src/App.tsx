@@ -9,9 +9,10 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from 'src/components/Header.tsx'
 import { Colours } from 'src/constants/colour.ts'
 import { Fonts } from 'src/constants/fonts'
+import { useLanguage } from 'src/hooks/useLanguage'
 import LandingPage from 'src/pages/LandingPage.tsx'
+import NotFound from 'src/pages/NotFound'
 import Welcome from 'src/pages/Welcome.tsx'
-import { useLanguage } from './hooks/useLanguage'
 
 import 'src/styles/animations.css'
 import 'src/styles/base.css'
@@ -82,6 +83,7 @@ const App = () => {
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />} />
           <Route path="main" element={<LandingPage />} />
         </Routes>
