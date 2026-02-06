@@ -1,10 +1,10 @@
 import LocationPinIcon from '@mui/icons-material/LocationPin'
-import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
+import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
@@ -41,24 +41,13 @@ const Location = () => {
       >
         {t('landing.address2')}
       </Typography>
-      <Button
+      <StyledButton
         component="a"
-        variant="contained"
         href={LOCATION_URL}
-        target="_blank"
         startIcon={<LocationPinIcon />}
-        sx={{
-          fontFamily: 'subtitleFont',
-          fontSize: isEnglish ? '2rem' : '1.25rem',
-          lineHeight: isEnglish ? '2.5rem' : '2rem',
-          height: '50px',
-          borderRadius: '2rem',
-          textTransform: 'none',
-          px: 5,
-        }}
       >
         {t('landing.mapButton')}
-      </Button>
+      </StyledButton>
     </Grid>
   )
 }

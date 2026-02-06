@@ -1,12 +1,12 @@
 import type { PropsOf } from '@emotion/react'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import BouquetImage from 'src/assets/bouquet.svg'
 import CakeImage from 'src/assets/cake.svg'
 import HeelsImage from 'src/assets/heels.svg'
+import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
@@ -61,22 +61,7 @@ const Rsvp = () => {
       >
         {t('landing.rsvpMsg')}
       </Typography>
-      <Button
-        variant="contained"
-        size="large"
-        sx={{
-          fontFamily: 'subtitleFont',
-          mt: 4,
-          width: '250px',
-          fontSize: isEnglish ? '2rem' : '1.25rem',
-          lineHeight: '2.5rem',
-          borderRadius: '2rem',
-          textTransform: 'none',
-          px: 5,
-        }}
-      >
-        {t('landing.rsvpButton')}
-      </Button>
+      <StyledButton sx={{ mt: 4 }}>{t('landing.rsvpButton')}</StyledButton>
     </Grid>
   )
 }

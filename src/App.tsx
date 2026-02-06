@@ -31,6 +31,17 @@ const getTheme = (isEnglish: boolean) =>
       subtitleFont: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
       handWriting: isEnglish ? Fonts.Halimun : Fonts.ChineseHandwriting,
     },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            fontFamily: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
+            fontSize: isEnglish ? '2rem' : '1.25rem',
+            textTransform: 'none',
+          },
+        },
+      },
+    },
   })
 
 const App = () => {
