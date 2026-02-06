@@ -1,41 +1,53 @@
-import LanguageIcon from '@mui/icons-material/Language'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import { useTranslation } from 'react-i18next'
 import { Language } from 'src/constants/lang'
+import { useLanguage } from 'src/hooks/useLanguage'
 import i18n from 'src/i18n'
+import MaterialUISwitch from './LanguageSwitch'
 
 const Header = () => {
-  const { t } = useTranslation()
+  const { isChinese } = useLanguage()
 
-  const handleChangeLanguage = () => {
-    i18n.changeLanguage(
-      i18n.language === Language.EN ? Language.ZH : Language.EN,
-    )
+  const handleChangeLanguage = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    i18n.changeLanguage(target.checked ? Language.ZH : Language.EN)
   }
 
   return (
-    <Box
-      position="sticky"
-      top={0}
-      width="100%"
-      zIndex={10}
-      sx={{ textAlign: 'right', mt: -4 }}
-    >
-      <Button
-        sx={{
-          ':hover': { backgroundColor: 'transparent' },
-          textTransform: 'none',
-          fontFamily: 'Helvetica, sans-serif',
-          fontSize: '1rem',
-        }}
-        className="wedding-red"
-        onClick={handleChangeLanguage}
-        startIcon={<LanguageIcon />}
-        size="large"
-      >
-        {t('header.language')}
-      </Button>
+    <Box sx={{ textAlign: 'right', mt: 2, mr: 2 }}>
+      <Box maxWidth={'900px'} margin="0 auto">
+        <Box
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 64,
+            height: 48,
+            backgroundImage: 'url(/switch_background.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            position: 'relative',
+            borderRadius: '32px',
+            boxShadow: 'inset 0px 0px 8px -2px #000000',
+            overflow: 'hidden',
+          }}
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(0,0,0,0.05)',
+              borderRadius: 'inherit',
+              pointerEvents: 'none',
+            }}
+          />
+          <MaterialUISwitch
+            checked={isChinese}
+            onChange={handleChangeLanguage}
+            sx={{ position: 'relative', zIndex: 1 }}
+          />
+        </Box>
+      </Box>
     </Box>
   )
 }
