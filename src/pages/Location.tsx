@@ -16,10 +16,17 @@ const Location = () => {
 
   return (
     <Grid>
-      <HalimumTitle mb={isEnglish ? 4 : 2.75} mt={isEnglish ? 0 : 5}>
+      <HalimumTitle
+        mb={isEnglish ? 4 : 2.75}
+        mt={isEnglish ? { xs: 1, sm: 0 } : { xs: 0, sm: 5 }}
+      >
         {t('landing.title.location')}
       </HalimumTitle>
-      <StyledImage src={LocationImage} alt="Location" width="50%" />
+      <StyledImage
+        src={LocationImage}
+        alt="Location"
+        sx={{ width: { xs: '70%', sm: '50%' } }}
+      />
       <Typography
         variant="subtitle2"
         align="center"

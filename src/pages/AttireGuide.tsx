@@ -18,12 +18,16 @@ const AttireGuide = () => {
       <Typography variant="h1" fontFamily="titleFont" mb={isEnglish ? 0 : 3}>
         {t('landing.title.attireGuide')}
       </Typography>
-      <StyledImage src={AttireImage} alt="Attire Guide" width="20rem" />
+      <StyledImage
+        src={AttireImage}
+        alt="Attire Guide"
+        sx={{ width: { xs: '15rem', sm: '20rem' } }}
+      />
       <StyledImage
         my={4}
         src={ColourBlocks}
         alt="Colour Blocks"
-        width="35rem"
+        sx={{ width: { xs: '20rem', sm: '35rem' } }}
       />
       <Typography
         variant="h4"

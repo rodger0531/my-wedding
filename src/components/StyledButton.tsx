@@ -1,6 +1,9 @@
 import Button, { type ButtonProps } from '@mui/material/Button'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const StyledButton = ({ children, href, sx, ...props }: ButtonProps) => {
+  const { isEnglish } = useLanguage()
+
   return (
     <Button
       variant="contained"
@@ -11,6 +14,7 @@ const StyledButton = ({ children, href, sx, ...props }: ButtonProps) => {
         borderRadius: '2rem',
         height: '50px',
         px: 5,
+        pt: isEnglish ? '10px' : '5px',
         ...sx,
       }}
       {...props}

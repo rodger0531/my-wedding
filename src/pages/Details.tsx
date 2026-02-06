@@ -15,7 +15,7 @@ const Details = () => {
   const { isEnglish } = useLanguage()
 
   return (
-    <Box>
+    <Box px={2}>
       <HalimumTitle mb={isEnglish ? 0 : 2}>
         {t('landing.title.details')}
       </HalimumTitle>

@@ -11,7 +11,7 @@ import Timeline from './Timeline'
 
 const LandingPage = () => {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ px: 0 }}>
       <Greetings />
       <Divider mb={5} />
       <CountDown />

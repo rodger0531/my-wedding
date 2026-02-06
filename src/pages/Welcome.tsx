@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import WeAreMarried from 'src/assets/married.svg'
@@ -15,25 +16,33 @@ const Welcome = () => {
     navigate('/main')
   }
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
-      <StyledImage
-        src={WeAreMarried}
-        width={{ sm: '100vw', md: '50vw' }}
-        alt="We are married"
-      />
+    <Stack
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      height="90vh"
+    >
+      <Box display="flex" minHeight="500px">
+        <StyledImage src={WeAreMarried} alt="We are married" />
+      </Box>
       <StyledButton
         variant="contained"
         sx={{
-          fontSize: isEnglish ? '3rem' : '2rem',
+          fontSize: isEnglish
+            ? { xs: '2rem', sm: '2.75rem' }
+            : { xs: '1.5rem', sm: '1.75rem' },
           letterSpacing: isEnglish ? 1.3 : 3,
-          width: '400px',
-          height: '60px',
+          width: { xs: '200px', sm: '300px' },
+          height: { xs: '60px', sm: '100px' },
+          borderRadius: 4,
+          px: 2,
+          mt: 2,
         }}
         onClick={handleOnClick}
       >
         {t('welcomePage.button')}
       </StyledButton>
-    </Box>
+    </Stack>
   )
 }
 

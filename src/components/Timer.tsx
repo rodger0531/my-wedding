@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useTimer } from 'react-timer-hook'
 
 const FONT_SIZE = '5rem'
+const MOBILE_FONT_SIZE = '3rem'
 
 const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
   const { t } = useTranslation(undefined, { keyPrefix: 'timer' })
@@ -35,17 +36,23 @@ const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
 const Numbers = ({ value, label }: { value: number; label: string }) => {
   return (
     <Grid>
-      <Typography variant="subtitle1" fontWeight="bold" px={4}>
+      <Typography variant="subtitle1" fontWeight="bold" px={{ xs: 1, sm: 4 }}>
         {value}
       </Typography>
-      <Typography variant="h5">{label}</Typography>
+      <Typography sx={{ typography: { xs: 'body1', sm: 'h5' } }}>
+        {label}
+      </Typography>
     </Grid>
   )
 }
 
 const Separator = () => {
   return (
-    <Box fontSize={FONT_SIZE} fontWeight="bold" paddingBottom={6}>
+    <Box
+      fontSize={{ xs: MOBILE_FONT_SIZE, sm: FONT_SIZE }}
+      fontWeight="bold"
+      paddingBottom={{ xs: 4, sm: 6 }}
+    >
       :
     </Box>
   )

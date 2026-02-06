@@ -1,7 +1,7 @@
 import Typography, { type TypographyProps } from '@mui/material/Typography'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-const HalimumTitle = ({ children, ...props }: TypographyProps) => {
+const HalimumTitle = ({ children, sx, ...props }: TypographyProps) => {
   const { isEnglish } = useLanguage()
 
   return (
@@ -10,6 +10,13 @@ const HalimumTitle = ({ children, ...props }: TypographyProps) => {
       align="center"
       fontFamily="handWriting"
       mt={isEnglish ? 0 : -2}
+      sx={{
+        fontSize: {
+          xs: isEnglish ? '1.75rem' : '2.5rem',
+          sm: isEnglish ? '3.75rem' : '4rem',
+        },
+        ...sx,
+      }}
       {...props}
     >
       {children}

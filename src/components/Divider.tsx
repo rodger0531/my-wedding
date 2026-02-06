@@ -5,7 +5,11 @@ import StyledImage from 'src/components/StyledImage'
 const Divider = (props: BoxProps) => {
   return (
     <Box {...props}>
-      <StyledImage src={DividerImage} alt="Divider" width="100%" />
+      <StyledImage
+        src={DividerImage}
+        alt="Divider"
+        sx={{ width: { xs: '90%', sm: '100%' } }}
+      />
     </Box>
   )
 }

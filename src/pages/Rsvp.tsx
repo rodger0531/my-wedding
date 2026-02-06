@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import BouquetImage from 'src/assets/bouquet.svg'
 import CakeImage from 'src/assets/cake.svg'
 import HeelsImage from 'src/assets/heels.svg'
+import RSVPImage from 'src/assets/rsvp.png'
 import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
@@ -16,39 +17,40 @@ const Rsvp = () => {
 
   return (
     <Grid container direction="column" alignItems="center">
-      <Box position="relative" width="100%" height="600px">
-        <Typography
-          fontSize="525px"
-          width="50%"
-          lineHeight="270px"
-          margin={4}
-          sx={{
-            fontFamily: 'Dongle',
-            whiteSpace: 'pre-wrap',
-            wordBreak: 'break-word',
-            position: 'absolute',
-            margin: 0,
-            top: 60,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          }}
-        >
-          RSVP
-        </Typography>
+      <Box
+        position="relative"
+        width="100%"
+        height={{ xs: '300px', sm: '600px' }}
+      >
+        <StyledImage src={RSVPImage} alt="RSVP" sx={{ width: '50%' }} />
         <Icons
           src={CakeImage}
           alt="Cake"
-          sx={{ top: 0, left: 20, width: 230 }}
+          sx={{
+            position: 'absolute',
+            top: { xs: -100, sm: -150 },
+            left: 0,
+            width: { xs: 120, sm: 230 },
+          }}
         />
         <Icons
           src={BouquetImage}
           alt="Bouquet"
-          sx={{ top: 120, right: 10, width: 250 }}
+          sx={{
+            position: 'absolute',
+            top: 0,
+            right: { xs: 10, sm: 0 },
+            width: { xs: 120, sm: 250 },
+          }}
         />
         <Icons
           src={HeelsImage}
           alt="Heels"
-          sx={{ bottom: 90, left: 70, width: 180 }}
+          sx={{
+            bottom: { xs: -90, sm: -150 },
+            left: { xs: 30, sm: 20 },
+            width: { xs: 90, sm: 180 },
+          }}
         />
       </Box>
       <Typography
@@ -67,7 +69,22 @@ const Rsvp = () => {
 }
 
 const Icons = ({ sx, ...props }: PropsOf<typeof StyledImage>) => {
-  return <StyledImage sx={{ position: 'absolute', ...sx }} {...props} />
+  return (
+    <Box
+      component="img"
+      draggable={false}
+      sx={{
+        position: 'absolute',
+        userSelect: 'none',
+        pointerEvents: 'none',
+        objectFit: 'contain',
+        width: '100%',
+        height: '100%',
+        ...sx,
+      }}
+      {...props}
+    />
+  )
 }
 
 export default Rsvp

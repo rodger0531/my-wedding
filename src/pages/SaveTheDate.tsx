@@ -23,27 +23,38 @@ const SaveTheDate = () => {
         container
         justifyContent="center"
         alignItems="center"
-        px={5}
-        py={isEnglish ? 16 : 10}
+        px={{ xs: 1, sm: 5 }}
+        py={{ xs: 8, sm: isEnglish ? 16 : 10 }}
       >
-        <HalimumTitle mt={isEnglish ? 0 : 4} mb={isEnglish ? 0 : 3}>
+        <HalimumTitle
+          mt={isEnglish ? { xs: 4, sm: 0 } : { xs: 0, sm: 4 }}
+          mb={isEnglish ? 0 : 3}
+        >
           {t('landing.title.saveTheDate')}
         </HalimumTitle>
-        <Typography variant="h1" mb={isEnglish ? 0 : 3} fontFamily="titleFont">
+        <Typography
+          variant="h1"
+          mb={isEnglish ? 0 : { xs: 2, sm: 3 }}
+          fontFamily="titleFont"
+          {...(isEnglish
+            ? {}
+            : { sx: { fontSize: { xs: '1.75rem', sm: '3rem' } } })}
+        >
           {t('landing.weddingDate')}
         </Typography>
-        <Box
-          component="img"
+        <StyledImage
           src={Date}
           alt="date"
-          width="120%"
-          marginTop={-16}
-          marginLeft={-5}
+          marginTop={{ xs: -6, sm: -16 }}
+          marginLeft={{ xs: -2, sm: -5 }}
         />
         <Typography
           variant="h1"
           fontFamily="titleFont"
-          marginTop={isEnglish ? -12 : -6}
+          marginTop={isEnglish ? { xs: -6, sm: -12 } : { xs: -3, sm: -6 }}
+          {...(isEnglish
+            ? {}
+            : { sx: { fontSize: { xs: '1.75rem', sm: '3rem' } } })}
         >
           {t('landing.weddingTime')}
         </Typography>

@@ -26,7 +26,11 @@ const Greetings = () => {
         </Typography>
       </Grid>
       <Grid width="100%" display="flex" justifyContent="center">
-        <StyledImage src={Couple} alt="Couple" width="80%" />
+        <StyledImage
+          src={Couple}
+          alt="Couple"
+          sx={{ width: { xs: '350px', sm: '500px' } }}
+        />
       </Grid>
     </>
   )
