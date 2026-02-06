@@ -13,7 +13,7 @@ const Greetings = () => {
     <>
       <Grid>
         <Typography
-          variant={isEnglish ? 'h3' : 'h4'}
+          variant="h3"
           align="center"
           margin={4}
           sx={{

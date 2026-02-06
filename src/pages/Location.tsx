@@ -21,19 +21,15 @@ const Location = () => {
       </HalimumTitle>
       <StyledImage src={LocationImage} alt="Location" width="50%" />
       <Typography
+        variant="subtitle2"
         align="center"
         mt={isEnglish ? 4 : 2}
-        sx={{
-          fontFamily: 'subtitleFont',
-          fontSize: isEnglish ? '4.5rem' : '3rem',
-          letterSpacing: isEnglish ? 0 : 2,
-          lineHeight: isEnglish ? '2rem' : '4rem',
-        }}
+        sx={{ fontFamily: 'subtitleFont' }}
       >
         {t('landing.address1')}
       </Typography>
       <Typography
-        variant={isEnglish ? 'h3' : 'h4'}
+        variant="h3"
         letterSpacing={isEnglish ? 0 : 4}
         align="center"
         mb={2}

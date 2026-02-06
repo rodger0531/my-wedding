@@ -1,5 +1,9 @@
 import CssBaseline from '@mui/material/CssBaseline'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from '@mui/material/styles'
 import { useMemo } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from 'src/components/Header.tsx'
@@ -30,6 +34,26 @@ const getTheme = (isEnglish: boolean) =>
       titleFont: isEnglish ? Fonts.EnglishHandwriting : Fonts.defaultFontFamily,
       subtitleFont: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
       handWriting: isEnglish ? Fonts.Halimun : Fonts.ChineseHandwriting,
+      h1: {
+        fontSize: isEnglish ? '6rem' : '3rem',
+      },
+      h2: {
+        fontSize: isEnglish ? '3.75rem' : '4rem',
+      },
+      h3: {
+        fontSize: isEnglish ? '3rem' : '2rem',
+      },
+      h4: {
+        fontSize: isEnglish ? '2rem' : '1.5rem',
+      },
+      subtitle1: {
+        fontSize: '5rem',
+      },
+      subtitle2: {
+        fontSize: isEnglish ? '4.5rem' : '3rem',
+        fontFamily: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
+        letterSpacing: isEnglish ? 0 : 2,
+      },
     },
     components: {
       MuiButton: {
@@ -48,7 +72,7 @@ const App = () => {
   const { isEnglish } = useLanguage()
 
   const theme = useMemo(() => {
-    return getTheme(isEnglish)
+    return responsiveFontSizes(getTheme(isEnglish))
   }, [isEnglish])
 
   return (

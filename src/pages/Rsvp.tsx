@@ -52,7 +52,7 @@ const Rsvp = () => {
         />
       </Box>
       <Typography
-        variant={isEnglish ? 'h3' : 'h4'}
+        variant="h3"
         {...(isEnglish ? {} : { lineHeight: 1.5 })}
         align="center"
         mt={4}

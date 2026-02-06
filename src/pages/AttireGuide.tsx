@@ -15,11 +15,7 @@ const AttireGuide = () => {
 
   return (
     <Grid container direction="column" alignItems="center">
-      <Typography
-        variant={isEnglish ? 'h1' : 'h3'}
-        fontFamily="titleFont"
-        mb={isEnglish ? 0 : 3}
-      >
+      <Typography variant="h1" fontFamily="titleFont" mb={isEnglish ? 0 : 3}>
         {t('landing.title.attireGuide')}
       </Typography>
       <StyledImage src={AttireImage} alt="Attire Guide" width="20rem" />
@@ -30,7 +26,7 @@ const AttireGuide = () => {
         width="35rem"
       />
       <Typography
-        variant={isEnglish ? 'h4' : 'h5'}
+        variant="h4"
         {...(isEnglish ? {} : { lineHeight: 1.75 })}
         sx={{ fontFamily: 'subtitleFont' }}
       >

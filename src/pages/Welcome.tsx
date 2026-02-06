@@ -16,7 +16,11 @@ const Welcome = () => {
   }
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <StyledImage src={WeAreMarried} width="50%" alt="We are married" />
+      <StyledImage
+        src={WeAreMarried}
+        width={{ sm: '100vw', md: '50vw' }}
+        alt="We are married"
+      />
       <StyledButton
         variant="contained"
         sx={{

@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import { useTranslation } from 'react-i18next'
@@ -34,10 +35,10 @@ const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
 const Numbers = ({ value, label }: { value: number; label: string }) => {
   return (
     <Grid>
-      <Box fontSize={FONT_SIZE} fontWeight="bold" width="8rem">
+      <Typography variant="subtitle1" fontWeight="bold" px={4}>
         {value}
-      </Box>
-      <Box fontSize="1.5rem">{label}</Box>
+      </Typography>
+      <Typography variant="h5">{label}</Typography>
     </Grid>
   )
 }

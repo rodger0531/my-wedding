@@ -29,11 +29,7 @@ const SaveTheDate = () => {
         <HalimumTitle mt={isEnglish ? 0 : 4} mb={isEnglish ? 0 : 3}>
           {t('landing.title.saveTheDate')}
         </HalimumTitle>
-        <Typography
-          fontSize={isEnglish ? '6rem' : '3.5rem'}
-          mb={isEnglish ? 0 : 3}
-          fontFamily="titleFont"
-        >
+        <Typography variant="h1" mb={isEnglish ? 0 : 3} fontFamily="titleFont">
           {t('landing.weddingDate')}
         </Typography>
         <Box
@@ -45,7 +41,7 @@ const SaveTheDate = () => {
           marginLeft={-5}
         />
         <Typography
-          fontSize={isEnglish ? '5rem' : '2.5rem'}
+          variant="h1"
           fontFamily="titleFont"
           marginTop={isEnglish ? -12 : -6}
         >
