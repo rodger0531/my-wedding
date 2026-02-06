@@ -14,6 +14,9 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
+    load: 'languageOnly',
+    fallbackLng: 'en',
+    supportedLngs: ['en', 'zh'],
     interpolation: {
       escapeValue: false,
     },

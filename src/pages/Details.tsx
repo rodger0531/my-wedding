@@ -19,9 +19,12 @@ const Details = () => {
       <HalimumTitle mb={isEnglish ? 0 : 2}>
         {t('landing.title.details')}
       </HalimumTitle>
-      {t<'weddingDetails', { returnObjects: true }, Topic[]>('weddingDetails', {
-        returnObjects: true,
-      }).map(({ title, content }) => (
+      {(
+        t('weddingDetails', {
+          defaultValue: [],
+          returnObjects: true,
+        }) as Topic[]
+      ).map(({ title, content }) => (
         <Topic key={title} title={title} content={content} />
       ))}
     </Box>

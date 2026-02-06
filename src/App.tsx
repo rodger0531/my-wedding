@@ -1,19 +1,21 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from 'src/components/Header.tsx'
 import { Colours } from 'src/constants/colour.ts'
+import { Fonts } from 'src/constants/fonts'
 import LandingPage from 'src/pages/LandingPage.tsx'
 import Welcome from 'src/pages/Welcome.tsx'
+import { useLanguage } from './hooks/useLanguage'
+
 import 'src/styles/base.css'
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
 import 'src/assets/fonts/chinese-handwriting.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
 import 'src/assets/fonts/honya.ttf'
 
-const getTheme = (language: string) =>
+const getTheme = (isEnglish: boolean) =>
   createTheme({
     palette: {
       primary: {
@@ -25,22 +27,18 @@ const getTheme = (language: string) =>
       },
     },
     typography: {
-      // Honya font = default_font_family
-      titleFont: language === 'en' ? 'Better Together' : 'default_font_family',
-      // GenSenRounded2 TW M = gensen-rounded
-      subtitleFont: language === 'en' ? 'Dongle' : 'GenSenRounded2 TW M',
-      // chinese-handwriting = 辰宇落雁體 Thin
-      handWriting: language === 'en' ? 'Halimun' : '辰宇落雁體 Thin',
+      titleFont: isEnglish ? Fonts.EnglishHandwriting : Fonts.defaultFontFamily,
+      subtitleFont: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
+      handWriting: isEnglish ? Fonts.Halimun : Fonts.ChineseHandwriting,
     },
   })
 
 const App = () => {
-  const { i18n: i18nInstance } = useTranslation()
+  const { isEnglish } = useLanguage()
 
-  const theme = useMemo(
-    () => getTheme(i18nInstance.language),
-    [i18nInstance.language],
-  )
+  const theme = useMemo(() => {
+    return getTheme(isEnglish)
+  }, [isEnglish])
 
   return (
     <ThemeProvider theme={theme}>
