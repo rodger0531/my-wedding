@@ -10,7 +10,7 @@ import HeelsImage from 'src/assets/heels.svg'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-const RSVP = () => {
+const Rsvp = () => {
   const { t } = useTranslation()
   const { isEnglish } = useLanguage()
 
@@ -85,4 +85,4 @@ const Icons = ({ sx, ...props }: PropsOf<typeof StyledImage>) => {
   return <StyledImage sx={{ position: 'absolute', ...sx }} {...props} />
 }
 
-export default RSVP
+export default Rsvp

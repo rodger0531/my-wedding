@@ -5,7 +5,7 @@ import CountDown from './CountDown'
 import Details from './Details'
 import Greetings from './Greetings'
 import Location from './Location'
-import RSVP from './RSVP'
+import Rsvp from './Rsvp'
 import SaveTheDate from './SaveTheDate'
 import Timeline from './Timeline'
 
@@ -23,7 +23,7 @@ const LandingPage = () => {
       <Details />
       <AttireGuide />
       <Divider my={5} />
-      <RSVP />
+      <Rsvp />
     </Container>
   )
 }
