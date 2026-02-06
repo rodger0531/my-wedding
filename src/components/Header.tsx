@@ -28,7 +28,7 @@ const Header = () => {
             backgroundPosition: 'center',
             position: 'relative',
             borderRadius: '32px',
-            boxShadow: 'inset 0px 0px 8px -2px #000000',
+            boxShadow: 'inset 0px 0px 4px 0px #5a5a5a',
             overflow: 'hidden',
           }}
         >
