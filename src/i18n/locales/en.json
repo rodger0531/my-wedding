@@ -12,7 +12,8 @@
       "saveTheDate": "Save the Date",
       "location": "Location",
       "timeline": "Wedding Timeline",
-      "attireGuide": "Attire Guide"
+      "attireGuide": "Attire Guide",
+      "loveStory": "Love Story"
     },
     "greetingMsg": "No happiness is complete without the presence of our dearest ones. With great joy, we invite you to witness and celebrate our wedding day.",
     "weddingDate": "Saturday, April 2026",
@@ -32,6 +33,20 @@
     {
       "title": "Accommodation",
       "content": "Accommodation options near Ciao Tou Sugar Refinery, Kaohsiung City:\n1. The refinery offers simple lodging facilities that require advance booking.\n2. Several hotels are nearby, such as Fullon Hotel Kaohsiung and Ciao Tou Business Hotel, approximately 10-15 minutes by car.\n3. We recommend booking early to secure accommodation, especially since demand is high on the wedding day."
+    }
+  ],
+  "loveStory": [
+    {
+      "year": "2020",
+      "content": "In 2020, we took our first trip together to Japan."
+    },
+    {
+      "year": "2022",
+      "content": "In 2022, we adopted our beloved dog, Max, who has become an integral part of our family."
+    },
+    {
+      "year": "2024",
+      "content": "In 2024, we got engaged during a romantic sunset hike, surrounded by nature."
     }
   ],
   "timer": {
