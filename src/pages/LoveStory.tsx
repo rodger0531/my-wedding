@@ -13,7 +13,7 @@ const TITLE_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 }
 
@@ -33,17 +33,22 @@ type Story = {
 
 const LoveStory = () => {
   const { t, i18n } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   const stories = t('loveStory', {
     returnObjects: true,
     defaultValue: [],
   }) as Story[]
+
+  const titleText = t('landing.title.loveStory')
+  const titleSegments = isEnglish ? titleText.split(' ') : titleText.split('')
 
   return (
     <Grid
       component={motion.div}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       {/* WORD-BY-WORD REVEAL TITLE */}
       <HalimumTitle key={i18n.language}>
@@ -59,17 +64,15 @@ const LoveStory = () => {
             gap: '0.2em',
           }}
         >
-          {t('landing.title.loveStory')
-            .split(' ')
-            .map((word, i) => (
-              <motion.span
-                key={i}
-                variants={TITLE_WORD}
-                style={{ display: 'inline-block' }}
-              >
-                {word}
-              </motion.span>
-            ))}
+          {titleSegments.map((word, i) => (
+            <motion.span
+              key={i}
+              variants={TITLE_WORD}
+              style={{ display: 'inline-block' }}
+            >
+              {word}
+            </motion.span>
+          ))}
         </motion.span>
       </HalimumTitle>
 
