@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite",
-    "build": "tsc -b && bunx --bun vite build",
-    "prebuild": "bun install --frozen-lockfile && bun run install-font-split",
+    "build": "NODE_ENV=production tsc -b && bunx --bun vite build",
+    "pre-build": "bun install --frozen-lockfile && bun run install-font-split",
     "lint": "eslint .",
     "preview": "vite preview",
     "install-font-split": "bun cn-font-split i default"
@@ -40,6 +40,7 @@
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "prettier-plugin-organize-imports": "^4.3.0",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
