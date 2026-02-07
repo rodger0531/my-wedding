@@ -1,5 +1,6 @@
-import { Grid, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import { motion, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import DateSvg from 'src/assets/date.svg'
