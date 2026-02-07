@@ -28,13 +28,11 @@ const Header = () => {
       <Box maxWidth={'900px'} margin="0 auto">
         <Box
           sx={{
-            transform: { xs: 'scale(0.8)', sm: 'scale(1)' },
-            transformOrigin: 'center',
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 64,
-            height: 48,
+            width: 72,
+            height: 36,
             backgroundImage: 'url(/switch_background.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
