@@ -2,13 +2,7 @@ import LocationPinIcon from '@mui/icons-material/LocationPin'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type Easing,
-} from 'framer-motion'
+import { motion, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
@@ -17,64 +11,6 @@ import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const LOCATION_URL = 'https://maps.app.goo.gl/qndacHT54qtPDGMs9'
-
-// --- 1. THE 3D MAP CARD LOGIC ---
-const Map3D: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  // Smooth out the mouse movements so the tilt feels weighty, not jittery
-  const mouseX = useSpring(x, { stiffness: 150, damping: 15 })
-  const mouseY = useSpring(y, { stiffness: 150, damping: 15 })
-
-  // Calculate rotation based on mouse position
-  // 30/-30 are the degrees of tilt. Increase for more extreme tilt.
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [15, -15])
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-15, 15])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
-    const mouseXFromCenter = e.clientX - rect.left - width / 2
-    const mouseYFromCenter = e.clientY - rect.top - height / 2
-
-    // Normalize values between -0.5 and 0.5
-    x.set(mouseXFromCenter / width)
-    y.set(mouseYFromCenter / height)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: 1000,
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%',
-        cursor: 'grab',
-      }}
-    >
-      <motion.div
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  )
-}
 
 const SonarPin = () => (
   <Box
@@ -103,7 +39,6 @@ const SonarPin = () => (
         ease: 'easeOut',
       }}
     />
-    {/* The Actual Icon */}
     <LocationPinIcon style={{ position: 'relative', zIndex: 1 }} />
   </Box>
 )
@@ -149,21 +84,37 @@ const Location = () => {
         </HalimumTitle>
       </motion.div>
 
-      {/* THE 3D MAP EFFECT */}
       <motion.div
         variants={ITEM_VARIANTS}
         style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
       >
-        <Map3D>
-          <StyledImage
-            src={LocationImage}
-            alt="Location"
-            sx={{
-              width: { xs: '250px', sm: '350px' },
-              filter: 'drop-shadow(0px 10px 20px rgba(0,0,0,0.15))',
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ display: 'inline-block' }}
+        >
+          {/* 3. Floating Loop Config */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 0,
             }}
-          />
-        </Map3D>
+          >
+            <StyledImage
+              src={LocationImage}
+              alt="Location"
+              sx={{
+                width: { xs: '250px', sm: '350px' },
+                filter: 'drop-shadow(0px 10px 20px rgba(0,0,0,0.15))',
+              }}
+            />
+          </motion.div>
+        </motion.div>
       </motion.div>
 
       <motion.div variants={ITEM_VARIANTS}>
