@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Couple from 'src/assets/couple2.svg'
 import OurName from 'src/components/OurName'
@@ -14,7 +14,7 @@ const Greetings = () => {
   return (
     <>
       <Grid>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -38,11 +38,11 @@ const Greetings = () => {
           >
             {t('landing.greetingMsg')}
           </Typography>
-        </motion.div>
+        </m.div>
       </Grid>
 
       <Grid width="100%" display="flex" justifyContent="center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
@@ -57,10 +57,10 @@ const Greetings = () => {
             alt="Couple"
             sx={{ width: { xs: '350px', sm: '500px' } }}
           />
-        </motion.div>
+        </m.div>
       </Grid>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -71,7 +71,7 @@ const Greetings = () => {
         }}
       >
         <OurName />
-      </motion.div>
+      </m.div>
     </>
   )
 }

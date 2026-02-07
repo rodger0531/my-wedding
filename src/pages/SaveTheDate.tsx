@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { motion, type Easing } from 'framer-motion'
+import { m, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import DateSvg from 'src/assets/date.svg'
 import Frame from 'src/assets/frame.svg'
@@ -69,13 +69,13 @@ const SaveTheDate = () => {
   return (
     <Box
       position="relative"
-      component={motion.section}
+      component={m.section}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       sx={{ overflow: 'hidden', my: 4 }}
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 1.2 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -92,11 +92,11 @@ const SaveTheDate = () => {
           sx={{ width: { xs: '100%', sm: '90%' } }}
           height="auto"
         />
-      </motion.div>
+      </m.div>
 
       <Grid
         container
-        component={motion.div}
+        component={m.div}
         variants={GRID_VARIANTS}
         sx={{
           position: 'absolute',
@@ -109,7 +109,7 @@ const SaveTheDate = () => {
         alignItems="center"
         flexDirection="column"
       >
-        <motion.div
+        <m.div
           key={i18n.language}
           variants={titleInnerVariants}
           initial="hidden"
@@ -126,7 +126,7 @@ const SaveTheDate = () => {
             mb={isEnglish ? 0 : { xs: 2, sm: 4 }}
           >
             {titleSegments.map((seg, i) => (
-              <motion.span
+              <m.span
                 key={`${i18n.language}-${i}`}
                 variants={WORD_VARIANTS}
                 style={{
@@ -135,12 +135,12 @@ const SaveTheDate = () => {
                 }}
               >
                 {seg}
-              </motion.span>
+              </m.span>
             ))}
           </HalimumTitle>
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={BOUNCY_POP}>
+        <m.div variants={BOUNCY_POP}>
           <Typography
             variant="h1"
             mb={isEnglish ? 0 : { xs: 1, sm: 3 }}
@@ -149,17 +149,17 @@ const SaveTheDate = () => {
           >
             {t('landing.weddingDate')}
           </Typography>
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={BOUNCY_POP}>
+        <m.div variants={BOUNCY_POP}>
           <StyledImage
             src={DateSvg}
             alt="date decoration"
             sx={{ width: { xs: '85%', sm: '80%' } }}
           />
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={BOUNCY_POP}>
+        <m.div variants={BOUNCY_POP}>
           <Typography
             variant="h1"
             fontFamily="titleFont"
@@ -167,7 +167,7 @@ const SaveTheDate = () => {
           >
             {t('landing.weddingTime')}
           </Typography>
-        </motion.div>
+        </m.div>
       </Grid>
     </Box>
   )

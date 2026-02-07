@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import HalimumTitle from 'src/components/HalimumTitle'
 import Timer from 'src/components/Timer'
@@ -42,7 +42,7 @@ const CountDown = () => {
       alignItems="center"
       direction="column"
     >
-      <motion.div
+      <m.div
         variants={CONTAINER_VARIANTS}
         initial="hidden"
         whileInView="visible"
@@ -64,7 +64,7 @@ const CountDown = () => {
           }}
         >
           {words.map((word, index) => (
-            <motion.span
+            <m.span
               key={index}
               variants={CHILD_VARIANTS}
               style={{
@@ -73,19 +73,19 @@ const CountDown = () => {
               }}
             >
               {word}
-            </motion.span>
+            </m.span>
           ))}
         </HalimumTitle>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8, duration: 1 }}
       >
         <Timer expiryTimestamp={WEDDING_DATE} />
-      </motion.div>
+      </m.div>
     </Grid>
   )
 }

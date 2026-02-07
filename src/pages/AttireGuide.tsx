@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { motion, type Easing } from 'framer-motion'
+import { m, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import AttireImage from 'src/assets/attire.svg'
 import Colour1 from 'src/assets/colour_1.png'
@@ -70,27 +70,27 @@ const AttireGuide = () => {
       container
       direction="column"
       alignItems="center"
-      component={motion.div}
+      component={m.div}
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
     >
       {/* Title */}
-      <motion.div variants={FADE_UP_VARIANTS}>
+      <m.div variants={FADE_UP_VARIANTS}>
         <Typography variant="h1" fontFamily="titleFont" mb={isEnglish ? 0 : 3}>
           {t('landing.title.attireGuide')}
         </Typography>
-      </motion.div>
+      </m.div>
 
       {/* Main Illustration */}
-      <motion.div variants={FADE_UP_VARIANTS}>
+      <m.div variants={FADE_UP_VARIANTS}>
         <StyledImage
           src={AttireImage}
           alt="Attire Guide"
           sx={{ width: { xs: '15rem', sm: '20rem' } }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Color Palette - Popping Blobs */}
       <Grid
@@ -99,12 +99,12 @@ const AttireGuide = () => {
         spacing={1}
         justifyContent="center"
         my={4}
-        component={motion.div}
+        component={m.div}
         variants={BLOB_CONTAINER_VARIANTS}
       >
         {colours.map((colour, index) => (
-          <Grid key={index} component={motion.div} variants={POP_VARIANTS}>
-            <motion.div
+          <Grid key={index} component={m.div} variants={POP_VARIANTS}>
+            <m.div
               // Interaction: Scales up further and wiggles
               whileHover={{
                 scale: 1.2,
@@ -120,13 +120,13 @@ const AttireGuide = () => {
                   filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.1))',
                 }}
               />
-            </motion.div>
+            </m.div>
           </Grid>
         ))}
       </Grid>
 
       {/* Footer Message */}
-      <motion.div variants={FADE_UP_VARIANTS}>
+      <m.div variants={FADE_UP_VARIANTS}>
         <Typography
           variant="h4"
           {...(isEnglish ? {} : { lineHeight: 1.75 })}
@@ -134,7 +134,7 @@ const AttireGuide = () => {
         >
           {t('landing.attireGuideMsg')}
         </Typography>
-      </motion.div>
+      </m.div>
     </Grid>
   )
 }

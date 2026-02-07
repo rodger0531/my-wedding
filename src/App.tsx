@@ -4,6 +4,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles'
+import { domAnimation, LazyMotion } from 'framer-motion'
 import { useMemo } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from 'src/components/Header.tsx'
@@ -69,14 +70,16 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <Header />
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Welcome />} />
-          <Route path="main" element={<LandingPage />} />
-        </Routes>
-      </BrowserRouter>
+      <LazyMotion features={domAnimation} strict>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <Header />
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Welcome />} />
+            <Route path="main" element={<LandingPage />} />
+          </Routes>
+        </BrowserRouter>
+      </LazyMotion>
     </ThemeProvider>
   )
 }

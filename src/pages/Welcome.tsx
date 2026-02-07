@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { motion, type Easing } from 'framer-motion'
+import { m, type Easing } from 'framer-motion'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -75,7 +75,7 @@ const Welcome = () => {
 
   return (
     <Stack
-      component={motion.div}
+      component={m.div}
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       animate={isExiting ? 'exit' : 'visible'}
@@ -92,7 +92,7 @@ const Welcome = () => {
         minHeight="500px"
       >
         {/* 1. Title: Floats Down */}
-        <motion.div variants={FADE_DOWN}>
+        <m.div variants={FADE_DOWN}>
           <StyledImage
             src={TitleImage}
             alt="We are married"
@@ -101,11 +101,11 @@ const Welcome = () => {
               mb: 2,
             }}
           />
-        </motion.div>
+        </m.div>
 
         {/* 2. Hands: Floats Up + "Gentle Sway" Animation */}
-        <motion.div variants={FADE_UP}>
-          <motion.div
+        <m.div variants={FADE_UP}>
+          <m.div
             style={{ transformOrigin: 'bottom center' }}
             animate={{ rotate: [-1.5, 1.5, -1.5] }}
             transition={{
@@ -121,12 +121,12 @@ const Welcome = () => {
                 width: { xs: '300px', sm: '450px' },
               }}
             />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         <Box textAlign="center">
           {/* 3. Name: Fades In */}
-          <motion.div variants={FADE_IN}>
+          <m.div variants={FADE_IN}>
             <OurName
               sx={{
                 letterSpacing: 0,
@@ -135,10 +135,10 @@ const Welcome = () => {
                 display: 'inline-block',
               }}
             />
-          </motion.div>
+          </m.div>
 
           {/* 4. Date: Fades In */}
-          <motion.div variants={FADE_IN}>
+          <m.div variants={FADE_IN}>
             <Typography
               key={i18n.language}
               className="flip-animate"
@@ -159,13 +159,13 @@ const Welcome = () => {
                 }}
               />
             </Typography>
-          </motion.div>
+          </m.div>
         </Box>
       </Box>
 
       {/* 5. Button: Fades Up + Heartbeat Shadow Pulse */}
-      <motion.div variants={FADE_UP}>
-        <motion.div
+      <m.div variants={FADE_UP}>
+        <m.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           animate={{
@@ -202,8 +202,8 @@ const Welcome = () => {
               {t('welcomePage.button')}
             </span>
           </StyledButton>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </Stack>
   )
 }

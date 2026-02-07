@@ -2,7 +2,7 @@ import LocationPinIcon from '@mui/icons-material/LocationPin'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { motion, type Easing } from 'framer-motion'
+import { m, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
@@ -20,7 +20,7 @@ const SonarPin = () => (
     justifyContent="center"
   >
     {/* The Ripple Effect */}
-    <motion.div
+    <m.div
       style={{
         position: 'absolute',
         width: '100%',
@@ -67,7 +67,7 @@ const Location = () => {
   return (
     <Grid
       container
-      component={motion.div}
+      component={m.div}
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       whileInView="visible"
@@ -75,20 +75,20 @@ const Location = () => {
       flexDirection="column"
       alignItems="center"
     >
-      <motion.div variants={ITEM_VARIANTS}>
+      <m.div variants={ITEM_VARIANTS}>
         <HalimumTitle
           mb={isEnglish ? 4 : 2.75}
           mt={isEnglish ? { xs: 1, sm: 0 } : { xs: 0, sm: 5 }}
         >
           {t('landing.title.location')}
         </HalimumTitle>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         variants={ITEM_VARIANTS}
         style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
       >
-        <motion.div
+        <m.div
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
@@ -96,7 +96,7 @@ const Location = () => {
           style={{ display: 'inline-block' }}
         >
           {/* 3. Floating Loop Config */}
-          <motion.div
+          <m.div
             animate={{ y: [0, -10, 0] }}
             transition={{
               duration: 4,
@@ -113,11 +113,11 @@ const Location = () => {
                 filter: 'drop-shadow(0px 10px 20px rgba(0,0,0,0.15))',
               }}
             />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
 
-      <motion.div variants={ITEM_VARIANTS}>
+      <m.div variants={ITEM_VARIANTS}>
         <Typography
           variant="subtitle2"
           align="center"
@@ -126,9 +126,9 @@ const Location = () => {
         >
           {t('landing.address1')}
         </Typography>
-      </motion.div>
+      </m.div>
 
-      <motion.div variants={ITEM_VARIANTS}>
+      <m.div variants={ITEM_VARIANTS}>
         <Typography
           variant="h3"
           letterSpacing={isEnglish ? 0 : 4}
@@ -138,9 +138,9 @@ const Location = () => {
         >
           {t('landing.address2')}
         </Typography>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         variants={ITEM_VARIANTS}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -152,7 +152,7 @@ const Location = () => {
         >
           {t('landing.mapButton')}
         </StyledButton>
-      </motion.div>
+      </m.div>
     </Grid>
   )
 }

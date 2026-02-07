@@ -3,7 +3,7 @@ import Container from '@mui/material/Container'
 import { useTheme } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { AnimatePresence, motion, type Easing } from 'framer-motion'
+import { AnimatePresence, m, type Easing } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -79,7 +79,7 @@ const NotFound = () => {
         pt={4}
       >
         {/* Animated "Oops..." */}
-        <motion.div
+        <m.div
           variants={HINGE_VARIANTS}
           initial="initial"
           animate="animate"
@@ -99,10 +99,10 @@ const NotFound = () => {
           >
             {t('notFound.title')}
           </Typography>
-        </motion.div>
+        </m.div>
 
         {/* Smoky Message Reveal */}
-        <motion.div
+        <m.div
           variants={SMOKE_VARIANTS}
           initial="hidden"
           animate="visible"
@@ -124,7 +124,7 @@ const NotFound = () => {
           >
             {t('notFound.message')}
           </Typography>
-        </motion.div>
+        </m.div>
       </Box>
 
       <StyledButton
@@ -136,7 +136,7 @@ const NotFound = () => {
       >
         <AnimatePresence mode="wait">
           {!isPeeping ? (
-            <motion.span
+            <m.span
               key="default"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,9 +146,9 @@ const NotFound = () => {
               <span key={i18n.language} className="flip-animate">
                 {t('notFound.button')}
               </span>
-            </motion.span>
+            </m.span>
           ) : (
-            <motion.span
+            <m.span
               key="active"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -158,7 +158,7 @@ const NotFound = () => {
               <span key={i18n.language} className="flip-animate">
                 {t('notFound.navigating')}
               </span>
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
       </StyledButton>
@@ -166,7 +166,7 @@ const NotFound = () => {
       {/* The Peeping Cake */}
       <AnimatePresence>
         {isPeeping && (
-          <motion.div
+          <m.div
             initial={{ x: '100%' }}
             animate={{
               x: ['100%', '40%', '58%', '62%', '58%', '62%', '100%'],
@@ -189,7 +189,7 @@ const NotFound = () => {
               alt="Cake"
               sx={{ width: { xs: '250px', sm: '350px' }, height: 'auto' }}
             />
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </Container>
