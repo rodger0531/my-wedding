@@ -6,9 +6,9 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import HandsImage from 'src/assets/welcome_hands.svg'
 import TitleImage from 'src/assets/welcome_title.svg'
+import OurName from 'src/components/OurName'
 import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
-import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const Welcome = () => {
@@ -56,17 +56,13 @@ const Welcome = () => {
           }}
         />
         <Box>
-          <Typography
-            align="center"
+          <OurName
             sx={{
-              fontFamily: Fonts.EnglishHandwriting,
               letterSpacing: 0,
               fontSize: { xs: '4.5rem', sm: '6rem' },
               lineHeight: 0.75,
             }}
-          >
-            Rodger & Claire
-          </Typography>
+          />
           <Typography
             key={i18n.language}
             className="flip-animate"
