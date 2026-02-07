@@ -4,8 +4,9 @@ import { defineConfig } from 'vite'
 import Font from 'vite-plugin-font'
 
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/my-wedding/' : '/', // For github pages deployment
+export default defineConfig(() => ({
+  // base: command === 'build' ? '/my-wedding/' : '/', // For github pages deployment
+  base: '/', // For github pages deployment
   plugins: [
     react(),
     Font.vite({

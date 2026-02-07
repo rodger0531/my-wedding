@@ -13,7 +13,10 @@ permissions:
 
 jobs:
   build_and_deploy:
+    if: ${{ vars.ENABLE_GH_PAGES == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      ENABLE_GH_PAGES: false
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
