@@ -111,7 +111,6 @@ const AttireGuide = () => {
                 rotate: index % 2 === 0 ? 15 : -15,
               }}
               whileTap={{ scale: 0.8 }}
-              style={{ cursor: 'pointer' }}
             >
               <StyledImage
                 src={colour}

@@ -6,18 +6,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   height: 40,
   padding: 0,
   borderRadius: 40,
-  cursor: 'pointer',
-
-  // 1. DISABLE FOCUS OUTLINES
-  '& .MuiSwitch-input': {
-    width: '100%',
-    cursor: 'pointer',
-    // Removes the browser default focus ring (blue frame)
-    '&:focus-visible': {
-      outline: 'none',
-      boxShadow: 'none',
-    },
-  },
 
   '&:active': {
     '& .MuiSwitch-thumb': {
@@ -29,11 +17,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-switchBase': {
     padding: 3,
-    // Removes the MUI "halo" (ripple effect) on focus/click
-    '&.Mui-focusVisible': {
-      boxShadow: 'none',
-      background: 'transparent',
-    },
     '&.Mui-checked': {
       transform: 'translateX(40px)',
       color: '#fff',
