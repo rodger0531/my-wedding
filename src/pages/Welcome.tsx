@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { m, type Easing } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import HandsImage from 'src/assets/welcome_hands.svg'
@@ -72,6 +72,15 @@ const Welcome = () => {
       navigate('/main')
     }, 300)
   }
+
+  useEffect(() => {
+    // Preload landing page
+    const preloadLanding = async () => {
+      await import('src/pages/LandingPage')
+    }
+
+    preloadLanding()
+  }, [])
 
   return (
     <Stack

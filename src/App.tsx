@@ -5,14 +5,12 @@ import {
   ThemeProvider,
 } from '@mui/material/styles'
 import { domAnimation, LazyMotion } from 'framer-motion'
-import { useMemo } from 'react'
+import { lazy, Suspense, useMemo } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from 'src/components/Header.tsx'
 import { Colours } from 'src/constants/colour.ts'
 import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
-import LandingPage from 'src/pages/LandingPage.tsx'
-import NotFound from 'src/pages/NotFound'
 import Welcome from 'src/pages/Welcome.tsx'
 
 import 'src/styles/animations.css'
@@ -21,6 +19,9 @@ import 'src/styles/base.css'
 import 'src/assets/fonts/chinese-handwriting.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
 import 'src/assets/fonts/honya.ttf'
+
+const LandingPage = lazy(() => import('src/pages/LandingPage'))
+const NotFound = lazy(() => import('src/pages/NotFound'))
 
 const getTheme = (isEnglish: boolean) =>
   createTheme({
@@ -68,19 +69,21 @@ const App = () => {
   }, [isEnglish])
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <LazyMotion features={domAnimation} strict>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
-          <Header />
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Welcome />} />
-            <Route path="main" element={<LandingPage />} />
-          </Routes>
-        </BrowserRouter>
-      </LazyMotion>
-    </ThemeProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <LazyMotion features={domAnimation} strict>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <Header />
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={<Welcome />} />
+              <Route path="main" element={<LandingPage />} />
+            </Routes>
+          </BrowserRouter>
+        </LazyMotion>
+      </ThemeProvider>
+    </Suspense>
   )
 }
 
