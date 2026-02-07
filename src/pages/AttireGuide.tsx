@@ -2,12 +2,13 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import AttireImage from 'src/assets/attire.svg'
-import ColourBlocks from 'src/assets/colours.svg'
+import Colour1 from 'src/assets/colour_1.png'
+import Colour2 from 'src/assets/colour_2.png'
+import Colour3 from 'src/assets/colour_3.png'
+import Colour4 from 'src/assets/colour_4.png'
+import Colour5 from 'src/assets/colour_5.png'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
-
-// const COLOURS = ['#9faf9a', '#8fa3b8', '#b7b2aa', '#c9a3a6', '#d8dfc4']
-// const COLOURS = ['#7C8A7C', '#8C8F8F', '#BFA07B', '#C9A3A6', '#8FA3B8']
 
 const AttireGuide = () => {
   const { t } = useTranslation()
@@ -23,12 +24,23 @@ const AttireGuide = () => {
         alt="Attire Guide"
         sx={{ width: { xs: '15rem', sm: '20rem' } }}
       />
-      <StyledImage
+      <Grid
+        container
+        direction="row"
+        spacing={1}
+        justifyContent="center"
         my={4}
-        src={ColourBlocks}
-        alt="Colour Blocks"
-        sx={{ width: { xs: '20rem', sm: '35rem' } }}
-      />
+      >
+        {[Colour1, Colour2, Colour3, Colour4, Colour5].map((colour, index) => (
+          <Grid key={index}>
+            <StyledImage
+              src={colour}
+              alt={`Colour Block ${index + 1}`}
+              sx={{ width: { xs: '3.5rem', sm: '7rem' } }}
+            />
+          </Grid>
+        ))}
+      </Grid>
       <Typography
         variant="h4"
         {...(isEnglish ? {} : { lineHeight: 1.75 })}
