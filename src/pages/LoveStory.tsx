@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
+import { motion, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import HeartImage from 'src/assets/heart.svg'
 import StoryImage from 'src/assets/story.png'
@@ -8,48 +9,127 @@ import HalimumTitle from 'src/components/HalimumTitle'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
+const TITLE_CONTAINER = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+  },
+}
+
+const TITLE_WORD = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' as Easing },
+  },
+}
+
 type Story = {
   year: string
   content: string
 }
 
 const LoveStory = () => {
-  const { t } = useTranslation()
-
+  const { t, i18n } = useTranslation()
   const stories = t('loveStory', {
     returnObjects: true,
     defaultValue: [],
   }) as Story[]
 
   return (
-    <Grid>
-      <HalimumTitle>{t('landing.title.loveStory')}</HalimumTitle>
+    <Grid
+      component={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {/* WORD-BY-WORD REVEAL TITLE */}
+      <HalimumTitle key={i18n.language}>
+        <motion.span
+          variants={TITLE_CONTAINER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '0.2em',
+          }}
+        >
+          {t('landing.title.loveStory')
+            .split(' ')
+            .map((word, i) => (
+              <motion.span
+                key={i}
+                variants={TITLE_WORD}
+                style={{ display: 'inline-block' }}
+              >
+                {word}
+              </motion.span>
+            ))}
+        </motion.span>
+      </HalimumTitle>
+
       <Grid container mt={2} flexWrap="nowrap">
-        <StyledImage
-          src={StoryImage}
-          alt="Love Story"
-          sx={{ width: { xs: '230px', sm: '500px' } }}
-        />
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          viewport={{ once: true }}
+        >
+          <StyledImage
+            src={StoryImage}
+            alt="Love Story"
+            sx={{ width: { xs: '230px', sm: '500px' } }}
+          />
+        </motion.div>
+
         <Grid mt={{ xs: 3, sm: 7 }}>
-          {stories.map(({ year, content }) => (
-            <TextBox key={year} title={year} content={content} />
+          {stories.map(({ year, content }, index) => (
+            <TextBox key={year} title={year} content={content} index={index} />
           ))}
         </Grid>
       </Grid>
-      <StyledImage
-        src={HeartImage}
-        alt="Heart"
-        sx={{ width: { xs: 100, sm: 150 }, mt: 5 }}
-      />
+
+      {/* FLOATING HEART ANIMATION */}
+      <Box display="flex" justifyContent="center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 1 }}
+        >
+          <StyledImage
+            src={HeartImage}
+            alt="Heart"
+            sx={{ width: { xs: 100, sm: 150 }, mt: 5 }}
+          />
+        </motion.div>
+      </Box>
     </Grid>
   )
 }
 
-const TextBox = ({ title, content }: { title: string; content: string }) => {
+const TextBox = ({
+  title,
+  content,
+  index,
+}: {
+  title: string
+  content: string
+  index: number
+}) => {
   const { isEnglish } = useLanguage()
 
   return (
     <Box
+      component={motion.div}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+      viewport={{ once: true }}
       display="flex"
       flexDirection="column"
       justifyContent="center"
