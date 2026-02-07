@@ -25,9 +25,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         backgroundColor: '#f2f2ea',
       },
       '& .MuiSwitch-thumb': {
-        filter: 'saturate(0.75) brightness(0.9) contrast(1)',
-        // Taiwan Flag
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="%23fe0000"/><rect width="450" height="300" fill="%23000095"/><g fill="%23fff" transform="translate(225,150)"><path d="M0-100l13 62 50-37-25 58 61-2l-51 35 44 44-59-20 13 62-37-50-37 50 13-62-59 20 44-44-51-35 61 2-25-58 50 37z"/><circle r="43.75"/></g></svg>')`,
+        filter: 'saturate(0.8) brightness(0.95) contrast(0.9)',
       },
     },
   },
