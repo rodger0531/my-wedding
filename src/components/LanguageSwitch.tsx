@@ -9,56 +9,54 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 80,
   height: 40,
   padding: 0,
-  borderRadius: 40,
 
-  '&:active': {
-    '& .MuiSwitch-thumb': {
-      width: 36,
-    },
-    '& .MuiSwitch-switchBase.Mui-checked': {
-      transform: 'translateX(38px)',
-    },
-  },
+  // Base Thumb / Switch styles
   '& .MuiSwitch-switchBase': {
     padding: 3,
     '&.Mui-checked': {
       transform: 'translateX(40px)',
-      color: '#fff',
+
+      // Checked Thumb Styles
+      '& .MuiSwitch-thumb': {
+        backgroundImage: TAIWAN_FLAG,
+        filter: 'saturate(0.8) brightness(0.95) contrast(0.9)',
+      },
+
+      // Checked Track Styles (Consolidated logic)
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: '#f2f2ea',
-      },
-      '& .MuiSwitch-thumb': {
-        filter: 'saturate(0.8) brightness(0.95) contrast(0.9)',
-        backgroundImage: TAIWAN_FLAG,
+        backgroundColor: '#f2f2ea', // Overrides default MUI primary color
+        // Toggle Text Visibility
+        '&::before': { opacity: 1 },
+        '&::after': { opacity: 0 },
       },
     },
   },
+
   '& .MuiSwitch-thumb': {
-    // Matte Shadow
-    boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.25)',
     width: 34,
     height: 34,
     borderRadius: '50%',
-    transition: theme.transitions.create(['width', 'transform'], {
-      duration: 200,
-    }),
+    boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.25)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    filter: 'saturate(0.9) contrast(1)',
+    // Default (Unchecked) State
     backgroundImage: UK_FLAG,
+    filter: 'saturate(0.9) contrast(1)',
+    transition: theme.transitions.create(['width', 'transform', 'filter'], {
+      duration: 200,
+    }),
   },
+
   '& .MuiSwitch-track': {
     borderRadius: 40,
     opacity: 1,
     backgroundColor: '#f2f2ea',
     boxSizing: 'border-box',
-    // Matte Inset
     boxShadow: 'inset 0px 1px 4px rgba(0,0,0,0.15)',
     position: 'relative',
 
-    // Text Labels
     '&::before, &::after': {
       position: 'absolute',
       top: '50%',
@@ -73,7 +71,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       userSelect: 'none',
     },
 
-    // "中文" Label
     '&::before': {
       content: '"中文"',
       color: '#00247d',
@@ -81,7 +78,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       textShadow: '0px 1px 0px rgba(255,255,255,0.6)',
     },
 
-    // "EN" Label
     '&::after': {
       content: '"EN"',
       color: '#cf142b',
@@ -89,11 +85,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       textShadow: '0px 1px 0px rgba(255,255,255,0.6)',
       opacity: 1,
     },
-  },
-
-  '& .Mui-checked + .MuiSwitch-track': {
-    '&::before': { opacity: 1 },
-    '&::after': { opacity: 0 },
   },
 }))
 
