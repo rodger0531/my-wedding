@@ -48,7 +48,7 @@ const Greetings = () => {
           viewport={{ once: true }}
           transition={{
             duration: 1.2,
-            delay: 0.4, // Starts slightly after the text
+            delay: 0.3, // Starts slightly after the text
             ease: [0.22, 1, 0.36, 1],
           }}
         >
@@ -66,7 +66,7 @@ const Greetings = () => {
         viewport={{ once: true }}
         transition={{
           duration: 1,
-          delay: 1,
+          delay: 0.6,
           ease: 'easeOut',
         }}
       >
