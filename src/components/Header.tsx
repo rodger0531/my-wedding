@@ -23,6 +23,7 @@ const Header = () => {
         textAlign: 'right',
         mt: 2,
         mr: 2,
+        zIndex: 10,
       }}
     >
       <Box maxWidth={'900px'} margin="0 auto">
@@ -54,7 +55,7 @@ const Header = () => {
           <MaterialUISwitch
             checked={isChinese}
             onChange={handleChangeLanguage}
-            sx={{ position: 'relative', zIndex: 1 }}
+            sx={{ position: 'relative' }}
           />
         </Box>
       </Box>
