@@ -2,13 +2,7 @@ import LocationPinIcon from '@mui/icons-material/LocationPin'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type Easing,
-} from 'framer-motion'
+import { motion, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
@@ -18,64 +12,7 @@ import { useLanguage } from 'src/hooks/useLanguage'
 
 const LOCATION_URL = 'https://maps.app.goo.gl/qndacHT54qtPDGMs9'
 
-// --- 1. THE 3D MAP CARD LOGIC ---
-const Map3D: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  // Smooth out the mouse movements so the tilt feels weighty, not jittery
-  const mouseX = useSpring(x, { stiffness: 150, damping: 15 })
-  const mouseY = useSpring(y, { stiffness: 150, damping: 15 })
-
-  // Calculate rotation based on mouse position
-  // 30/-30 are the degrees of tilt. Increase for more extreme tilt.
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [15, -15])
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-15, 15])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
-    const mouseXFromCenter = e.clientX - rect.left - width / 2
-    const mouseYFromCenter = e.clientY - rect.top - height / 2
-
-    // Normalize values between -0.5 and 0.5
-    x.set(mouseXFromCenter / width)
-    y.set(mouseYFromCenter / height)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: 1000,
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%',
-        cursor: 'grab',
-      }}
-    >
-      <motion.div
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  )
-}
-
+// --- 1. SONAR PIN ANIMATION ---
 const SonarPin = () => (
   <Box
     position="relative"
@@ -107,6 +44,69 @@ const SonarPin = () => (
     <LocationPinIcon style={{ position: 'relative', zIndex: 1 }} />
   </Box>
 )
+
+// --- 2. THE SHIMMER MAP WRAPPER ---
+const ShimmerMap: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <Box position="relative" display="inline-block">
+      {/* Layer 1: The Base Image (Black/Colored Ink) */}
+      {children}
+
+      {/* Layer 2: The Shimmer Overlay 
+          We place this exactly on top of the image.
+      */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none', // Allow clicks to pass through
+          // --- THE MAGIC: CSS MASKING ---
+          // This tells the browser: "Only show the content of this div
+          // where the pixels in 'location.svg' are opaque."
+          WebkitMaskImage: `url(${LocationImage})`,
+          maskImage: `url(${LocationImage})`,
+          WebkitMaskSize: 'contain',
+          maskSize: 'contain',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+        }}
+      >
+        {/* Layer 3: The Moving Light Beam 
+            Because of the mask on the parent Box, this gradient 
+            is only visible "inside" the SVG lines.
+        */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 100,
+            width: '50%', // The width of the "shine" beam
+            height: '100%',
+            // A sharp, angled white gradient to look like light reflection
+            background:
+              'linear-gradient(110deg, transparent 30%, rgba(255,255,255,1) 50%, transparent 70%)',
+            transform: 'skewX(-20deg)', // Tilt the beam for speed/style
+          }}
+          initial={{ x: '-150%' }} // Start completely off-left
+          whileInView={{ x: '300%' }} // Move completely off-right
+          viewport={{ once: true }}
+          transition={{
+            duration: 2,
+            ease: 'easeInOut',
+            repeat: Infinity, // Keep shimmering periodically
+            repeatDelay: 2, // Wait 2 seconds between shimmers
+            delay: 0.5,
+          }}
+        />
+      </Box>
+    </Box>
+  )
+}
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -149,21 +149,23 @@ const Location = () => {
         </HalimumTitle>
       </motion.div>
 
-      {/* THE 3D MAP EFFECT */}
+      {/* THE SHIMMER MAP EFFECT */}
       <motion.div
         variants={ITEM_VARIANTS}
         style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
       >
-        <Map3D>
+        <ShimmerMap>
           <StyledImage
             src={LocationImage}
             alt="Location"
             sx={{
               width: { xs: '250px', sm: '350px' },
-              filter: 'drop-shadow(0px 10px 20px rgba(0,0,0,0.15))',
+              zIndex: 1,
+              // Optional: Add a drop shadow to the base image to lift it slightly
+              filter: 'drop-shadow(0px 10px 15px rgba(0,0,0,0.1))',
             }}
           />
-        </Map3D>
+        </ShimmerMap>
       </motion.div>
 
       <motion.div variants={ITEM_VARIANTS}>
