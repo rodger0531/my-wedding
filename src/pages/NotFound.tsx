@@ -75,7 +75,7 @@ const NotFound = () => {
           {t('notFound.message')}
         </Typography>
       </Box>
-      <StyledButton onClick={handleButtonClick} sx={{ width: '300px' }}>
+      <StyledButton onClick={handleButtonClick}>
         <AnimatePresence mode="wait">
           {!isPeeping ? (
             <motion.span

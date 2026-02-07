@@ -57,17 +57,6 @@ const getTheme = (isEnglish: boolean) =>
         letterSpacing: isEnglish ? 0 : 2,
       },
     },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            fontFamily: isEnglish ? Fonts.Dongle : Fonts.GenSenRounded,
-            fontSize: isEnglish ? '2rem' : '1.25rem',
-            textTransform: 'none',
-          },
-        },
-      },
-    },
   })
 
 const App = () => {
