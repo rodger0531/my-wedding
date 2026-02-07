@@ -27,35 +27,23 @@ const Header = () => {
       }}
     >
       <Box maxWidth={'900px'} margin="0 auto">
+        {/* Added a subtle outer ring/padding to simulate the switch 
+           sitting on top of the page texture 
+        */}
         <Box
           sx={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 72,
-            height: 36,
-            backgroundImage: 'url(/switch_background.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
-            borderRadius: '32px',
-            boxShadow: 'inset 0px 0px 4px 0px #5a5a5a',
-            overflow: 'hidden',
+            display: 'inline-block',
+            padding: '4px',
+            borderRadius: '44px',
+            boxShadow:
+              '0px 2px 8px rgba(0,0,0,0.1), 0px 1px 3px rgba(0,0,0,0.05)',
+            background: 'rgba(255,255,255,0.4)', // Subtle glass effect
+            backdropFilter: 'blur(4px)',
           }}
         >
-          <Box
-            sx={{
-              position: 'absolute',
-              inset: 0,
-              backgroundColor: 'rgba(0,0,0,0.05)',
-              borderRadius: 'inherit',
-              pointerEvents: 'none',
-            }}
-          />
           <MaterialUISwitch
             checked={isChinese}
             onChange={handleChangeLanguage}
-            sx={{ position: 'relative' }}
           />
         </Box>
       </Box>

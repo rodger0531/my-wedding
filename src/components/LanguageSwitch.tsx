@@ -1,92 +1,115 @@
-import { indigo } from '@mui/material/colors'
 import { styled } from '@mui/material/styles'
 import Switch from '@mui/material/Switch'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-  width: 72,
-  height: 34,
-  padding: 7,
+  width: 80,
+  height: 40,
+  padding: 0,
+  borderRadius: 40,
+  cursor: 'pointer',
+
+  // 1. DISABLE FOCUS OUTLINES
+  '& .MuiSwitch-input': {
+    width: '100%',
+    cursor: 'pointer',
+    // Removes the browser default focus ring (blue frame)
+    '&:focus-visible': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
+  },
+
+  '&:active': {
+    '& .MuiSwitch-thumb': {
+      width: 36,
+    },
+    '& .MuiSwitch-switchBase.Mui-checked': {
+      transform: 'translateX(38px)',
+    },
+  },
   '& .MuiSwitch-switchBase': {
-    margin: 1,
-    padding: 0,
-    transform: 'translateX(1px)',
+    padding: 3,
+    // Removes the MUI "halo" (ripple effect) on focus/click
+    '&.Mui-focusVisible': {
+      boxShadow: 'none',
+      background: 'transparent',
+    },
     '&.Mui-checked': {
-      transform: 'translateX(37px)',
-      '& .MuiSwitch-thumb:before': {
-        // --- Checked State: Taiwan Flag (Chinese) ---
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="%23fe0000"/><rect width="450" height="300" fill="%23000095"/><g fill="%23fff" transform="translate(225,150)"><path d="M0-100l13 62 50-37-25 58 61-2l-51 35 44 44-59-20 13 62-37-50-37 50 13-62-59 20 44-44-51-35 61 2-25-58 50 37z"/><circle r="43.75"/></g></svg>')`,
-      },
+      transform: 'translateX(40px)',
+      color: '#fff',
       '& + .MuiSwitch-track': {
-        backgroundColor: 'transparent !important',
-        '&::before': {
-          display: 'block', // Show ZH when checked (On)
-        },
-        '&::after': {
-          display: 'none', // Hide EN when checked (On)
-        },
+        opacity: 1,
+        backgroundColor: '#f2f2ea',
+      },
+      '& .MuiSwitch-thumb': {
+        filter: 'saturate(0.75) brightness(0.9) contrast(1)',
+        // Taiwan Flag
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="%23fe0000"/><rect width="450" height="300" fill="%23000095"/><g fill="%23fff" transform="translate(225,150)"><path d="M0-100l13 62 50-37-25 58 61-2l-51 35 44 44-59-20 13 62-37-50-37 50 13-62-59 20 44-44-51-35 61 2-25-58 50 37z"/><circle r="43.75"/></g></svg>')`,
       },
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: 'transparent',
-    width: 32,
-    height: 32,
-    '&::before': {
-      content: "''",
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      left: 0,
-      top: 0,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      borderRadius: '50%',
-      filter: 'saturate(0.8) brightness(1)',
-      transition: theme.transitions.create(['filter'], {
-        duration: 500,
-      }),
-      boxShadow: `
-        inset 0 2px 3px rgba(255, 255, 255, 0.4),
-        inset 0 -3px 5px rgba(0, 0, 0, 0.4),
-        0 3px 6px rgba(0, 0, 0, 0.3)
-      `,
-      // --- Unchecked State: UK Flag (English) ---
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><clipPath id="t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="%2300247d"/><path d="M0,0l60,30m0-30l-60,30" stroke="%23fff" stroke-width="6"/><path d="M0,0l60,30m0-30l-60,30" clip-path="url(%23t)" stroke="%23cf142b" stroke-width="4"/><path d="M30,0v30m-30-15h60" stroke="%23fff" stroke-width="10"/><path d="M30,0v30m-30-15h60" stroke="%23cf142b" stroke-width="6"/></svg>')`,
-    },
+    // Matte Shadow
+    boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.25)',
+    width: 34,
+    height: 34,
+    borderRadius: '50%',
+    transition: theme.transitions.create(['width', 'transform'], {
+      duration: 200,
+    }),
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    filter: 'saturate(0.9) contrast(1)',
+
+    // UK Flag
+    backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><clipPath id="t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="%2300247d"/><path d="M0,0l60,30m0-30l-60,30" stroke="%23fff" stroke-width="6"/><path d="M0,0l60,30m0-30l-60,30" clip-path="url(%23t)" stroke="%23cf142b" stroke-width="4"/><path d="M30,0v30m-30-15h60" stroke="%23fff" stroke-width="10"/><path d="M30,0v30m-30-15h60" stroke="%23cf142b" stroke-width="6"/></svg>')`,
   },
   '& .MuiSwitch-track': {
-    backgroundColor: 'transparent !important', // Force transparency
-    opacity: '1 !important',
+    borderRadius: 40,
+    opacity: 1,
+    backgroundColor: '#f2f2ea',
+    boxSizing: 'border-box',
+    // Matte Inset
+    boxShadow: 'inset 0px 1px 4px rgba(0,0,0,0.15)',
     position: 'relative',
+
+    // Text Labels
     '&::before, &::after': {
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
-      fontSize: 16,
+      fontSize: '0.85rem',
       fontWeight: 800,
-      fontFamily: 'Chiron GoRound TC, Noto Sans, sans-serif',
+      fontFamily: '"Chiron GoRound TC", "Varela Round", sans-serif',
+      zIndex: 0,
+      opacity: 0,
+      transition: 'opacity 0.2s ease-in-out',
+      pointerEvents: 'none',
+      userSelect: 'none',
     },
+
+    // "中文" Label
     '&::before': {
       content: '"中文"',
-      color: theme.palette.primary.main,
-      fontWeight: 800,
-      left: -2,
-      display: 'none', // Show ZH when unchecked (Off)
+      color: '#00247d',
+      left: 10,
+      textShadow: '0px 1px 0px rgba(255,255,255,0.6)',
     },
+
+    // "EN" Label
     '&::after': {
       content: '"EN"',
-      color: indigo[700],
-      right: 4,
-      display: 'block', // Hide EN when unchecked (Off)
+      color: '#cf142b',
+      right: 12,
+      textShadow: '0px 1px 0px rgba(255,255,255,0.6)',
+      opacity: 1,
     },
   },
-  '@media (hover: hover)': {
-    '&:hover': {
-      '& .MuiSwitch-thumb:before': {
-        filter: 'saturate(1) brightness(1)',
-      },
-    },
+
+  '& .Mui-checked + .MuiSwitch-track': {
+    '&::before': { opacity: 1 },
+    '&::after': { opacity: 0 },
   },
 }))
 
