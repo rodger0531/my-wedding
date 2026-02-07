@@ -7,33 +7,33 @@ import { useLanguage } from 'src/hooks/useLanguage'
 
 const WEDDING_DATE = new Date('2026-04-18T15:00:00')
 
+const CONTAINER_VARIANTS = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+const CHILD_VARIANTS = {
+  hidden: { opacity: 0, y: 15, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { type: 'spring' as const, damping: 15, stiffness: 100 },
+  },
+}
+
 const CountDown = () => {
   const { t, i18n } = useTranslation()
   const { isEnglish } = useLanguage()
 
   const text = t('landing.title.countingDays')
   const words = isEnglish ? text.split(' ') : text.split('')
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 15, filter: 'blur(8px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: { type: 'spring' as const, damping: 15, stiffness: 100 },
-    },
-  }
 
   return (
     <Grid
@@ -43,7 +43,7 @@ const CountDown = () => {
       direction="column"
     >
       <motion.div
-        variants={containerVariants}
+        variants={CONTAINER_VARIANTS}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }} // Trigger once when 50% visible
@@ -66,7 +66,7 @@ const CountDown = () => {
           {words.map((word, index) => (
             <motion.span
               key={index}
-              variants={childVariants}
+              variants={CHILD_VARIANTS}
               style={{
                 display: 'inline-block',
                 marginRight: isEnglish ? '0.25em' : '0px',
