@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container'
-import React from 'react'
+import { useEffect } from 'react'
 import BottomNavbar from 'src/components/BottomNavBar'
 import Divider from 'src/components/Divider'
 import AttireGuide from './AttireGuide'
@@ -14,8 +14,20 @@ import SaveTheDate from './SaveTheDate'
 import Timeline from './Timeline'
 
 const LandingPage = () => {
-  React.useEffect(() => {
+  useEffect(() => {
+    // Tell browser to stop handling scroll restoration, prevents animations being played when reloading
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+
     window.scrollTo(0, 0)
+
+    // Restore 'auto' on unmount if needed (usually not for SPA)
+    return () => {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'auto'
+      }
+    }
   }, [])
 
   return (
