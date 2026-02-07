@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Couple from 'src/assets/couple2.svg'
+import OurName from 'src/components/OurName'
 import StyledImage from 'src/components/StyledImage'
-import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const Greetings = () => {
@@ -70,16 +70,7 @@ const Greetings = () => {
           ease: 'easeOut',
         }}
       >
-        <Typography
-          align="center"
-          sx={{
-            fontFamily: Fonts.EnglishHandwriting,
-            fontSize: { xs: '4rem', sm: '6rem' },
-            textShadow: '2px 2px 4px rgba(0,0,0,0.05)',
-          }}
-        >
-          Rodger & Claire
-        </Typography>
+        <OurName />
       </motion.div>
     </>
   )

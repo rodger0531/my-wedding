@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import FooterImage from 'src/assets/footer_frame.png'
+import OurName from 'src/components/OurName'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
@@ -29,9 +30,7 @@ const Footer = () => {
           {t('landing.footerMsg')}
         </Typography>
       </Grid>
-      <Typography variant="h1" align="center" sx={{ fontFamily: 'titleFont' }}>
-        Rodger & Claire
-      </Typography>
+      <OurName />
     </Stack>
   )
 }
