@@ -5,6 +5,7 @@ import { m, type Easing } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
+import Couple from 'src/assets/couple2.svg'
 import HandsImage from 'src/assets/welcome_hands.svg'
 import TitleImage from 'src/assets/welcome_title.svg'
 import OurName from 'src/components/OurName'
@@ -79,7 +80,16 @@ const Welcome = () => {
       await import('src/pages/LandingPage')
     }
 
+    // Preload large images here.
+    const preloadImages = async () => {
+      ;[Couple].forEach((src) => {
+        const img = new Image()
+        img.src = src
+      })
+    }
+
     preloadLanding()
+    preloadImages()
   }, [])
 
   return (
