@@ -30,6 +30,9 @@
     "button": "回到派對現場！",
     "navigating": "正在導航..."
   },
+  "loading": {
+    "message": "正在邀請愛情..."
+  },
   "weddingDetails": [
     {
       "title": "交通資訊",

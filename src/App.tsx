@@ -12,6 +12,7 @@ import { Colours } from 'src/constants/colour.ts'
 import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
 import Welcome from 'src/pages/Welcome.tsx'
+import Loading from './pages/Loading'
 
 import 'src/styles/animations.css'
 import 'src/styles/base.css'
@@ -69,7 +70,7 @@ const App = () => {
   }, [isEnglish])
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <LazyMotion features={domAnimation} strict>
@@ -79,6 +80,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
               <Route path="/" element={<Welcome />} />
               <Route path="main" element={<LandingPage />} />
+              <Route path="loading" element={<Loading />} />
             </Routes>
           </BrowserRouter>
         </LazyMotion>

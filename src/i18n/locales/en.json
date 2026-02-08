@@ -30,6 +30,9 @@
     "button": "Back to the party!",
     "navigating": "Navigating..."
   },
+  "loading": {
+    "message": "Inviting love..."
+  },
   "weddingDetails": [
     {
       "title": "Transportation",
