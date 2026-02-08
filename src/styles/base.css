@@ -12,6 +12,10 @@
   font-style: normal;
 }
 
+html {
+  background-color: #f0e0c3; /* Match the plasterboard texture before loaded*/
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -22,7 +26,6 @@
 body {
   background-image: url('src/assets/plasterboard-texture-medium.webp');
   background-repeat: repeat;
-  background-color: #f0e0c3 !important; /* Match the plasterboard texture before loaded*/
 }
 
 .wedding-red {
