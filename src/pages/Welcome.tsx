@@ -76,16 +76,12 @@ const Welcome = () => {
 
   useEffect(() => {
     // Preload landing page
-    const preloadLanding = async () => {
-      await import('src/pages/LandingPage')
-    }
+    const preloadLanding = () => import('src/pages/LandingPage')
 
-    // Preload large images here.
-    const preloadImages = async () => {
-      ;[Couple].forEach((src) => {
-        const img = new Image()
-        img.src = src
-      })
+    // Preload large images
+    const preloadImages = () => {
+      const img = new Image()
+      img.src = Couple
     }
 
     preloadLanding()
