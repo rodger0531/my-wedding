@@ -12,9 +12,10 @@ const HalimumTitle = ({ children, sx, ...props }: TypographyProps) => {
       mt={isEnglish ? 0 : -2}
       sx={{
         fontSize: {
-          xs: isEnglish ? '1.75rem' : '2.5rem',
+          xs: isEnglish ? '1.75rem' : '3rem',
           sm: isEnglish ? '3rem' : '5rem',
         },
+        fontWeight: isEnglish ? 'bold' : 'normal',
         ...sx,
       }}
       {...props}
