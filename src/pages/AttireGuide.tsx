@@ -18,7 +18,7 @@ const CONTAINER_VARIANTS = {
     opacity: 1,
     transition: {
       staggerChildren: 0.3,
-      delayChildren: 0.2,
+      delayChildren: 0.1,
     },
   },
 }
@@ -74,7 +74,7 @@ const AttireGuide = () => {
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       {/* Title */}
       <m.div variants={FADE_UP_VARIANTS}>
