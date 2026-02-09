@@ -6,7 +6,7 @@ import Font from 'vite-plugin-font'
 // https://vite.dev/config/
 export default defineConfig(() => ({
   // base: command === 'build' ? '/my-wedding/' : '/', // For github pages deployment
-  base: '/', // For github pages deployment
+  base: '/',
   plugins: [
     react(),
     Font.vite({
