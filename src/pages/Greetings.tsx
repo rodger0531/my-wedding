@@ -12,7 +12,7 @@ const Greetings = () => {
 
   return (
     <>
-      <Grid>
+      <Grid key={i18n.language}>
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,22 +20,61 @@ const Greetings = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <Typography
-            key={i18n.language}
             className="flip-animate"
-            variant="h3"
+            align="center"
+            sx={{
+              position: 'relative',
+              fontFamily: 'subtitleFont',
+              fontWeight: 600,
+              letterSpacing: isEnglish ? 0 : 3,
+              fontSize: {
+                xs: isEnglish ? '2rem' : '1.5rem',
+                sm: isEnglish ? '3rem' : '2rem',
+              },
+              lineHeight: {
+                xs: isEnglish ? 0.9 : 1.2,
+                sm: isEnglish ? 1 : 1.6,
+              },
+              mx: 4,
+              my: 1,
+              '&::before': {
+                position: 'absolute',
+                fontFamily: 'serif',
+                content: '"“"',
+                color: 'text.primary',
+                fontSize: { xs: '5rem', sm: '6rem' },
+                opacity: 0.6,
+                lineHeight: 0,
+                verticalAlign: 'bottom',
+                top: { xs: '0rem', sm: '0.5rem' },
+                left: {
+                  xs: isEnglish ? '-0.3rem' : '-1rem',
+                  sm: isEnglish ? '-1rem' : '-2rem',
+                },
+              },
+            }}
+          >
+            {t('landing.greetingMsg1')}
+          </Typography>
+          <Typography
+            className="flip-animate"
             align="center"
             sx={{
               fontFamily: 'subtitleFont',
               letterSpacing: isEnglish ? 0 : 3,
+              fontSize: {
+                xs: isEnglish ? '1.7rem' : '1.2rem',
+                sm: isEnglish ? '2.5rem' : '1.6rem',
+              },
               lineHeight: {
-                xs: isEnglish ? 1 : 1.2,
-                sm: isEnglish ? 1 : 1.6,
+                xs: isEnglish ? 0.8 : 1.2,
+                sm: isEnglish ? 0.8 : 1.6,
               },
               m: 4,
-              mt: 1,
+              mt: 0,
             }}
           >
-            {t('landing.greetingMsg')}
+            {t('landing.greetingMsg2')}
           </Typography>
         </m.div>
       </Grid>
