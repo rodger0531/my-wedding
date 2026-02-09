@@ -6,6 +6,7 @@ import Divider from 'src/components/Divider'
 import CountDown from './CountDown'
 import Greetings from './Greetings'
 import SaveTheDate from './SaveTheDate'
+import WeddingShoots from './WeddingShoots'
 
 const Location = lazy(() => import('./Location'))
 const Timeline = lazy(() => import('./Timeline'))
@@ -85,6 +86,15 @@ const LandingPage = () => {
         }
       >
         <LoveStory />
+      </Suspense>
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <WeddingShoots />
+          </Skeleton>
+        }
+      >
+        <WeddingShoots />
       </Suspense>
       <Divider my={5} />
       <Suspense
