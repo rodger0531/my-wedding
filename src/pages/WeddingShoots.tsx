@@ -49,7 +49,7 @@ const WeddingShoots = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      sx={{ width: '100%', py: 2, overflowX: 'hidden' }}
+      sx={{ width: '100%', py: 2, overflow: 'hidden' }}
     >
       <Box sx={{ position: 'relative', width: '100%', mb: 4 }}>
         <m.div
