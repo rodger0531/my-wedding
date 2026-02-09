@@ -1,4 +1,5 @@
 html {
+  height: 100%;
   background-color: #f0e0c3; /* Match the plasterboard texture before loaded*/
   background-image: url('src/assets/plasterboard-texture-medium.webp');
   background-repeat: repeat;
