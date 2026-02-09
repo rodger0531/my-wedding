@@ -16,8 +16,12 @@ import Loading from './pages/Loading'
 
 import 'src/styles/animations.css'
 import 'src/styles/base.css'
+import 'src/styles/fonts.css'
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
 import 'src/assets/fonts/chinese-handwriting.ttf'
+import 'src/assets/fonts/chiron-goround-tc-v3-chinese-traditional_latin-700.ttf'
+import 'src/assets/fonts/dongle-v16-latin-700.ttf'
+import 'src/assets/fonts/dongle-v16-latin-regular.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
 import 'src/assets/fonts/honya.ttf'
 
