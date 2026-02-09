@@ -55,6 +55,8 @@ const Greetings = () => {
           <StyledImage
             src={Couple}
             alt="Couple"
+            fetchPriority="high"
+            loading="eager"
             sx={{ width: { xs: '350px', sm: '500px' } }}
           />
         </m.div>
