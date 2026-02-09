@@ -2,7 +2,6 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import Couple from 'src/assets/couple.svg'
 import OurName from 'src/components/OurName'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
@@ -53,10 +52,8 @@ const Greetings = () => {
           }}
         >
           <StyledImage
-            src={Couple}
+            src={`${import.meta.env.BASE_URL}couple.svg`}
             alt="Couple"
-            fetchPriority="high"
-            loading="eager"
             sx={{ width: { xs: '350px', sm: '500px' } }}
           />
         </m.div>
