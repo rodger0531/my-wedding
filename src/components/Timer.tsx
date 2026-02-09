@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import { useTimer } from 'react-timer-hook'
+import { useLanguage } from 'src/hooks/useLanguage'
 
 const FONT_SIZE = '5rem'
 const MOBILE_FONT_SIZE = '3rem'
@@ -35,6 +36,7 @@ const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
 
 const Numbers = ({ value, label }: { value: number; label: string }) => {
   const { i18n } = useTranslation()
+  const { isEnglish } = useLanguage()
   return (
     <Grid>
       <Typography variant="subtitle1" fontWeight="bold" px={{ xs: 1, sm: 4 }}>
@@ -43,7 +45,12 @@ const Numbers = ({ value, label }: { value: number; label: string }) => {
       <Typography
         key={i18n.language}
         className="flip-animate"
-        sx={{ typography: { xs: 'body1', sm: 'h5' } }}
+        sx={{
+          fontSize: {
+            xs: isEnglish ? '1.2rem' : '1.3rem',
+            sm: '2rem',
+          },
+        }}
       >
         {label}
       </Typography>

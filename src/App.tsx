@@ -53,7 +53,7 @@ const getTheme = (isEnglish: boolean) =>
         fontSize: isEnglish ? '3rem' : '2rem',
       },
       h4: {
-        fontSize: isEnglish ? '2rem' : '1.5rem',
+        fontSize: isEnglish ? '2.5rem' : '1.5rem',
       },
       subtitle1: {
         fontSize: '5rem',

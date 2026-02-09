@@ -129,8 +129,14 @@ const AttireGuide = () => {
       <m.div variants={FADE_UP_VARIANTS}>
         <Typography
           variant="h4"
-          {...(isEnglish ? {} : { lineHeight: 1.75 })}
-          sx={{ fontFamily: 'subtitleFont', textAlign: 'center' }}
+          sx={{
+            fontFamily: 'subtitleFont',
+            lineHeight: {
+              xs: isEnglish ? 1 : 1.5,
+              sm: isEnglish ? 1.1 : 1.5,
+            },
+            textAlign: 'center',
+          }}
         >
           {t('landing.attireGuideMsg')}
         </Typography>

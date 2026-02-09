@@ -45,9 +45,15 @@ const Title = ({ title }: { title: string }) => {
 
   return (
     <Typography
-      variant="h1"
       fontFamily="titleFont"
-      letterSpacing={isEnglish ? 'normal' : 7}
+      sx={{
+        fontSize: {
+          xs: isEnglish ? '3.5rem' : '2rem',
+          sm: isEnglish ? '4.5rem' : '2.5rem',
+        },
+        lineHeight: isEnglish ? 1.5 : 1.3,
+        letterSpacing: isEnglish ? 'normal' : 7,
+      }}
       mb={isEnglish ? 0 : 3}
     >
       {title}
@@ -61,9 +67,14 @@ const Content = ({ content }: { content: string }) => {
   return (
     <Typography
       variant="h4"
-      {...(isEnglish ? {} : { lineHeight: 2 })}
       align="left"
-      sx={{ fontFamily: 'subtitleFont' }}
+      sx={{
+        fontFamily: 'subtitleFont',
+        lineHeight: {
+          xs: isEnglish ? 1 : 1.5,
+          sm: isEnglish ? 1.1 : 1.5,
+        },
+      }}
       mb={isEnglish ? 0 : 6}
     >
       {content}

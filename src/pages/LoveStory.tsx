@@ -107,7 +107,7 @@ const LoveStory = () => {
           <StyledImage
             src={HeartImage}
             alt="Heart"
-            sx={{ width: { xs: 100, sm: 150 }, mt: 5 }}
+            sx={{ width: { xs: 100, sm: 150 }, mt: 2, mb: 4 }}
           />
         </m.div>
       </Box>
@@ -163,7 +163,7 @@ const TextBox = ({
         align="left"
         fontFamily="subtitleFont"
         sx={{
-          lineHeight: { xs: isEnglish ? 1 : 1.5, sm: isEnglish ? 0.8 : 1.5 },
+          lineHeight: { xs: isEnglish ? 0.9 : 1.5, sm: isEnglish ? 0.8 : 1.5 },
           fontSize: {
             xs: isEnglish ? '1.5rem' : '1rem',
             sm: isEnglish ? '3rem' : '1.75rem',

@@ -63,9 +63,9 @@ const CountDown = () => {
             justifyContent: 'center',
           }}
         >
-          {words.map((word, index) => (
+          {words.map((word) => (
             <m.span
-              key={index}
+              key={word}
               variants={CHILD_VARIANTS}
               style={{
                 display: 'inline-block',
