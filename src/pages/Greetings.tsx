@@ -28,8 +28,8 @@ const Greetings = () => {
               fontFamily: 'subtitleFont',
               letterSpacing: isEnglish ? 0 : 3,
               lineHeight: {
-                xs: isEnglish ? 1.2 : 1.6,
-                sm: isEnglish ? 1.2 : 1.9,
+                xs: isEnglish ? 1 : 1.2,
+                sm: isEnglish ? 1 : 1.6,
               },
               m: 4,
               mt: 1,
