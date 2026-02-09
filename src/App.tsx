@@ -12,11 +12,13 @@ import { Colours } from 'src/constants/colour.ts'
 import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
 import Welcome from 'src/pages/Welcome.tsx'
+import { AnalyticsTracker } from './firebase/AnalyticsTracker'
 import Loading from './pages/Loading'
 
 import 'src/styles/animations.css'
 import 'src/styles/base.css'
 import 'src/styles/fonts.css'
+
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
 import 'src/assets/fonts/chiron-goround-tc-v3-chinese-traditional_latin-700.ttf'
 import 'src/assets/fonts/dongle-v16-latin-700.ttf'
@@ -24,7 +26,6 @@ import 'src/assets/fonts/dongle-v16-latin-regular.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
 import 'src/assets/fonts/honya.ttf'
 import 'src/assets/fonts/lihsianti.ttf'
-import { AnalyticsTracker } from './firebase/AnalyticsTracker'
 
 const LandingPage = lazy(() => import('src/pages/LandingPage'))
 const NotFound = lazy(() => import('src/pages/NotFound'))
