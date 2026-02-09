@@ -1,17 +1,19 @@
 import Container from '@mui/material/Container'
-import { useEffect } from 'react'
+import Skeleton from '@mui/material/Skeleton'
+import { lazy, Suspense, useEffect } from 'react'
 import BottomNavbar from 'src/components/BottomNavBar'
 import Divider from 'src/components/Divider'
-import AttireGuide from './AttireGuide'
 import CountDown from './CountDown'
-import Details from './Details'
-import Footer from './Footer'
 import Greetings from './Greetings'
-import Location from './Location'
-import LoveStory from './LoveStory'
-import Rsvp from './Rsvp'
 import SaveTheDate from './SaveTheDate'
-import Timeline from './Timeline'
+
+const Location = lazy(() => import('./Location'))
+const Timeline = lazy(() => import('./Timeline'))
+const Details = lazy(() => import('./Details'))
+const AttireGuide = lazy(() => import('./AttireGuide'))
+const LoveStory = lazy(() => import('./LoveStory'))
+const Rsvp = lazy(() => import('./Rsvp'))
+const Footer = lazy(() => import('./Footer'))
 
 const LandingPage = () => {
   useEffect(() => {
@@ -36,17 +38,73 @@ const LandingPage = () => {
       <Divider mb={5} />
       <CountDown />
       <SaveTheDate />
-      <Location />
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <Location />
+          </Skeleton>
+        }
+      >
+        <Location />
+      </Suspense>
       <Divider my={5} sx={{ transform: 'scaleX(-1)' }} />
-      <Timeline />
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <Timeline />
+          </Skeleton>
+        }
+      >
+        <Timeline />
+      </Suspense>
       <Divider my={5} sx={{ transform: 'scale(-1, -1)' }} />
-      <Details />
-      <AttireGuide />
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <Details />
+          </Skeleton>
+        }
+      >
+        <Details />
+      </Suspense>
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <AttireGuide />
+          </Skeleton>
+        }
+      >
+        <AttireGuide />
+      </Suspense>
       <Divider my={5} />
-      <LoveStory />
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <LoveStory />
+          </Skeleton>
+        }
+      >
+        <LoveStory />
+      </Suspense>
       <Divider my={5} />
-      <Rsvp />
-      <Footer />
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <Rsvp />
+          </Skeleton>
+        }
+      >
+        <Rsvp />
+      </Suspense>
+      <Suspense
+        fallback={
+          <Skeleton variant="rectangular">
+            <Footer />
+          </Skeleton>
+        }
+      >
+        <Footer />
+      </Suspense>
       {import.meta.env.DEV && <BottomNavbar />}
     </Container>
   )
