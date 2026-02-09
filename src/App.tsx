@@ -24,6 +24,7 @@ import 'src/assets/fonts/dongle-v16-latin-regular.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
 import 'src/assets/fonts/honya.ttf'
 import 'src/assets/fonts/lihsianti.ttf'
+import { AnalyticsTracker } from './firebase/AnalyticsTracker'
 
 const LandingPage = lazy(() => import('src/pages/LandingPage'))
 const NotFound = lazy(() => import('src/pages/NotFound'))
@@ -79,6 +80,7 @@ const App = () => {
         <CssBaseline />
         <LazyMotion features={domAnimation} strict>
           <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <AnalyticsTracker />
             <Header />
             <Routes>
               <Route path="*" element={<NotFound />} />

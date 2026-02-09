@@ -1,22 +1,22 @@
 import type { Analytics } from 'firebase/analytics'
-import type { FirebasePerformance } from 'firebase/performance'
 import { app } from './config'
 
-let analytics: Analytics | undefined
-let perf: FirebasePerformance | undefined
+let analyticsInstance: Analytics | null = null
 
-export async function initFirebaseMetrics() {
-  if (typeof window === 'undefined') return
+export async function getAnalyticsInstance() {
+  if (typeof window === 'undefined') return null
 
-  if (!analytics) {
-    const { getAnalytics } = await import('firebase/analytics')
-    analytics = getAnalytics(app)
+  if (!import.meta.env.PROD) return null
+
+  if (!analyticsInstance) {
+    try {
+      const { getAnalytics } = await import('firebase/analytics')
+      analyticsInstance = getAnalytics(app)
+    } catch (error) {
+      console.error('Failed to initialize Firebase Analytics:', error)
+      return null
+    }
   }
 
-  if (!perf) {
-    const { getPerformance } = await import('firebase/performance')
-    perf = getPerformance(app)
-  }
-
-  return { analytics, perf }
+  return analyticsInstance
 }
