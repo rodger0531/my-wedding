@@ -48,11 +48,11 @@ const Title = ({ title }: { title: string }) => {
       fontFamily="titleFont"
       sx={{
         fontSize: {
-          xs: isEnglish ? '3.5rem' : '2rem',
+          xs: isEnglish ? '3.5rem' : '1.7rem',
           sm: isEnglish ? '4.5rem' : '2.5rem',
         },
         lineHeight: isEnglish ? 1.5 : 1.3,
-        letterSpacing: isEnglish ? 'normal' : 7,
+        letterSpacing: isEnglish ? -3 : 0,
       }}
       mb={isEnglish ? 0 : 3}
     >
@@ -71,7 +71,7 @@ const Content = ({ content }: { content: string }) => {
       sx={{
         fontFamily: 'subtitleFont',
         lineHeight: {
-          xs: isEnglish ? 1 : 1.5,
+          xs: isEnglish ? 0.9 : 1.5,
           sm: isEnglish ? 1.1 : 1.5,
         },
       }}

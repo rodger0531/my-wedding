@@ -46,6 +46,7 @@ const Numbers = ({ value, label }: { value: number; label: string }) => {
         key={i18n.language}
         className="flip-animate"
         sx={{
+          fontFamily: 'subtitleFont',
           fontSize: {
             xs: isEnglish ? '1.2rem' : '1.3rem',
             sm: '2rem',

@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { m, type Easing } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import AttireImage from 'src/assets/attire.svg'
 import Colour1 from 'src/assets/colour_1.png'
 import Colour2 from 'src/assets/colour_2.png'
@@ -75,6 +75,7 @@ const AttireGuide = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
+      px={2}
     >
       {/* Title */}
       <m.div variants={FADE_UP_VARIANTS}>
@@ -138,7 +139,11 @@ const AttireGuide = () => {
             textAlign: 'center',
           }}
         >
-          {t('landing.attireGuideMsg')}
+          <Trans
+            i18nKey="landing.attireGuideMsg"
+            components={{ 1: <strong /> }}
+          />
+          {/* {t('landing.attireGuideMsg')} */}
         </Typography>
       </m.div>
     </Grid>
