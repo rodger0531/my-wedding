@@ -61,11 +61,11 @@ const Footer = () => {
             sx={{
               fontFamily: 'subtitleFont',
               fontSize: {
-                xs: isEnglish ? '2rem' : '1.5rem',
+                xs: isEnglish ? '2rem' : '1.3rem',
                 sm: isEnglish ? '2.5rem' : '1.5rem',
               },
               lineHeight: {
-                xs: isEnglish ? 1 : 1.5,
+                xs: isEnglish ? 0.8 : 1.2,
                 sm: isEnglish ? 0.8 : 1.6,
               },
               px: { xs: 2, sm: 4 },

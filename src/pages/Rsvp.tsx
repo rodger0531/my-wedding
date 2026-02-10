@@ -77,9 +77,18 @@ const Rsvp = () => {
       >
         <Typography
           variant="h3"
-          {...(isEnglish ? {} : { lineHeight: 1.5 })}
           align="center"
-          sx={{ fontFamily: 'subtitleFont' }}
+          sx={{
+            fontFamily: 'subtitleFont',
+            fontSize: {
+              xs: isEnglish ? '2rem' : '1.5rem',
+              sm: isEnglish ? '2.5rem' : '1.8rem',
+            },
+            lineHeight: {
+              xs: isEnglish ? 0.8 : 1.2,
+              sm: isEnglish ? 0.8 : 1.5,
+            },
+          }}
         >
           {t('landing.rsvpMsg')}
         </Typography>

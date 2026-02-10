@@ -48,7 +48,7 @@ const Greetings = () => {
                 verticalAlign: 'bottom',
                 top: { xs: '0rem', sm: '0.5rem' },
                 left: {
-                  xs: isEnglish ? '-1rem' : '-1rem',
+                  xs: '-1rem',
                   sm: isEnglish ? '-1rem' : '-2rem',
                 },
               },
