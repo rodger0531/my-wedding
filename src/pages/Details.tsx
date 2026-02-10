@@ -5,10 +5,8 @@ import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
 import { Trans, useTranslation } from 'react-i18next'
 import HalimumTitle from 'src/components/HalimumTitle'
+import { LocationURL } from 'src/constants/location'
 import { useLanguage } from 'src/hooks/useLanguage'
-
-const CIAOTAO_STATION_MAP_URL = 'https://maps.app.goo.gl/nLe8zdD5hJNWwwTb7'
-const PARKING_MAP_URL = 'https://maps.app.goo.gl/kcbRStqNpmZXbV428'
 
 const CATEGORIES = [
   'transportation',
@@ -82,8 +80,8 @@ const Topic = ({ category }: { category: string }) => {
           i18nKey={`weddingDetails.${category}.content`}
           components={{
             1: <strong />,
-            2: <GoogleMapLink url={CIAOTAO_STATION_MAP_URL} />,
-            3: <GoogleMapLink url={PARKING_MAP_URL} />,
+            2: <GoogleMapLink url={LocationURL.CiaoTaoStation} />,
+            3: <GoogleMapLink url={LocationURL.ParkingLot} />,
           }}
         />
       </Typography>

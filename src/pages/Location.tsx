@@ -8,9 +8,8 @@ import LocationImage from 'src/assets/location.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
 import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
+import { LocationURL } from 'src/constants/location'
 import { useLanguage } from 'src/hooks/useLanguage'
-
-const LOCATION_URL = 'https://maps.app.goo.gl/qndacHT54qtPDGMs9'
 
 const SonarPin = () => (
   <Box
@@ -147,7 +146,7 @@ const Location = () => {
       >
         <StyledButton
           component="a"
-          href={LOCATION_URL}
+          href={LocationURL.R23Park}
           startIcon={<SonarPin />}
         >
           {t('landing.mapButton')}
