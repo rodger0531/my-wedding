@@ -1,85 +1,125 @@
+import LocationPinIcon from '@mui/icons-material/LocationPin'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
+import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import HalimumTitle from 'src/components/HalimumTitle'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-type Topic = {
-  title: string
-  content: string
-}
+const CIAOTAO_STATION_MAP_URL = 'https://maps.app.goo.gl/nLe8zdD5hJNWwwTb7'
+const PARKING_MAP_URL = 'https://maps.app.goo.gl/kcbRStqNpmZXbV428'
+
+const CATEGORIES = [
+  'transportation',
+  'accommodation',
+  'childrenPolicy',
+  'rsvp',
+  'punctuality',
+]
+/* 
+Can add contacts later:
+    "contact": {
+      "title": "緊急聯絡",
+      "content": "婚禮當天若有任何問題，請聯繫招待總召 [姓名]：[電話]，我們將盡速為您服務。"
+    },
+
+*/
 
 const Details = () => {
   const { t } = useTranslation()
-  const { isEnglish } = useLanguage()
 
   return (
     <Box px={2}>
-      <HalimumTitle mb={isEnglish ? 0 : 2}>
-        {t('landing.title.details')}
-      </HalimumTitle>
-      {(
-        t('weddingDetails', {
-          defaultValue: [],
-          returnObjects: true,
-        }) as Topic[]
-      ).map(({ title, content }) => (
-        <Topic key={title} title={title} content={content} />
-      ))}
+      {/* <Box px={2} sx={{ userSelect: 'none' }}> */}
+      <HalimumTitle mb={4}>{t('landing.title.details')}</HalimumTitle>
+      {CATEGORIES.map((category) => {
+        return <Topic key={category} category={category} />
+      })}
     </Box>
   )
 }
 
-const Topic = ({ title, content }: { title: string; content: string }) => {
+const Topic = ({ category }: { category: string }) => {
+  const { t } = useTranslation()
+  const { isEnglish } = useLanguage()
+
   return (
     <Grid container>
-      <Title title={title} />
-      <Content content={content} />
+      <Typography
+        fontFamily="subtitleFont"
+        align="left"
+        sx={{
+          fontSize: {
+            xs: isEnglish ? '2.3rem' : '1.5rem',
+            sm: isEnglish ? '3rem' : '1.9rem',
+          },
+          lineHeight: { xs: isEnglish ? 0.8 : 1.5, sm: isEnglish ? 0.8 : 1.4 },
+        }}
+        mb={1}
+      >
+        {t(`weddingDetails.${category}.title`)}
+      </Typography>
+      <Typography
+        variant="h4"
+        align="left"
+        sx={{
+          fontFamily: 'subtitleFont',
+          fontSize: {
+            xs: isEnglish ? '1.7rem' : '1.1rem',
+            sm: isEnglish ? '2.1rem' : '1.4rem',
+          },
+          lineHeight: {
+            xs: isEnglish ? 0.8 : 1.3,
+            sm: isEnglish ? 0.8 : 1.4,
+          },
+          letterSpacing: isEnglish ? 0 : '0.02em',
+          whiteSpace: 'pre-line',
+        }}
+        mb={4}
+      >
+        <Trans
+          i18nKey={`weddingDetails.${category}.content`}
+          components={{
+            1: <strong />,
+            2: <GoogleMapLink url={CIAOTAO_STATION_MAP_URL} />,
+            3: <GoogleMapLink url={PARKING_MAP_URL} />,
+          }}
+        />
+      </Typography>
     </Grid>
   )
 }
 
-const Title = ({ title }: { title: string }) => {
-  const { isEnglish } = useLanguage()
-
-  return (
-    <Typography
-      fontFamily="titleFont"
-      sx={{
-        fontSize: {
-          xs: isEnglish ? '3.5rem' : '1.7rem',
-          sm: isEnglish ? '4.5rem' : '2.5rem',
-        },
-        lineHeight: isEnglish ? 1.5 : 1.3,
-        letterSpacing: isEnglish ? -3 : 0,
-      }}
-      mb={isEnglish ? 0 : 3}
-    >
-      {title}
-    </Typography>
-  )
-}
-
-const Content = ({ content }: { content: string }) => {
-  const { isEnglish } = useLanguage()
-
-  return (
-    <Typography
-      variant="h4"
-      align="left"
-      sx={{
-        fontFamily: 'subtitleFont',
-        lineHeight: {
-          xs: isEnglish ? 0.9 : 1.5,
-          sm: isEnglish ? 1.1 : 1.5,
-        },
-      }}
-      mb={isEnglish ? 0 : 6}
-    >
-      {content}
-    </Typography>
-  )
-}
-
 export default Details
+
+const GoogleMapLink: React.FC<{ url: string; children?: React.ReactNode }> = ({
+  url,
+  children,
+}) => {
+  const { isEnglish } = useLanguage()
+
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        position: 'relative',
+        alignItems: 'center',
+        justifyContent: 'center',
+        pl: { xs: '1.2rem', sm: '1.5rem' },
+      }}
+    >
+      <LocationPinIcon
+        sx={{
+          position: 'absolute',
+          left: 0,
+          top: isEnglish ? '0.6em' : 0,
+          fontSize: { xs: '1rem', sm: '1.3rem' },
+        }}
+      />
+      <span>{children}</span>
+    </Link>
+  )
+}

@@ -34,16 +34,28 @@
   "loading": {
     "message": "Loading..."
   },
-  "weddingDetails": [
-    {
-      "title": "Transportation",
-      "content": "Transportation to Ciao Tou Sugar Refinery, Kaohsiung City:\n1. Take the MRT Red Line to Ciao Tou Sugar Refinery Station, then it's about a 5-minute walk to the venue.\n2. If driving, parking is available at the refinery, but spaces are limited. We recommend carpooling or using public transportation.\n3. If you need assistance with transportation arrangements, please let us know in advance."
+  "weddingDetails": {
+    "transportation": {
+      "title": "The 'How to Find Us' Guide (Don't Get Lost!)",
+      "content": "1. <1>MRT</1>: Take the Red Line to <2>Ciaotou Railway Station (R23)</2>. Warning: The 'Ciaotou Sugar Refinery Station'(R22A) is a total trap! Don't fall for it unless you enjoy a 15-minute accidental hike. \n\n2. <1>Driving</1>: Set your GPS to <3>R23 Sugar Warehouse Convention Center Parking lot</3>. However, if you plan on clinking glasses with us, please leave the car at home. We’d much rather see you alive and well tomorrow! \n\n3. <1>Taxi/Uber</1>: Set destination to <3>R23 Sugar Warehouse Convention Center Parking lot</3>. Pro-tip: Pre-book your ride home, otherwise the local mosquitoes will be your only company while you wait for a car in the middle of the night."
     },
-    {
-      "title": "Accommodation",
-      "content": "Accommodation options near Ciao Tou Sugar Refinery, Kaohsiung City:\n1. The refinery offers simple lodging facilities that require advance booking.\n2. Several hotels are nearby, such as Fullon Hotel Kaohsiung and Ciao Tou Business Hotel, approximately 10-15 minutes by car.\n3. We recommend booking early to secure accommodation, especially since demand is high on the wedding day."
+    "accommodation": {
+      "title": "The 'Where to Crash' Situation",
+      "content": "As much as we love the warehouse vibe, sleeping on the floor isn't an option. Since there are no hotels next door, we suggest staying near the <1>'Kaohsiung Arena Station'(R14)</1> (Ju Dan). It’s a foodie paradise and only 30 minutes away from the party!"
+    },
+    "childrenPolicy": {
+      "title": "A Mandatory Night Off for Parents",
+      "content": "We love your little ones, but we’ve decided to host an 'Adults-Only' celebration. Consider this your official excuse to drop the baby bottles, pick up a cocktail, and enjoy a night of zero screaming—except, of course, for the shouting on the dance floor!"
+    },
+    "rsvp": {
+      "title": "RSVP",
+      "content": "Organizing the seating chart is like a high-stakes game of Tetris. To keep us from crashing, please reply by <1>February 28th</1>. As seats are limited to the exact person, we unfortunately cannot accommodate 'surprise guests' (+1). If you can't make it, let us know early—otherwise, we’ll be stalking your Instagram stories to see what you were doing instead!"
+    },
+    "punctuality": {
+      "title": "Early Birds Get the Booze!",
+      "content": "The 'I Dos' start at 4:00 PM sharp. We recommend arriving by 3:45 PM to snag a seat and a drink. Latecomers who sneak in during the ceremony might be asked to perform a solo dance on stage—you’ve been warned!"
     }
-  ],
+  },
   "loveStory": [
     {
       "year": "2019",
