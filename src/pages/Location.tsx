@@ -130,8 +130,10 @@ const Location = () => {
       <m.div variants={ITEM_VARIANTS}>
         <Typography
           variant="h3"
-          letterSpacing={isEnglish ? 0 : 4}
           align="center"
+          letterSpacing={isEnglish ? 0 : 4}
+          lineHeight={{ xs: isEnglish ? 0.8 : 1.5, sm: isEnglish ? 1.2 : 1.3 }}
+          mt={{ xs: 0, sm: isEnglish ? -3 : 0 }}
           mb={2}
           sx={{ fontFamily: 'subtitleFont' }}
         >
