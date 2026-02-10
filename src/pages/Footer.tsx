@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography'
 import { m, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import FooterImage from 'src/assets/footer_image.webp'
-import OurName from 'src/components/OurName'
 import StyledImage from 'src/components/StyledImage'
+import { Fonts } from 'src/constants/fonts'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 // Animation Variants
@@ -75,14 +75,75 @@ const Footer = () => {
           </Typography>
         </Grid>
       </Grid>
-      <m.div
-        variants={ITEM_VARIANTS}
-        style={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}
-      >
-        <OurName />
-      </m.div>
+      <NameWave />
     </Stack>
   )
 }
 
 export default Footer
+
+// 1. Entrance Variants (The fade-in and slide-up)
+// Controlled by the parent Stagger
+const ENTRANCE_VARIANTS = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: 'easeOut' as Easing },
+  },
+}
+
+const NameWave = ({ sx = {}, ...props }) => {
+  const name = 'Rodger & Claire'
+  const letters = Array.from(name)
+
+  return (
+    <m.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      // Stagger the entrance of each letter wrapper
+      transition={{ staggerChildren: 0.05 }}
+      style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}
+    >
+      <Typography
+        component="div"
+        align="center"
+        sx={{
+          fontFamily: Fonts.EnglishHandwriting,
+          fontSize: { xs: '4rem', sm: '6rem' },
+          display: 'flex',
+          whiteSpace: 'pre', // Crucial for keeping spaces
+          ...sx,
+        }}
+        {...props}
+      >
+        {letters.map((char, index) => (
+          // WRAPPER SPAN: Handles the one-time Entrance (Slide Up + Fade In)
+          <m.span
+            key={index}
+            variants={ENTRANCE_VARIANTS}
+            style={{ display: 'inline-block' }}
+          >
+            {/* INNER SPAN: Handles the Infinite Wave (Jump Up and Down) */}
+            <m.span
+              animate={{
+                y: [0, -20, 10, 0],
+              }}
+              transition={{
+                duration: 0.4, // Speed of one jump
+                repeat: Infinity,
+                ease: 'easeIn', // Makes the jump look smooth (slow at top/bottom)
+                delay: 1 + index * 0.03, // Wait for entrance to finish, then ripple
+                repeatDelay: 2.5, // Delay before next jump
+              }}
+              style={{ display: 'inline-block' }}
+            >
+              {char}
+            </m.span>
+          </m.span>
+        ))}
+      </Typography>
+    </m.div>
+  )
+}
