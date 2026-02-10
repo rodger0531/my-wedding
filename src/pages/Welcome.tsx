@@ -5,7 +5,6 @@ import { m, type Easing } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import HandsImage from 'src/assets/welcome_hands.svg'
 import TitleImage from 'src/assets/welcome_title.svg'
 import OurName from 'src/components/OurName'
 import StyledButton from 'src/components/StyledButton'
@@ -122,7 +121,7 @@ const Welcome = () => {
             }}
           >
             <StyledImage
-              src={HandsImage}
+              src={`${import.meta.env.BASE_URL}welcome_hands.svg`}
               alt="Holding hands"
               sx={{
                 width: { xs: '300px', sm: '450px' },
