@@ -88,14 +88,13 @@ const Welcome = () => {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      height="90vh"
       sx={{ mt: -5 }}
     >
       <Box
         display="flex"
         flexDirection="column"
         alignItems="center"
-        minHeight="500px"
+        minHeight="400px"
       >
         {/* 1. Title: Floats Down */}
         <m.div variants={FADE_DOWN}>
@@ -167,49 +166,49 @@ const Welcome = () => {
             </Typography>
           </m.div>
         </Box>
-      </Box>
 
-      {/* 5. Button: Fades Up + Heartbeat Shadow Pulse */}
-      <m.div variants={FADE_UP}>
-        <m.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          animate={{
-            boxShadow: [
-              '0px 0px 0px rgba(0,0,0,0)',
-              '0px 4px 20px rgba(0,0,0,0.1)',
-              '0px 0px 0px rgba(0,0,0,0)',
-            ],
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            },
-          }}
-        >
-          <StyledButton
-            variant="contained"
-            sx={{
-              fontSize: isEnglish
-                ? { xs: '2rem', sm: '2.75rem' }
-                : { xs: '1.5rem', sm: '1.75rem' },
-              letterSpacing: isEnglish ? 1.3 : 3,
-              width: { xs: '200px', sm: '300px' },
-              height: { xs: '60px', sm: '60px' },
-              borderRadius: 4,
-              px: 2,
-              mt: 2,
+        {/* 5. Button: Fades Up + Heartbeat Shadow Pulse */}
+        <m.div variants={FADE_UP}>
+          <m.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{
+              boxShadow: [
+                '0px 0px 0px rgba(0,0,0,0)',
+                '0px 4px 20px rgba(0,0,0,0.1)',
+                '0px 0px 0px rgba(0,0,0,0)',
+              ],
             }}
-            onClick={handleOnClick}
+            transition={{
+              boxShadow: {
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+            }}
           >
-            <span key={i18n.language} className="flip-animate">
-              {t('welcomePage.button')}
-            </span>
-          </StyledButton>
+            <StyledButton
+              variant="contained"
+              sx={{
+                fontSize: isEnglish
+                  ? { xs: '2rem', sm: '2.75rem' }
+                  : { xs: '1.5rem', sm: '1.75rem' },
+                letterSpacing: isEnglish ? 1.3 : 3,
+                width: { xs: '200px', sm: '300px' },
+                height: { xs: '60px', sm: '60px' },
+                borderRadius: 4,
+                px: 2,
+                mt: 2,
+              }}
+              onClick={handleOnClick}
+            >
+              <span key={i18n.language} className="flip-animate">
+                {t('welcomePage.button')}
+              </span>
+            </StyledButton>
+          </m.div>
         </m.div>
-      </m.div>
+      </Box>
     </Stack>
   )
 }
