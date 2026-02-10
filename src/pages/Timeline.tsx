@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { motion } from 'framer-motion'
+import { motion, type TargetAndTransition } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import EventsImageEN from 'src/assets/events_en.svg'
 import EventsImageENLarge from 'src/assets/events_en_mobile.svg'
@@ -85,16 +85,20 @@ const ShimmeringLine: React.FC = () => {
         This is a duplicate image sitting exactly on top.
       */}
       <motion.div
-        initial={{
-          // Start with the mask completely off to the left
-          webkitMaskPosition: '150%',
-          maskPosition: '150%',
-        }}
-        whileInView={{
-          // Slide the mask completely to the right
-          webkitMaskPosition: '-150%',
-          maskPosition: '-150%',
-        }}
+        initial={
+          {
+            // Start with the mask completely off to the left
+            WebkitMaskPosition: '150%',
+            maskPosition: '150%',
+          } as TargetAndTransition
+        }
+        whileInView={
+          {
+            // Slide the mask completely to the right
+            WebkitMaskPosition: '-150%',
+            maskPosition: '-150%',
+          } as TargetAndTransition
+        }
         transition={{
           duration: 2.5,
           ease: 'easeIn',
