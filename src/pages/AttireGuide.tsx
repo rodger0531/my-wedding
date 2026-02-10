@@ -104,7 +104,7 @@ const AttireGuide = () => {
         variants={BLOB_CONTAINER_VARIANTS}
       >
         {colours.map((colour, index) => (
-          <Grid key={index} component={m.div} variants={POP_VARIANTS}>
+          <Grid key={colour} component={m.div} variants={POP_VARIANTS}>
             <m.div
               // Interaction: Scales up further and wiggles
               whileHover={{
@@ -143,7 +143,6 @@ const AttireGuide = () => {
             i18nKey="landing.attireGuideMsg"
             components={{ 1: <strong /> }}
           />
-          {/* {t('landing.attireGuideMsg')} */}
         </Typography>
       </m.div>
     </Grid>
