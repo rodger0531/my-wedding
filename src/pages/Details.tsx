@@ -108,6 +108,7 @@ const GoogleMapLink: React.FC<{ url: string; children?: React.ReactNode }> = ({
         position: 'relative',
         alignItems: 'center',
         justifyContent: 'center',
+        fontSize: 'inherit',
         pl: { xs: '1.2rem', sm: '1.5rem' },
       }}
     >
