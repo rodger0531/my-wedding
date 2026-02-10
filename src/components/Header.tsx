@@ -12,7 +12,9 @@ const Header = () => {
   const handleChangeLanguage = ({
     target,
   }: React.ChangeEvent<HTMLInputElement>) => {
-    i18n.changeLanguage(target.checked ? Language.ZH : Language.EN)
+    const lang = target.checked ? Language.ZH : Language.EN
+    localStorage.setItem('i18nextLng', lang)
+    i18n.changeLanguage(lang)
   }
 
   return (
