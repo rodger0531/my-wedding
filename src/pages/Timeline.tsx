@@ -1,38 +1,29 @@
 import Box from '@mui/material/Box'
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import { motion, type TargetAndTransition } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import EventsImageEN from 'src/assets/events_en.svg'
-import EventsImageENLarge from 'src/assets/events_en_mobile.svg'
 import EventsImageZH from 'src/assets/events_zh.svg'
-import EventsImageZHLarge from 'src/assets/events_zh_mobile.svg'
 import TimelineImage from 'src/assets/timeline.svg'
 import HalimumTitle from 'src/components/HalimumTitle'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-const getEventsImg = (isMobile: boolean, isEnglish: boolean) => {
-  if (isMobile) {
-    return isEnglish ? EventsImageENLarge : EventsImageZHLarge
-  }
+const getEventsImg = (isEnglish: boolean) => {
   return isEnglish ? EventsImageEN : EventsImageZH
 }
 
 const Timeline = () => {
   const { t } = useTranslation()
   const { isEnglish } = useLanguage()
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
     <Box pb={{ xs: 2, sm: 6 }}>
-      <HalimumTitle mb={{ xs: isEnglish ? 0 : -4, sm: -4 }}>
+      <HalimumTitle mb={{ xs: 0, sm: -4 }}>
         {t('landing.title.timeline')}
       </HalimumTitle>
       <Box position="relative">
         <ShimmeringLine />
-        <Events src={getEventsImg(isMobile, isEnglish)} />
+        <Events src={getEventsImg(isEnglish)} />
       </Box>
     </Box>
   )
@@ -52,23 +43,13 @@ const Events: React.FC<{ src: string }> = ({ src }) => {
       viewport={{ once: true }}
       sx={{
         width: '100%',
-        mt: 4,
+        mt: isEnglish ? 2 : 0,
         position: 'absolute',
         top: { xs: isEnglish ? '5%' : '10%', sm: '8%' },
         left: 0,
       }}
     >
-      <StyledImage
-        src={src}
-        alt="Events Timeline"
-        sx={{
-          width: '100%',
-          transform: {
-            xs: 'scale(1.1)',
-            sm: isEnglish ? 'scale(1)' : 'scale(1.1)',
-          },
-        }}
-      />
+      <StyledImage src={src} alt="Events Timeline" sx={{ width: '100%' }} />
     </Box>
   )
 }

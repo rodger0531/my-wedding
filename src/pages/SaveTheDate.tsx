@@ -73,7 +73,7 @@ const SaveTheDate = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      sx={{ overflow: 'hidden', my: 4 }}
+      sx={{ my: 4 }}
     >
       <m.div
         initial={{ opacity: 0, scale: 1.2 }}
