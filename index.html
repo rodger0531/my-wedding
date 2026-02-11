@@ -3,11 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="modulepreload" href="/src/main.tsx" />
+
+    <link
+      rel="preload"
+      href="/fonts/better-together-spaced.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/halimun.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+
+    <link rel="preload" as="image" href="/couple.svg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/welcome_hands.svg"
+      fetchpriority="high"
+    />
+
+    <title>R & C Wedding</title>
+    <link rel="icon" type="image/svg+xml" href="/rings.png" />
     <meta
       name="description"
       content="我們要結婚了！誠摯邀請您與 Rodger & Claire 一同見證並參與我們的婚禮，活動資訊、流程與回覆出席請點此查看。"
     />
-    <!-- Open Graph -->
     <meta
       property="og:title"
       content="Rodger & Claire · Wedding Celebration 2026"
@@ -25,22 +57,6 @@
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:url" content="https://rodgerclaire.wedding/" />
     <meta property="og:type" content="website" />
-
-    <link rel="icon" type="image/svg+xml" href="/rings.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="/couple.svg" fetchpriority="high" />
-    <link
-      rel="preload"
-      as="image"
-      href="/welcome_hands.svg"
-      fetchpriority="high"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-    />
-    <title>R & C Wedding</title>
   </head>
   <body>
     <div id="root"></div>
