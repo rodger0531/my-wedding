@@ -11,7 +11,8 @@ import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
-const RSVP_LINK = 'https://forms.gle/Cwe6AkK3cmMbc3Ha9'
+const RSVP_LINK =
+  'https://docs.google.com/forms/d/e/1FAIpQLSd2un2WW1yO4Sc5n4XNjSMt8ub3jOKGj5ZSYLTNJF9ArVJfmg/viewform?usp=dialog'
 
 const MotionBox = motion(Box)
 
