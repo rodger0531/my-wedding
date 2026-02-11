@@ -24,8 +24,6 @@ import 'src/assets/fonts/chiron-goround-tc-v3-chinese-traditional_latin-700.ttf'
 import 'src/assets/fonts/dongle-v16-latin-700.ttf'
 import 'src/assets/fonts/dongle-v16-latin-regular.ttf'
 import 'src/assets/fonts/gensen-rounded.otf'
-import 'src/assets/fonts/honya.ttf'
-import 'src/assets/fonts/lihsianti.ttf'
 
 const LandingPage = lazy(() => import('src/pages/LandingPage'))
 const NotFound = lazy(() => import('src/pages/NotFound'))

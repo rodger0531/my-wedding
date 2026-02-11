@@ -8,6 +8,10 @@ import Greetings from './Greetings'
 import SaveTheDate from './SaveTheDate'
 import WeddingShoots from './WeddingShoots'
 
+// Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
+import 'src/assets/fonts/honya.ttf'
+import 'src/assets/fonts/lihsianti.ttf'
+
 const Location = lazy(() => import('./Location'))
 const Timeline = lazy(() => import('./Timeline'))
 const Details = lazy(() => import('./Details'))
