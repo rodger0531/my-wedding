@@ -8,6 +8,7 @@ import Greetings from './Greetings'
 import SaveTheDate from './SaveTheDate'
 import WeddingShoots from './WeddingShoots'
 
+import 'src/styles/fonts_2.css'
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
 import 'src/assets/fonts/honya.ttf'
 import 'src/assets/fonts/lihsianti.ttf'
