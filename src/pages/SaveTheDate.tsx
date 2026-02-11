@@ -76,7 +76,7 @@ const SaveTheDate = () => {
       sx={{ my: 4 }}
     >
       <m.div
-        initial={{ opacity: 0, scale: 1.2 }}
+        initial={{ opacity: 0, scale: 0.7 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: 'easeOut' }}
