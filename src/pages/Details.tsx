@@ -52,6 +52,7 @@ const Topic = ({ category }: { category: string }) => {
             xs: isEnglish ? '2.3rem' : '1.5rem',
             sm: isEnglish ? '3rem' : '1.9rem',
           },
+          fontStyle: 'italic',
           lineHeight: { xs: isEnglish ? 0.8 : 1.5, sm: isEnglish ? 0.8 : 1.4 },
         }}
         mb={1}
