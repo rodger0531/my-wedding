@@ -11,6 +11,8 @@ import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 
+const RSVP_LINK = 'https://forms.gle/Cwe6AkK3cmMbc3Ha9'
+
 const MotionBox = motion(Box)
 
 const Rsvp = () => {
@@ -104,7 +106,15 @@ const Rsvp = () => {
         // MUI Props
         mt={4}
       >
-        <StyledButton>{t('landing.rsvpButton')}</StyledButton>
+        <StyledButton
+          href={RSVP_LINK}
+          sx={{
+            rel: 'noopener noreferrer',
+            target: '_blank',
+          }}
+        >
+          {t('landing.rsvpButton')}
+        </StyledButton>
       </MotionBox>
     </Grid>
   )
