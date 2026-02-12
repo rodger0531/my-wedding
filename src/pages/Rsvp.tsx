@@ -1,7 +1,9 @@
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft'
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { motion, steps } from 'framer-motion'
+import { motion, steps, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import BouquetImage from 'src/assets/bouquet.svg'
 import CakeImage from 'src/assets/cake.svg'
@@ -14,7 +16,17 @@ import { useLanguage } from 'src/hooks/useLanguage'
 const RSVP_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSd2un2WW1yO4Sc5n4XNjSMt8ub3jOKGj5ZSYLTNJF9ArVJfmg/viewform?usp=dialog'
 
+const MotionArrowRight = motion(KeyboardDoubleArrowRightIcon)
+const MotionArrowLeft = motion(KeyboardDoubleArrowLeftIcon)
+
 const MotionBox = motion(Box)
+
+const arrowTransition = {
+  repeat: Infinity,
+  repeatType: 'reverse' as const,
+  duration: 0.8,
+  ease: 'easeInOut' as Easing,
+}
 
 const Rsvp = () => {
   const { t } = useTranslation()
@@ -73,7 +85,6 @@ const Rsvp = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-        // MUI Props
         mt={4}
         width="80%"
         textAlign="center"
@@ -104,15 +115,25 @@ const Rsvp = () => {
         viewport={{ once: true }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        // MUI Props
         mt={4}
       >
         <StyledButton
           href={RSVP_LINK}
-          sx={{
-            rel: 'noopener noreferrer',
-            target: '_blank',
-          }}
+          sx={{ rel: 'noopener noreferrer', target: '_blank' }}
+          startIcon={
+            <MotionArrowRight
+              animate={{ x: [0, 4, 0] }} // Move right (towards text) 4px then back
+              transition={arrowTransition}
+              style={{ marginBottom: isEnglish ? '0.25rem' : 0 }}
+            />
+          }
+          endIcon={
+            <MotionArrowLeft
+              animate={{ x: [0, -4, 0] }} // Move left (towards text) 4px then back
+              transition={arrowTransition}
+              style={{ marginBottom: isEnglish ? '0.25rem' : 0 }}
+            />
+          }
         >
           {t('landing.rsvpButton')}
         </StyledButton>
