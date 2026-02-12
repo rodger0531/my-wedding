@@ -9,10 +9,19 @@ import weddingShoot1 from '../assets/wedding_shoot_1.webp'
 import weddingShoot2 from '../assets/wedding_shoot_2.webp'
 import weddingShoot3 from '../assets/wedding_shoot_3.webp'
 import weddingShoot4 from '../assets/wedding_shoot_4.webp'
+import weddingShoot5 from '../assets/wedding_shoot_5.webp'
+import weddingShoot6 from '../assets/wedding_shoot_6.webp'
 import weddingShootBanner from '../assets/wedding_shoot_banner.webp'
 import StyledImage from '../components/StyledImage'
 
-const IMAGES = [weddingShoot1, weddingShoot2, weddingShoot3, weddingShoot4]
+const IMAGES = [
+  weddingShoot1,
+  weddingShoot2,
+  weddingShoot6,
+  weddingShoot4,
+  weddingShoot3,
+  weddingShoot5,
+]
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
