@@ -112,7 +112,7 @@ const Welcome = () => {
         <m.div variants={FADE_UP}>
           <m.div
             style={{ transformOrigin: 'bottom center' }}
-            animate={{ rotate: [-1.5, 1.5, -1.5] }}
+            animate={{ rotate: [-3, 1.5, -3] }}
             transition={{
               duration: 5,
               repeat: Infinity,
