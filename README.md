@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
+# My Wedding
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern wedding website built with React, TypeScript, Vite, and Bun. It features:
 
-Currently, two official plugins are available:
+- Multi-language support (English/Chinese) with i18next
+- Beautiful UI using Material-UI (MUI)
+- Optimized font loading for Chinese and English (vite-plugin-font, cn-font-split)
+- Animated transitions and effects (framer-motion)
+- Firebase analytics integration
+- Responsive design and custom font themes
+- Linting and formatting with ESLint and Prettier
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- ⚡️ Fast development with [Vite](https://vitejs.dev/) and [Bun](https://bun.sh/)
+- 🎨 UI with [Material-UI (MUI)](https://mui.com/)
+- 🌏 Internationalization with [i18next](https://www.i18next.com/) and [react-i18next](https://react.i18next.com/)
+- 🔥 Analytics with [Firebase](https://firebase.google.com/)
+- 🅰️ Font optimization using [vite-plugin-font](https://github.com/feat-agency/vite-plugin-font) and [cn-font-split](https://github.com/ccqgithub/cn-font-split)
+- 🖼️ Animated transitions and effects with [framer-motion](https://www.framer.com/motion/)
+- 🧹 Linting and formatting with ESLint and Prettier
+- 🗂️ Responsive design, custom font themes, and optimized assets
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Bun](https://bun.sh/) (recommended for scripts)
+- [Node.js](https://nodejs.org/) (for compatibility)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Install dependencies
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+bun install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+bun run dev
 ```
+
+Starts the Vite dev server with HMR.
+
+### Build
+
+```sh
+bun run build
+```
+
+Builds the app for production (TypeScript and Vite build).
+
+### Preview
+
+```sh
+bun run preview
+```
+
+Locally preview the production build.
+
+### Lint
+
+```sh
+bun run lint
+```
+
+Runs ESLint on the project.
+
+### Font Split (for Chinese font optimization)
+
+```sh
+bun run install-font-split
+```
+
+Runs [cn-font-split](https://github.com/ccqgithub/cn-font-split) to optimize font loading.
+
+### Additional Scripts
+
+- `bun run pre-build`: Installs dependencies and runs font split before build (used in CI)
+
+## Main Dependencies
+
+- React 19
+- @mui/material & @mui/icons-material
+- Firebase
+- i18next, react-i18next, i18next-browser-languagedetector
+- framer-motion
+- react-router
+- react-timer-hook
+
+## Dev Dependencies
+
+- ESLint, Prettier, prettier-plugin-organize-imports
+- @vitejs/plugin-react-swc
+- vite-plugin-font
+- typescript, typescript-eslint
+
+## Tooling & Configuration
+
+- **Vite** with [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react-swc) and [vite-plugin-font](https://github.com/feat-agency/vite-plugin-font)
+- **ESLint** with Prettier, React Hooks, and Vite plugin configs
+- **TypeScript**
+- **Bun** for fast scripting and package management
+- **Firebase Hosting** and GitHub Actions for CI/CD
+
+- **Vite config:** see `vite.config.ts` for plugins and aliases
+- **ESLint config:** see `eslint.config.js` for rules and extensions
+- **TypeScript config:** see `tsconfig*.json`
+
+## Project Structure
+
+- `src/` — Main source code
+  - `pages/` — App pages (Landing, RSVP, Timeline, etc.)
+  - `components/` — Reusable UI components
+  - `i18n/` — Internationalization setup and locale files
+  - `firebase/` — Firebase analytics integration
+  - `constants/` — App constants (fonts, colours, language, location)
+  - `hooks/` — Custom React hooks
+  - `styles/` — CSS files for base, fonts, animations, loading
+  - `types/` — TypeScript type definitions
+- `public/` — Static assets and fonts
+- `index.html` — Main HTML entry
+- `vite.config.ts` — Vite configuration
+- `eslint.config.js` — ESLint configuration
+- `firebase.json` — Firebase hosting config
+- `.github/workflows/` — CI/CD workflows for Firebase and GitHub Pages
+
+## Project Structure
+
+- `src/` — Main source code
+- `src/pages/` — App pages (Landing, RSVP, Timeline, etc.)
+- `src/components/` — Reusable UI components
+- `src/i18n/` — Internationalization setup and locale files
+- `src/firebase/` — Firebase analytics integration
+- `public/` — Static assets and fonts
+
+## Configuration
+
+- **Vite config:** see `vite.config.ts` for plugins and aliases
+- **ESLint config:** see `eslint.config.js` for rules and extensions
+- **TypeScript config:** see `tsconfig*.json`
+
+---
+
+Feel free to fork or adapt for your own event!
