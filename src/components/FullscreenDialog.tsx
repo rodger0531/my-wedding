@@ -32,8 +32,11 @@ const FullscreenDialog: React.FC<FullscreenDialogProps> = ({
       fullScreen
       open={open}
       onClose={onClose}
-      slots={{
-        transition: Transition,
+      slots={{ transition: Transition }}
+      slotProps={{
+        paper: {
+          style: { backgroundColor: 'transparent' },
+        },
       }}
     >
       <IconButton
@@ -44,9 +47,10 @@ const FullscreenDialog: React.FC<FullscreenDialogProps> = ({
           right: 8,
           top: 8,
           color: theme.palette.grey[500],
+          zIndex: 10,
         })}
       >
-        <CloseIcon />
+        <CloseIcon fontSize="large" />
       </IconButton>
       {children}
     </Dialog>

@@ -53,7 +53,13 @@ const WeddingShoots = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [dialogOpen, setDialogOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  // Handle opening specific image
+  const handleImageClick = (index: number) => {
+    setSelectedIndex(index)
+    setDialogOpen(true)
+  }
 
   return (
     <Box
@@ -78,6 +84,7 @@ const WeddingShoots = () => {
           />
         </m.div>
 
+        {/* Decorations */}
         <m.div
           initial={{ opacity: 0, x: -50, rotate: -20 }}
           whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -135,8 +142,9 @@ const WeddingShoots = () => {
         </m.div>
       </Box>
 
+      {/* Image Grid */}
       <Grid container spacing={2} justifyContent="center">
-        {IMAGES.map((img) => (
+        {IMAGES.map((img, index) => (
           <Grid key={img} size={6}>
             <m.div
               variants={PHOTO_VARIANTS}
@@ -148,33 +156,45 @@ const WeddingShoots = () => {
             >
               <StyledImage
                 src={img}
-                alt="Wedding Shoot"
+                alt={`Wedding Shoot ${index + 1}`}
                 sx={{
                   objectFit: 'cover',
                   borderRadius: 3,
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  cursor: 'pointer',
                   pointerEvents: 'auto',
                 }}
-                onClick={() => {
-                  setSelectedImage(img)
-                  setDialogOpen(true)
-                }}
+                onClick={() => handleImageClick(index)}
               />
             </m.div>
           </Grid>
         ))}
       </Grid>
+
+      {/* Fullscreen Slideshow */}
       <FullscreenDialog open={dialogOpen} handleClose={setDialogOpen}>
-        <StyledImage
-          src={selectedImage || weddingShoot1}
-          alt="Wedding Shoot Fullscreen"
+        <Box
           sx={{
             width: '100%',
             height: '100%',
-            objectFit: 'contain',
-            backgroundColor: '#1a1a1a',
+            bgcolor: 'rgba(0, 0, 0, 0.7)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
-        />
+        >
+          <StyledImage
+            src={IMAGES[selectedIndex]}
+            alt="Wedding Shoot Fullscreen"
+            sx={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain',
+              userSelect: 'none',
+              pointerEvents: 'none',
+            }}
+          />
+        </Box>
       </FullscreenDialog>
     </Box>
   )
