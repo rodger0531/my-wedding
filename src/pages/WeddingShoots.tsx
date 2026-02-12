@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { m, type Easing } from 'framer-motion'
+import { useState } from 'react'
+import FullscreenDialog from 'src/components/FullscreenDialog'
 import curlyLine from '../assets/curly_line.svg'
 import hearts2 from '../assets/hearts_2.svg'
 import weddingShoot1 from '../assets/wedding_shoot_1.webp'
@@ -50,6 +52,8 @@ const PHOTO_VARIANTS = {
 const WeddingShoots = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
     <Box
@@ -149,12 +153,29 @@ const WeddingShoots = () => {
                   objectFit: 'cover',
                   borderRadius: 3,
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  pointerEvents: 'auto',
+                }}
+                onClick={() => {
+                  setSelectedImage(img)
+                  setDialogOpen(true)
                 }}
               />
             </m.div>
           </Grid>
         ))}
       </Grid>
+      <FullscreenDialog open={dialogOpen} handleClose={setDialogOpen}>
+        <StyledImage
+          src={selectedImage || weddingShoot1}
+          alt="Wedding Shoot Fullscreen"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            backgroundColor: '#1a1a1a',
+          }}
+        />
+      </FullscreenDialog>
     </Box>
   )
 }
