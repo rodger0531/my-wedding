@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { m, type Easing } from 'framer-motion'
 import { useState } from 'react'
+import Carousel from 'src/components/Carousel'
 import FullscreenDialog from 'src/components/FullscreenDialog'
 import curlyLine from '../assets/curly_line.svg'
 import hearts2 from '../assets/hearts_2.svg'
@@ -183,17 +184,7 @@ const WeddingShoots = () => {
             justifyContent: 'center',
           }}
         >
-          <StyledImage
-            src={IMAGES[selectedIndex]}
-            alt="Wedding Shoot Fullscreen"
-            sx={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-              objectFit: 'contain',
-              userSelect: 'none',
-              pointerEvents: 'none',
-            }}
-          />
+          <Carousel items={IMAGES} selectedIndex={selectedIndex} />
         </Box>
       </FullscreenDialog>
     </Box>
