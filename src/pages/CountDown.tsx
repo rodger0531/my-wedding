@@ -2,12 +2,11 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import CountdownTimer from 'src/components/CountdownTimer'
 import HalimumTitle from 'src/components/HalimumTitle'
-import Timer from 'src/components/Timer'
+import StopWatchTimer from 'src/components/StopWatchTimer'
+import { WEDDING_DATE, WEDDING_FINISH_DATE } from 'src/constants/date'
 import { useLanguage } from 'src/hooks/useLanguage'
-
-const WEDDING_DATE = new Date('2026-04-18T16:00:00')
-const WEDDING_FINISH_DATE = new Date('2026-04-19T00:00:00')
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -30,29 +29,19 @@ const CHILD_VARIANTS = {
   },
 }
 
-const getOffsetTimestamp = (isWeddingFinished: boolean) => {
-  const currentDate = new Date()
-  if (!isWeddingFinished) return currentDate // Should not happen but just in case
-
-  return new Date(
-    currentDate.getTime() +
-      (currentDate.getTime() - WEDDING_FINISH_DATE.getTime()),
-  )
-}
-
 const CountDown = () => {
   const { t, i18n } = useTranslation()
   const { isEnglish } = useLanguage()
 
   const currentDate = new Date()
+  const hasWeddingStarted = currentDate > WEDDING_DATE
   const isWeddingFinished = currentDate > WEDDING_FINISH_DATE
-  const isWeddingHappening = currentDate > WEDDING_DATE && !isWeddingFinished
   const text = t(
     `landing.title.${isWeddingFinished ? 'happilyMarried' : 'countingDays'}`,
   )
   const words = isEnglish ? text.split(' ') : text.split('')
 
-  if (isWeddingHappening)
+  if (hasWeddingStarted && !isWeddingFinished) {
     return (
       <Typography
         component={m.h1}
@@ -87,7 +76,7 @@ const CountDown = () => {
         {t('landing.weddingRightNowMsg')}
       </Typography>
     )
-
+  }
   return (
     <Grid
       container
@@ -136,17 +125,8 @@ const CountDown = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.8, duration: 1 }}
       >
-        {(!isWeddingHappening || isWeddingFinished) && (
-          <Timer
-            expiryTimestamp={WEDDING_DATE}
-            offsetTimestamp={
-              isWeddingFinished
-                ? getOffsetTimestamp(isWeddingFinished)
-                : undefined
-            }
-          />
-        )}
-        {isWeddingHappening && (
+        {!hasWeddingStarted && <CountdownTimer />}
+        {hasWeddingStarted && !isWeddingFinished && (
           <Typography
             variant="h1"
             sx={{ fontFamily: 'subtitleFont', my: 6, whiteSpace: 'pre-line' }}
@@ -154,6 +134,7 @@ const CountDown = () => {
             {t('landing.weddingRightNowMsg')}
           </Typography>
         )}
+        {isWeddingFinished && <StopWatchTimer />}
       </m.div>
     </Grid>
   )
