@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.6",
     "@mui/material": "^7.3.6",
+    "embla-carousel-react": "^8.6.0",
     "firebase": "^12.9.0",
     "framer-motion": "^12.33.0",
     "i18next": "^25.7.3",
