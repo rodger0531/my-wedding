@@ -2,17 +2,33 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
-import { useTimer } from 'react-timer-hook'
+import { useStopwatch, useTimer } from 'react-timer-hook'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const FONT_SIZE = '5rem'
 const MOBILE_FONT_SIZE = '3rem'
 
-const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
+const Timer = ({
+  expiryTimestamp,
+  offsetTimestamp,
+}: {
+  expiryTimestamp: Date
+  offsetTimestamp?: Date
+}) => {
   const { t } = useTranslation(undefined, { keyPrefix: 'timer' })
 
   const { days, hours, minutes, seconds } = useTimer({
     expiryTimestamp,
+  })
+
+  const {
+    days: startDays,
+    hours: startHours,
+    minutes: startMinutes,
+    seconds: startSeconds,
+  } = useStopwatch({
+    offsetTimestamp,
+    autoStart: !!offsetTimestamp,
   })
 
   return (
@@ -23,13 +39,22 @@ const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
       fontFamily="Helvetica"
       textTransform="uppercase"
     >
-      <Numbers value={days} label={t('days')} />
+      <Numbers value={offsetTimestamp ? startDays : days} label={t('days')} />
       <Separator />
-      <Numbers value={hours} label={t('hours')} />
+      <Numbers
+        value={offsetTimestamp ? startHours : hours}
+        label={t('hours')}
+      />
       <Separator />
-      <Numbers value={minutes} label={t('minutes')} />
+      <Numbers
+        value={offsetTimestamp ? startMinutes : minutes}
+        label={t('minutes')}
+      />
       <Separator />
-      <Numbers value={seconds} label={t('seconds')} />
+      <Numbers
+        value={offsetTimestamp ? startSeconds : seconds}
+        label={t('seconds')}
+      />
     </Grid>
   )
 }
