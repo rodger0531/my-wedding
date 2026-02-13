@@ -45,7 +45,7 @@ const FullscreenDialog: React.FC<FullscreenDialogProps> = ({
         sx={(theme) => ({
           position: 'absolute',
           right: 8,
-          top: 8,
+          top: 4,
           color: theme.palette.grey[500],
           zIndex: 10,
         })}
