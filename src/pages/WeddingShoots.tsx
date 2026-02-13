@@ -184,7 +184,7 @@ const WeddingShoots = () => {
             justifyContent: 'center',
           }}
         >
-          <Carousel items={IMAGES} selectedIndex={selectedIndex} />
+          <Carousel items={IMAGES} entryIndex={selectedIndex} />
         </Box>
       </FullscreenDialog>
     </Box>
