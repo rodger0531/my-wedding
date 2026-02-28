@@ -7,6 +7,7 @@
     "title": {
       "details": "Wedding Details",
       "countingDays": "Counting Days",
+      "happilyMarried": "Happily Married...",
       "saveTheDate": "Save the Date",
       "location": "Location",
       "timeline": "Wedding Timeline",
@@ -15,6 +16,7 @@
     },
     "greetingMsg1": "They say life’s greatest adventures are meant to be shared.",
     "greetingMsg2": "After years of navigating the world as a duo, we’re officially upgrading to a lifelong partnership. We are honored to have you join us as we exchange our 'I do’s' and celebrate the start of our best chapter yet.",
+    "weddingRightNowMsg": "Wedding is happening right now! Let’s party!",
     "weddingDate": "Saturday, April 2026",
     "weddingTime": "4:00 PM",
     "address1": "Warehouse C3",

@@ -2,18 +2,22 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
-import { useTimer } from 'react-timer-hook'
 import { useLanguage } from 'src/hooks/useLanguage'
 
 const FONT_SIZE = '5rem'
 const MOBILE_FONT_SIZE = '3rem'
 
-const Timer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
+const Timer = ({
+  time: { days, hours, minutes, seconds },
+}: {
+  time: {
+    days: number
+    hours: number
+    minutes: number
+    seconds: number
+  }
+}) => {
   const { t } = useTranslation(undefined, { keyPrefix: 'timer' })
-
-  const { days, hours, minutes, seconds } = useTimer({
-    expiryTimestamp,
-  })
 
   return (
     <Grid

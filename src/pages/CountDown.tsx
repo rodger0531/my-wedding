@@ -1,11 +1,12 @@
 import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import CountdownTimer from 'src/components/CountdownTimer'
 import HalimumTitle from 'src/components/HalimumTitle'
-import Timer from 'src/components/Timer'
+import StopWatchTimer from 'src/components/StopWatchTimer'
+import { WEDDING_DATE, WEDDING_FINISH_DATE } from 'src/constants/date'
 import { useLanguage } from 'src/hooks/useLanguage'
-
-const WEDDING_DATE = new Date('2026-04-18T15:00:00')
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -32,9 +33,50 @@ const CountDown = () => {
   const { t, i18n } = useTranslation()
   const { isEnglish } = useLanguage()
 
-  const text = t('landing.title.countingDays')
+  const currentDate = new Date()
+  const hasWeddingStarted = currentDate > WEDDING_DATE
+  const isWeddingFinished = currentDate > WEDDING_FINISH_DATE
+  const text = t(
+    `landing.title.${isWeddingFinished ? 'happilyMarried' : 'countingDays'}`,
+  )
   const words = isEnglish ? text.split(' ') : text.split('')
 
+  if (hasWeddingStarted && !isWeddingFinished) {
+    return (
+      <Typography
+        component={m.h1}
+        variant="h1"
+        sx={{ fontFamily: 'subtitleFont', my: 6, whiteSpace: 'pre-line' }}
+        animate={{
+          color: [
+            '#ff0000',
+            '#ff00ff',
+            '#0000ff',
+            '#00ffff',
+            '#00ff00',
+            '#ffff00',
+            '#ff0000',
+          ],
+          textShadow: [
+            '0px 0px 5px #ff0000',
+            '0px 0px 5px #ff00ff',
+            '0px 0px 5px #0000ff',
+            '0px 0px 5px #00ffff',
+            '0px 0px 5px #00ff00',
+            '0px 0px 5px #ffff00',
+            '0px 0px 5px #ff0000',
+          ],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      >
+        {t('landing.weddingRightNowMsg')}
+      </Typography>
+    )
+  }
   return (
     <Grid
       container
@@ -77,14 +119,22 @@ const CountDown = () => {
           ))}
         </HalimumTitle>
       </m.div>
-
       <m.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8, duration: 1 }}
       >
-        <Timer expiryTimestamp={WEDDING_DATE} />
+        {!hasWeddingStarted && <CountdownTimer />}
+        {hasWeddingStarted && !isWeddingFinished && (
+          <Typography
+            variant="h1"
+            sx={{ fontFamily: 'subtitleFont', my: 6, whiteSpace: 'pre-line' }}
+          >
+            {t('landing.weddingRightNowMsg')}
+          </Typography>
+        )}
+        {isWeddingFinished && <StopWatchTimer />}
       </m.div>
     </Grid>
   )
