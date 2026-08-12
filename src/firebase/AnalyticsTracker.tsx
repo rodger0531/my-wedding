@@ -1,27 +1,27 @@
 // src/components/AnalyticsTracker.tsx
-import { logEvent } from 'firebase/analytics'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'
-import { getAnalyticsInstance } from 'src/firebase/analytics'
+import { logPageView } from 'src/firebase/analytics'
+import { whenIdle } from 'src/utils/whenIdle'
 
 export const AnalyticsTracker = () => {
   const location = useLocation()
 
   useEffect(() => {
-    const track = async () => {
-      const analytics = await getAnalyticsInstance()
-      if (analytics) {
-        logEvent(analytics, 'page_view', {
-          page_path: location.pathname + location.search,
-        })
-      } else if (import.meta.env.DEV) {
-        console.log(
-          '📊 Analytics: Page view tracked (ignored in dev)',
-          location.pathname,
-        )
-      }
-    }
-    track()
+    const pagePath = location.pathname + location.search
+
+    // Fetching and parsing the firebase chunk is deferred to idle time so it
+    // does not compete with the entrance animation on first paint.
+    return whenIdle(() => {
+      logPageView(pagePath).then((sent) => {
+        if (!sent && import.meta.env.DEV) {
+          console.log(
+            '📊 Analytics: Page view tracked (ignored in dev)',
+            location.pathname,
+          )
+        }
+      })
+    })
   }, [location])
 
   return null

@@ -67,6 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, entryIndex }) => {
               <StyledImage
                 src={url}
                 alt="Wedding Shoot Fullscreen"
+                loading="lazy"
                 sx={{
                   maxWidth: '100%',
                   maxHeight: '100%',

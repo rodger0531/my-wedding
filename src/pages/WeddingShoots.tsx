@@ -81,6 +81,7 @@ const WeddingShoots = () => {
           <StyledImage
             src={weddingShootBanner}
             alt="Wedding Shoot Banner"
+            loading="lazy"
             sx={{ width: '100%' }}
           />
         </m.div>
@@ -158,6 +159,7 @@ const WeddingShoots = () => {
               <StyledImage
                 src={img}
                 alt={`Wedding Shoot ${index + 1}`}
+                loading="lazy"
                 sx={{
                   objectFit: 'cover',
                   borderRadius: 3,

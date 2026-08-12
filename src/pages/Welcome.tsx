@@ -10,6 +10,7 @@ import OurName from 'src/components/OurName'
 import StyledButton from 'src/components/StyledButton'
 import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
+import { whenIdle } from 'src/utils/whenIdle'
 
 // 1. Container controls the sequence
 const CONTAINER_VARIANTS = {
@@ -59,6 +60,12 @@ const FADE_IN = {
   },
 }
 
+// The pulsing shadow sits on a wrapper rather than the button, so these have to
+// resolve to the same pixels MUI would compute: `borderRadius: 4` is
+// 4 * theme.shape.borderRadius (4px) and the old `mt: 2` is theme.spacing(2).
+const BUTTON_RADIUS = 16
+const BUTTON_SPACING = 16
+
 const Welcome = () => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
@@ -73,10 +80,13 @@ const Welcome = () => {
   }
 
   useEffect(() => {
-    // Preload landing page
-    const preloadLanding = () => import('src/pages/LandingPage')
-
-    preloadLanding()
+    // Preload the landing page, but only once the thread is idle. Evaluating
+    // that chunk also inserts its stylesheet (~29 @font-face rules), and the
+    // resulting style recalculation stutters the entrance stagger if it lands
+    // while the animation is still running.
+    return whenIdle(() => {
+      import('src/pages/LandingPage')
+    })
   }, [])
 
   return (
@@ -172,21 +182,29 @@ const Welcome = () => {
           <m.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                '0px 0px 0px rgba(0,0,0,0)',
-                '0px 4px 20px rgba(0,0,0,0.1)',
-                '0px 0px 0px rgba(0,0,0,0)',
-              ],
-            }}
-            transition={{
-              boxShadow: {
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              },
+            style={{
+              position: 'relative',
+              display: 'flex',
+              marginTop: BUTTON_SPACING,
+              borderRadius: BUTTON_RADIUS,
             }}
           >
+            {/* The heartbeat runs forever, so it animates the opacity of an
+                already-painted shadow instead of the box-shadow itself —
+                opacity stays on the compositor, whereas interpolating
+                box-shadow repaints a 20px blur on every frame. */}
+            <m.span
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: BUTTON_RADIUS,
+                boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
+                pointerEvents: 'none',
+              }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
             <StyledButton
               variant="contained"
               sx={{
@@ -196,9 +214,8 @@ const Welcome = () => {
                 letterSpacing: isEnglish ? 1.3 : 3,
                 width: { xs: '200px', sm: '300px' },
                 height: { xs: '60px', sm: '60px' },
-                borderRadius: 4,
+                borderRadius: `${BUTTON_RADIUS}px`,
                 px: 2,
-                mt: 2,
               }}
               onClick={handleOnClick}
             >
