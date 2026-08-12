@@ -11,8 +11,13 @@
       type="font/woff2"
       crossorigin
     />
+    <!--
+      Halimun is only declared in fonts_2.css (imported by LandingPage) and only
+      applied for English, so it is never used on the welcome screen. Prefetch
+      keeps it warm for the /main navigation without competing with first paint.
+    -->
     <link
-      rel="preload"
+      rel="prefetch"
       href="/fonts/halimun.ttf"
       as="font"
       type="font/ttf"

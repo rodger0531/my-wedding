@@ -20,10 +20,11 @@ import 'src/styles/base.css'
 import 'src/styles/fonts.css'
 
 // Load chinese fonts separately to enable font subset splitting by vite-plugin-font for better performance.
-import 'src/assets/fonts/chiron-goround-tc-v3-chinese-traditional_latin-700.ttf'
-import 'src/assets/fonts/dongle-v16-latin-700.ttf'
-import 'src/assets/fonts/dongle-v16-latin-regular.ttf'
-import 'src/assets/fonts/gensen-rounded.otf'
+// `?subsets` restricts each font to the glyphs found in `scanFiles` (see vite.config.ts);
+// without it the plugin ships the whole font split by unicode-range instead.
+import 'src/assets/fonts/dongle-v16-latin-700.ttf?subsets'
+import 'src/assets/fonts/dongle-v16-latin-regular.ttf?subsets'
+import 'src/assets/fonts/gensen-rounded.otf?subsets'
 
 const LandingPage = lazy(() => import('src/pages/LandingPage'))
 const NotFound = lazy(() => import('src/pages/NotFound'))
