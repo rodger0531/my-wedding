@@ -12,6 +12,9 @@ import StyledImage from 'src/components/StyledImage'
 import { useLanguage } from 'src/hooks/useLanguage'
 import { whenIdle } from 'src/utils/whenIdle'
 
+/** How long the exit animation gets before the route changes. */
+const EXIT_MS = 300
+
 // 1. Container controls the sequence
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -22,12 +25,15 @@ const CONTAINER_VARIANTS = {
       delayChildren: 0.2,
     },
   },
-  // The exit animation when button is clicked
+  // The exit animation when button is clicked. It has EXIT_MS to play before
+  // the route changes, so the duration matches that exactly instead of the old
+  // 0.8s, which only ever rendered its first third. The blur it used to animate
+  // re-rasterised the whole subtree every frame at the precise moment
+  // LandingPage was mounting; opacity and scale stay on the compositor.
   exit: {
     opacity: 0,
     scale: 0.95,
-    filter: 'blur(10px)',
-    transition: { duration: 0.8, ease: 'easeInOut' as Easing },
+    transition: { duration: EXIT_MS / 1000, ease: 'easeInOut' as Easing },
   },
 }
 
@@ -76,7 +82,7 @@ const Welcome = () => {
     setIsExiting(true)
     setTimeout(() => {
       navigate('/main')
-    }, 300)
+    }, EXIT_MS)
   }
 
   useEffect(() => {
