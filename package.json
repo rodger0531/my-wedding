@@ -14,8 +14,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.11",
-    "@mui/material": "^7.3.11",
+    "@mui/icons-material": "^9.3.1",
+    "@mui/material": "^9.3.1",
     "embla-carousel-react": "v9.0.0-rc01",
     "firebase": "^12.17.1",
     "framer-motion": "^12.43.0",
@@ -48,5 +48,8 @@
   },
   "overrides": {
     "cn-font-split": "$cn-font-split"
-  }
+  },
+  "trustedDependencies": [
+    "cn-font-split"
+  ]
 }
