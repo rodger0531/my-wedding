@@ -1,4 +1,4 @@
-import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { m, type Easing } from 'framer-motion'
@@ -35,27 +35,31 @@ const Footer = () => {
 
   return (
     <Stack
-      mt={5}
       component={m.footer}
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
+      sx={{
+        mt: 5,
+      }}
     >
-      <Grid
-        container
+      <Stack
         direction={{ xs: 'column', sm: 'row' }}
-        flexWrap="nowrap"
-        alignItems="center"
+        sx={{ flexWrap: 'nowrap', alignItems: 'center' }}
       >
-        <Grid
+        <Box
           component={m.div}
           variants={ITEM_VARIANTS}
           sx={{ width: { xs: '80%', sm: '400px' }, minWidth: '300px' }}
         >
           <StyledImage src={FooterImage} alt="Footer" />
-        </Grid>
-        <Grid component={m.div} variants={ITEM_VARIANTS} mt={{ xs: 3, sm: 0 }}>
+        </Box>
+        <Box
+          component={m.div}
+          variants={ITEM_VARIANTS}
+          sx={{ mt: { xs: 3, sm: 0 } }}
+        >
           <Typography
             align="center"
             sx={{
@@ -73,8 +77,8 @@ const Footer = () => {
           >
             {t('landing.footerMsg')}
           </Typography>
-        </Grid>
-      </Grid>
+        </Box>
+      </Stack>
       <NameWave />
     </Stack>
   )

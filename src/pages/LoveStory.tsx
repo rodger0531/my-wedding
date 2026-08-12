@@ -76,7 +76,13 @@ const LoveStory = () => {
         </m.span>
       </HalimumTitle>
 
-      <Grid container mt={2} flexWrap="nowrap">
+      <Grid
+        container
+        sx={{
+          mt: 2,
+          flexWrap: 'nowrap',
+        }}
+      >
         <m.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +96,11 @@ const LoveStory = () => {
           />
         </m.div>
 
-        <Grid mt={{ xs: 3, sm: 7 }}>
+        <Grid
+          sx={{
+            mt: { xs: 3, sm: 7 },
+          }}
+        >
           {stories.map(({ year, content }, index) => (
             <TextBox key={year} title={year} content={content} index={index} />
           ))}
@@ -98,7 +108,12 @@ const LoveStory = () => {
       </Grid>
 
       {/* FLOATING HEART ANIMATION */}
-      <Box display="flex" justifyContent="center">
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <m.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -133,12 +148,12 @@ const TextBox = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
       viewport={{ once: true }}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="flex-start"
-      pl={{ xs: 1, sm: 2 }}
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        pl: { xs: 1, sm: 2 },
         height: { xs: 216, sm: 470 },
         width: '100%',
         wordWrap: 'break-word',
@@ -146,13 +161,15 @@ const TextBox = ({
     >
       <Typography
         align="left"
-        fontFamily="subtitleFont"
         sx={{
+          fontFamily: 'subtitleFont',
           lineHeight: 1,
+
           fontSize: {
             xs: isEnglish ? '3rem' : '1.75rem',
             sm: isEnglish ? '5rem' : '3rem',
           },
+
           pb: isEnglish ? 0 : 2,
         }}
       >
@@ -161,9 +178,10 @@ const TextBox = ({
       <Typography
         variant="h4"
         align="left"
-        fontFamily="subtitleFont"
         sx={{
+          fontFamily: 'subtitleFont',
           lineHeight: { xs: isEnglish ? 0.9 : 1.5, sm: isEnglish ? 0.8 : 1.5 },
+
           fontSize: {
             xs: isEnglish ? '1.5rem' : '1rem',
             sm: isEnglish ? '3rem' : '1.75rem',

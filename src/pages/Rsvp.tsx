@@ -1,7 +1,7 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight'
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion, steps, type Easing } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
@@ -33,11 +33,13 @@ const Rsvp = () => {
   const { isEnglish } = useLanguage()
 
   return (
-    <Grid container direction="column" alignItems="center">
+    <Stack sx={{ alignItems: 'center' }}>
       <Box
-        position="relative"
-        width="100%"
-        height={{ xs: '300px', sm: '600px' }}
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: { xs: '300px', sm: '600px' },
+        }}
       >
         <StyledImage src={RSVPImage} alt="RSVP" sx={{ width: '50%' }} />
         <Icons
@@ -85,9 +87,7 @@ const Rsvp = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-        mt={4}
-        width="80%"
-        textAlign="center"
+        sx={{ mt: 4, width: '80%', textAlign: 'center' }}
       >
         <Typography
           variant="h3"
@@ -115,7 +115,7 @@ const Rsvp = () => {
         viewport={{ once: true }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        mt={4}
+        sx={{ mt: 4 }}
       >
         <StyledButton
           href={RSVP_LINK}
@@ -138,7 +138,7 @@ const Rsvp = () => {
           {t('landing.rsvpButton')}
         </StyledButton>
       </MotionBox>
-    </Grid>
+    </Stack>
   )
 }
 

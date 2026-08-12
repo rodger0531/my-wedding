@@ -72,11 +72,13 @@ const NotFound = () => {
     >
       <Box
         key={i18n.language}
-        height="400px"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        pt={4}
+        sx={{
+          height: '400px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          pt: 4,
+        }}
       >
         {/* Animated "Oops..." */}
         <m.div
@@ -109,16 +111,18 @@ const NotFound = () => {
           key={i18n.language}
         >
           <Typography
-            mt={8}
-            mb={10}
             align="center"
             sx={{
+              mt: 8,
+              mb: 10,
               fontFamily: 'subtitleFont',
               whiteSpace: 'pre-line',
+
               fontSize: {
                 xs: isEnglish ? '2.5rem' : '1.5rem',
                 sm: isEnglish ? '3.5rem' : '2.5rem',
               },
+
               lineHeight: isEnglish ? 1 : 1.8,
             }}
           >

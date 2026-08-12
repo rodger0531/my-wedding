@@ -8,17 +8,21 @@ const HalimumTitle = ({ children, sx, ...props }: TypographyProps) => {
     <Typography
       variant="h2"
       align="center"
-      fontFamily="handWriting"
-      mt={isEnglish ? 0 : -2}
-      sx={{
-        fontSize: {
-          xs: isEnglish ? '1.75rem' : '3rem',
-          sm: isEnglish ? '3rem' : '5rem',
-        },
-        fontWeight: isEnglish ? 'bold' : 'normal',
-        ...sx,
-      }}
       {...props}
+      // Array form so a caller's `sx` (object, array or callback) merges over
+      // these defaults instead of replacing them.
+      sx={[
+        {
+          fontFamily: 'handWriting',
+          mt: isEnglish ? 0 : -2,
+          fontSize: {
+            xs: isEnglish ? '1.75rem' : '3rem',
+            sm: isEnglish ? '3rem' : '5rem',
+          },
+          fontWeight: isEnglish ? 'bold' : 'normal',
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       {children}
     </Typography>

@@ -145,7 +145,13 @@ const WeddingShoots = () => {
       </Box>
 
       {/* Image Grid */}
-      <Grid container spacing={2} justifyContent="center">
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          justifyContent: 'center',
+        }}
+      >
         {IMAGES.map((img, index) => (
           <Grid key={img} size={6}>
             <m.div

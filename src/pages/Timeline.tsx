@@ -17,11 +17,19 @@ const Timeline = () => {
   const { isEnglish } = useLanguage()
 
   return (
-    <Box pb={{ xs: 2, sm: 6 }}>
-      <HalimumTitle mb={{ xs: 0, sm: -4 }}>
+    <Box
+      sx={{
+        pb: { xs: 2, sm: 6 },
+      }}
+    >
+      <HalimumTitle sx={{ mb: { xs: 0, sm: -4 } }}>
         {t('landing.title.timeline')}
       </HalimumTitle>
-      <Box position="relative">
+      <Box
+        sx={{
+          position: 'relative',
+        }}
+      >
         <ShimmeringLine />
         <Events src={getEventsImg(isEnglish)} />
       </Box>
@@ -56,7 +64,13 @@ const Events: React.FC<{ src: string }> = ({ src }) => {
 
 const ShimmeringLine: React.FC = () => {
   return (
-    <Box position="relative" display="inline-block" lineHeight={0}>
+    <Box
+      sx={{
+        position: 'relative',
+        display: 'inline-block',
+        lineHeight: 0,
+      }}
+    >
       {/* LAYER 1: The Base Image (Red line)
         This provides the permanent visual.
       */}

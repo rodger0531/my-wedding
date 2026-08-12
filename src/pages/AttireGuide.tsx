@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { m, type Easing } from 'framer-motion'
 import { Trans, useTranslation } from 'react-i18next'
@@ -66,20 +67,26 @@ const AttireGuide = () => {
   const colours = [Colour1, Colour2, Colour3, Colour4, Colour5]
 
   return (
-    <Grid
-      container
-      direction="column"
-      alignItems="center"
+    <Stack
       component={m.div}
       variants={CONTAINER_VARIANTS}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      px={2}
+      sx={{
+        alignItems: 'center',
+        px: 2,
+      }}
     >
       {/* Title */}
       <m.div variants={FADE_UP_VARIANTS}>
-        <Typography variant="h1" fontFamily="titleFont" mb={isEnglish ? 0 : 3}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontFamily: 'titleFont',
+            mb: isEnglish ? 0 : 3,
+          }}
+        >
           {t('landing.title.attireGuide')}
         </Typography>
       </m.div>
@@ -98,10 +105,12 @@ const AttireGuide = () => {
         container
         direction="row"
         spacing={1}
-        justifyContent="center"
-        my={4}
         component={m.div}
         variants={BLOB_CONTAINER_VARIANTS}
+        sx={{
+          justifyContent: 'center',
+          my: 4,
+        }}
       >
         {colours.map((colour, index) => (
           <Grid key={colour} component={m.div} variants={POP_VARIANTS}>
@@ -145,7 +154,7 @@ const AttireGuide = () => {
           />
         </Typography>
       </m.div>
-    </Grid>
+    </Stack>
   )
 }
 

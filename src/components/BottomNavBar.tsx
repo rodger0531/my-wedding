@@ -20,7 +20,14 @@ const BottomNavbar = () => {
         zIndex: 10,
       }}
     >
-      <Grid container width="100%" maxWidth="900px" justifyContent="flex-end">
+      <Grid
+        container
+        sx={{
+          width: '100%',
+          maxWidth: '900px',
+          justifyContent: 'flex-end',
+        }}
+      >
         <Button
           disableRipple
           onClick={scrollToTop}

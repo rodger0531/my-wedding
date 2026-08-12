@@ -28,9 +28,13 @@ const Details = () => {
   const { t } = useTranslation()
 
   return (
-    <Box px={2}>
+    <Box
+      sx={{
+        px: 2,
+      }}
+    >
       {/* <Box px={2} sx={{ userSelect: 'none' }}> */}
-      <HalimumTitle mb={4}>{t('landing.title.details')}</HalimumTitle>
+      <HalimumTitle sx={{ mb: 4 }}>{t('landing.title.details')}</HalimumTitle>
       {CATEGORIES.map((category) => {
         return <Topic key={category} category={category} />
       })}
@@ -45,17 +49,19 @@ const Topic = ({ category }: { category: string }) => {
   return (
     <Grid container>
       <Typography
-        fontFamily="subtitleFont"
         align="left"
         sx={{
+          fontFamily: 'subtitleFont',
+          mb: 1,
+
           fontSize: {
             xs: isEnglish ? '2.3rem' : '1.5rem',
             sm: isEnglish ? '3rem' : '1.9rem',
           },
+
           fontStyle: 'italic',
           lineHeight: { xs: isEnglish ? 0.8 : 1.5, sm: isEnglish ? 0.8 : 1.4 },
         }}
-        mb={1}
       >
         {t(`weddingDetails.${category}.title`)}
       </Typography>
@@ -63,19 +69,22 @@ const Topic = ({ category }: { category: string }) => {
         variant="h4"
         align="left"
         sx={{
+          mb: 4,
           fontFamily: 'subtitleFont',
+
           fontSize: {
             xs: isEnglish ? '1.7rem' : '1.1rem',
             sm: isEnglish ? '2.1rem' : '1.4rem',
           },
+
           lineHeight: {
             xs: isEnglish ? 0.8 : 1.3,
             sm: isEnglish ? 0.8 : 1.4,
           },
+
           letterSpacing: isEnglish ? 0 : '0.02em',
           whiteSpace: 'pre-line',
         }}
-        mb={4}
       >
         <Trans
           i18nKey={`weddingDetails.${category}.content`}

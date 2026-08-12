@@ -28,7 +28,12 @@ const Header = () => {
         zIndex: 10,
       }}
     >
-      <Box maxWidth={'900px'} margin="0 auto">
+      <Box
+        sx={{
+          maxWidth: '900px',
+          margin: '0 auto',
+        }}
+      >
         {/* Added a subtle outer ring/padding to simulate the switch 
            sitting on top of the page texture 
         */}

@@ -41,7 +41,7 @@ const LandingPage = () => {
   return (
     <Container maxWidth="md" sx={{ px: 0 }}>
       <Greetings />
-      <Divider mb={5} />
+      <Divider sx={{ mb: 5 }} />
       <CountDown />
       <SaveTheDate />
       <Suspense
@@ -53,7 +53,7 @@ const LandingPage = () => {
       >
         <Location />
       </Suspense>
-      <Divider my={5} sx={{ transform: 'scaleX(-1)' }} />
+      <Divider sx={{ my: 5, transform: 'scaleX(-1)' }} />
       <Suspense
         fallback={
           <Skeleton variant="rectangular">
@@ -63,7 +63,7 @@ const LandingPage = () => {
       >
         <Timeline />
       </Suspense>
-      <Divider my={5} sx={{ transform: 'scale(-1, -1)' }} />
+      <Divider sx={{ my: 5, transform: 'scale(-1, -1)' }} />
       <Suspense
         fallback={
           <Skeleton variant="rectangular">
@@ -82,7 +82,7 @@ const LandingPage = () => {
       >
         <AttireGuide />
       </Suspense>
-      <Divider my={5} />
+      <Divider sx={{ my: 5 }} />
       <Suspense
         fallback={
           <Skeleton variant="rectangular">
@@ -101,7 +101,7 @@ const LandingPage = () => {
       >
         <WeddingShoots />
       </Suspense>
-      <Divider my={5} />
+      <Divider sx={{ my: 5 }} />
       <Suspense
         fallback={
           <Skeleton variant="rectangular">

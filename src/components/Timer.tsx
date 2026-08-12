@@ -22,10 +22,12 @@ const Timer = ({
   return (
     <Grid
       container
-      justifyContent="center"
-      alignItems="center"
-      fontFamily="Helvetica"
-      textTransform="uppercase"
+      sx={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontFamily: 'Helvetica',
+        textTransform: 'uppercase',
+      }}
     >
       <Numbers value={days} label={t('days')} />
       <Separator />
@@ -43,7 +45,13 @@ const Numbers = ({ value, label }: { value: number; label: string }) => {
   const { isEnglish } = useLanguage()
   return (
     <Grid>
-      <Typography variant="subtitle1" fontWeight="bold" px={{ xs: 1, sm: 4 }}>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: 'bold',
+          px: { xs: 1, sm: 4 },
+        }}
+      >
         {value}
       </Typography>
       <Typography
@@ -66,9 +74,11 @@ const Numbers = ({ value, label }: { value: number; label: string }) => {
 const Separator = () => {
   return (
     <Box
-      fontSize={{ xs: MOBILE_FONT_SIZE, sm: FONT_SIZE }}
-      fontWeight="bold"
-      paddingBottom={{ xs: 4, sm: 6 }}
+      sx={{
+        fontSize: { xs: MOBILE_FONT_SIZE, sm: FONT_SIZE },
+        fontWeight: 'bold',
+        paddingBottom: { xs: 4, sm: 6 },
+      }}
     >
       :
     </Box>

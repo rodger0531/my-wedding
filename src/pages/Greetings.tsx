@@ -80,7 +80,13 @@ const Greetings = () => {
         </m.div>
       </Grid>
 
-      <Grid width="100%" display="flex" justifyContent="center">
+      <Grid
+        sx={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <m.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}

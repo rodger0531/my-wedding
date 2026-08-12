@@ -36,9 +36,9 @@ const Carousel: React.FC<CarouselProps> = ({ items, entryIndex }) => {
       <Box
         className="embla__viewport"
         ref={emblaRef}
-        width="100%"
-        height="100%"
         sx={{
+          width: '100%',
+          height: '100%',
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',

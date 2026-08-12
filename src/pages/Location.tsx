@@ -13,10 +13,12 @@ import { useLanguage } from 'src/hooks/useLanguage'
 
 const SonarPin = () => (
   <Box
-    position="relative"
-    display="flex"
-    alignItems="center"
-    justifyContent="center"
+    sx={{
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
   >
     {/* The Ripple Effect */}
     <m.div
@@ -71,13 +73,17 @@ const Location = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      flexDirection="column"
-      alignItems="center"
+      sx={{
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
     >
       <m.div variants={ITEM_VARIANTS}>
         <HalimumTitle
-          mb={isEnglish ? 4 : 2.75}
-          mt={isEnglish ? { xs: 1, sm: 0 } : { xs: 0, sm: 5 }}
+          sx={{
+            mb: isEnglish ? 4 : 2.75,
+            mt: isEnglish ? { xs: 1, sm: 0 } : { xs: 0, sm: 5 },
+          }}
         >
           {t('landing.title.location')}
         </HalimumTitle>
@@ -120,8 +126,10 @@ const Location = () => {
         <Typography
           variant="subtitle2"
           align="center"
-          mt={isEnglish ? 4 : 2}
-          sx={{ fontFamily: 'subtitleFont' }}
+          sx={{
+            mt: isEnglish ? 4 : 2,
+            fontFamily: 'subtitleFont',
+          }}
         >
           {t('landing.address1')}
         </Typography>
@@ -131,11 +139,16 @@ const Location = () => {
         <Typography
           variant="h3"
           align="center"
-          letterSpacing={isEnglish ? 0 : 4}
-          lineHeight={{ xs: isEnglish ? 0.8 : 1.5, sm: isEnglish ? 1.2 : 1.3 }}
-          mt={{ xs: 0, sm: isEnglish ? -3 : 0 }}
-          mb={2}
-          sx={{ fontFamily: 'subtitleFont' }}
+          sx={{
+            letterSpacing: isEnglish ? 0 : 4,
+            lineHeight: {
+              xs: isEnglish ? 0.8 : 1.5,
+              sm: isEnglish ? 1.2 : 1.3,
+            },
+            mt: { xs: 0, sm: isEnglish ? -3 : 0 },
+            mb: 2,
+            fontFamily: 'subtitleFont',
+          }}
         >
           {t('landing.address2')}
         </Typography>

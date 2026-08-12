@@ -102,15 +102,19 @@ const Welcome = () => {
       initial="hidden"
       animate={isExiting ? 'exit' : 'visible'}
       direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ mt: -5 }}
+      sx={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        mt: -5,
+      }}
     >
       <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        minHeight="400px"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minHeight: '400px',
+        }}
       >
         {/* 1. Title: Floats Down */}
         <m.div variants={FADE_DOWN}>
@@ -145,7 +149,11 @@ const Welcome = () => {
           </m.div>
         </m.div>
 
-        <Box textAlign="center">
+        <Box
+          sx={{
+            textAlign: 'center',
+          }}
+        >
           {/* 3. Name: Fades In */}
           <m.div variants={FADE_IN}>
             <OurName

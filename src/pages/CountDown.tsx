@@ -1,4 +1,4 @@
-import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
@@ -78,12 +78,7 @@ const CountDown = () => {
     )
   }
   return (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      direction="column"
-    >
+    <Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
       <m.div
         variants={CONTAINER_VARIANTS}
         initial="hidden"
@@ -136,7 +131,7 @@ const CountDown = () => {
         )}
         {isWeddingFinished && <StopWatchTimer />}
       </m.div>
-    </Grid>
+    </Stack>
   )
 }
 

@@ -68,12 +68,14 @@ const SaveTheDate = () => {
 
   return (
     <Box
-      position="relative"
       component={m.section}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      sx={{ my: 4 }}
+      sx={{
+        position: 'relative',
+        my: 4,
+      }}
     >
       <m.div
         initial={{ opacity: 0, scale: 0.7 }}
@@ -89,8 +91,7 @@ const SaveTheDate = () => {
         <StyledImage
           src={Frame}
           alt="frame"
-          sx={{ width: { xs: '100%', sm: '90%' } }}
-          height="auto"
+          sx={{ width: { xs: '100%', sm: '90%' }, height: 'auto' }}
         />
       </m.div>
 
@@ -99,15 +100,15 @@ const SaveTheDate = () => {
         component={m.div}
         variants={GRID_VARIANTS}
         sx={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
         }}
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
       >
         <m.div
           key={i18n.language}
@@ -122,8 +123,10 @@ const SaveTheDate = () => {
           }}
         >
           <HalimumTitle
-            mt={isEnglish ? { xs: 2.5, sm: 5 } : { xs: 0, sm: 0 }}
-            mb={isEnglish ? 0 : { xs: 2, sm: 4 }}
+            sx={{
+              mt: isEnglish ? { xs: 2.5, sm: 5 } : { xs: 0, sm: 0 },
+              mb: isEnglish ? 0 : { xs: 2, sm: 4 },
+            }}
           >
             {titleSegments.map((seg, i) => (
               <m.span
@@ -143,9 +146,11 @@ const SaveTheDate = () => {
         <m.div variants={BOUNCY_POP}>
           <Typography
             variant="h1"
-            mb={isEnglish ? 0 : { xs: 1, sm: 3 }}
-            fontFamily="titleFont"
-            sx={{ fontSize: titleFontSize }}
+            sx={{
+              mb: isEnglish ? 0 : { xs: 1, sm: 3 },
+              fontFamily: 'titleFont',
+              fontSize: titleFontSize,
+            }}
           >
             {t('landing.weddingDate')}
           </Typography>
@@ -162,8 +167,10 @@ const SaveTheDate = () => {
         <m.div variants={BOUNCY_POP}>
           <Typography
             variant="h1"
-            fontFamily="titleFont"
-            sx={{ fontSize: titleFontSize }}
+            sx={{
+              fontFamily: 'titleFont',
+              fontSize: titleFontSize,
+            }}
           >
             {t('landing.weddingTime')}
           </Typography>
